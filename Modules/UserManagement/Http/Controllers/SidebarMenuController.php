@@ -36,6 +36,66 @@ class SidebarMenuController extends BaseController
         }
     }
 
+    public function me(): JsonResponse
+    {
+        try {
+            SidebarMenuService::ensureDefaultsExist();
+
+            $config = SiteSetting::getValue('sidebar_menu_config', []);
+            if (is_string($config)) {
+                $config = json_decode($config, true) ?: [];
+            }
+
+            $roleKey = $this->resolveSidebarRoleKey();
+            $menu = is_array($config) && array_key_exists($roleKey, $config) && is_array($config[$roleKey])
+                ? $config[$roleKey]
+                : SidebarMenuService::getBaseMenusForRole($roleKey);
+
+            return response()->json([
+                'success' => true,
+                'data' => $menu,
+            ]);
+        } catch (\Throwable $e) {
+            Log::error('SidebarMenuController@me error: ' . $e->getMessage(), ['exception' => $e]);
+            return response()->json(['success' => false, 'message' => 'خطای سرور هنگام بارگذاری منوی کاربر جاری.'], 500);
+        }
+    }
+
+    private function resolveSidebarRoleKey(): string
+    {
+        $user = auth()->user();
+        if (! $user) {
+            return 'user';
+        }
+
+        if ($user->hasRole('super admin')) {
+            return 'super-admin';
+        }
+
+        if ($user->hasRole(['administrator', 'admin'])) {
+            return 'admin';
+        }
+
+        if ($user->hasRole(['bank employee', 'bank-employee'])) {
+            return 'bank-employee';
+        }
+
+        if ($user->hasRole(['customer', 'user'])) {
+            return 'customer';
+        }
+
+        if ($user->hasRole('operator')) {
+            return 'operator';
+        }
+
+        if ($user->hasRole('finance')) {
+            return 'finance';
+        }
+
+        $roles = $user->getRoleNames()->map(fn ($role) => SidebarMenuService::getCanonicalRoleKey($role))->toArray();
+        return $roles[0] ?? 'user';
+    }
+
     /**
      * Get default base menus for all roles (used for initialization on frontend).
      */

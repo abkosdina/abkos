@@ -66,7 +66,8 @@ function dashboardApp() {
     brokerRegistrationEnabled: true,
     togglingBrokerRegistration: false,
 
-    sidebarMenuConfig: {},
+    sidebarMenuConfig: [],
+    sidebarMenuConfigByRole: {},
     sidebarMenuConfigText: '{}',
     sidebarMenuEditing: {},
 
@@ -524,7 +525,7 @@ function dashboardApp() {
       }
 
       try {
-        const updatedConfig = { ...this.sidebarMenuConfig };
+        const updatedConfig = { ...this.sidebarMenuConfigByRole };
         updatedConfig[roleKey] = (this.sidebarMenuEditing[roleKey] || []).filter((g) => g.visible).map((g) => ({
           id: g.id,
           icon: g.icon,
@@ -533,8 +534,8 @@ function dashboardApp() {
         }));
 
         const { data } = await axios.post('/api/v1/user-management/sidebar-menus', { config: updatedConfig }, { headers: { 'X-No-Crud-Toast': true } });
-        this.sidebarMenuConfig = data?.data ?? updatedConfig;
-        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfig, null, 2);
+        this.sidebarMenuConfigByRole = data?.data ?? updatedConfig;
+        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
         this.initSidebarMenuEditing();
         this.showToast('تنظیمات منوی سایدبار ذخیره شد.', 'success');
       } catch (err) {
@@ -677,8 +678,8 @@ function dashboardApp() {
     },
 
     getVisibleNavGroups() {
+      const configured = Array.isArray(this.sidebarMenuConfig) ? this.sidebarMenuConfig : [];
       const roleKey = this.getCurrentUserRoleKey();
-      const configured = Array.isArray(this.sidebarMenuConfig?.[roleKey]) ? this.sidebarMenuConfig[roleKey] : [];
       const showUsers = roleKey === 'super-admin';
 
       return configured
@@ -702,23 +703,34 @@ function dashboardApp() {
 
     async loadSidebarMenuConfig() {
       try {
-        const { data } = await axios.get('/api/v1/user-management/sidebar-menus');
-        this.sidebarMenuConfig = data?.data ?? {};
+        const { data } = await axios.get('/api/v1/user-management/sidebar-menus/me');
+        this.sidebarMenuConfig = data?.data ?? [];
         this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfig, null, 2);
         this.applyRoleBasedMenu();
+      } catch (err) {
+        this.sidebarMenuConfig = [];
+        this.sidebarMenuConfigText = '[]';
+      }
+    },
+
+    async loadFullSidebarMenuConfig() {
+      try {
+        const { data } = await axios.get('/api/v1/user-management/sidebar-menus');
+        this.sidebarMenuConfigByRole = data?.data ?? {};
+        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
         this.initSidebarMenuEditing();
       } catch (err) {
-        this.sidebarMenuConfig = {};
-        this.sidebarMenuConfigText = '{}';
+        this.sidebarMenuConfigByRole = {};
+        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
         this.initSidebarMenuEditing();
       }
     },
 
     initSidebarMenuEditing() {
       this.sidebarMenuEditing = {};
-      const allRoleKeys = Object.keys(this.sidebarMenuConfig || {});
+      const allRoleKeys = Object.keys(this.sidebarMenuConfigByRole || {});
       allRoleKeys.forEach((roleKey) => {
-        const saved = Array.isArray(this.sidebarMenuConfig?.[roleKey]) ? this.sidebarMenuConfig[roleKey] : [];
+        const saved = Array.isArray(this.sidebarMenuConfigByRole?.[roleKey]) ? this.sidebarMenuConfigByRole[roleKey] : [];
 
         const mapped = saved.map((g) => {
           const items = Array.isArray(g.items) ? g.items : [];
@@ -821,8 +833,8 @@ function dashboardApp() {
         });
 
         const { data } = await axios.post('/api/v1/user-management/sidebar-menus', { config: parsed }, { headers: { 'X-No-Crud-Toast': true } });
-        this.sidebarMenuConfig = data?.data ?? parsed;
-        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfig, null, 2);
+        this.sidebarMenuConfigByRole = data?.data ?? parsed;
+        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
         this.initSidebarMenuEditing();
         this.applyRoleBasedMenu();
         this.showToast('پیکربندی سایدبار ذخیره شد', 'success');
@@ -864,6 +876,10 @@ function dashboardApp() {
         this.isSuperAdmin = isSuperAdmin;
         this.applyRoleBasedMenu();
         await this.loadSidebarMenuConfig();
+
+        if (this.isSuperAdmin || roleNames.includes('administrator') || roleNames.includes('admin')) {
+          await this.loadFullSidebarMenuConfig();
+        }
       } catch (err) {
         const status = err?.response?.status;
         if (status === 401 || status === 403) {

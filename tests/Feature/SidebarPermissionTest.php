@@ -52,4 +52,22 @@ class SidebarPermissionTest extends TestCase
             ->getJson('/api/v1/users')
             ->assertStatus(200);
     }
+
+    public function test_authenticated_user_can_fetch_personal_sidebar_menu_without_menu_users_permission()
+    {
+        Role::firstOrCreate(['name' => 'customer', 'guard_name' => 'web']);
+        $user = User::factory()->create();
+        $user->assignRole('customer');
+
+        $response = $this->actingAs($user, 'sanctum')
+            ->getJson('/api/v1/user-management/sidebar-menus/me')
+            ->assertStatus(200)
+            ->assertJson(['success' => true]);
+
+        $menu = $response->json('data');
+        $this->assertIsArray($menu);
+        $ids = array_column($menu, 'id');
+        $this->assertContains('dashboard', $ids);
+        $this->assertNotContains('users', $ids);
+    }
 }
