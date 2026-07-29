@@ -1,0 +1,58 @@
+html { scroll-behavior: smooth; }
+body { font-family: 'Vazirmatn', sans-serif; }
+[x-cloak] { display: none !important; }
+
+.stagger > * { animation: fadeUp .7s cubic-bezier(.22,1,.36,1) both; }
+.stagger > *:nth-child(1) { animation-delay: .05s; }
+.stagger > *:nth-child(2) { animation-delay: .12s; }
+.stagger > *:nth-child(3) { animation-delay: .19s; }
+.stagger > *:nth-child(4) { animation-delay: .26s; }
+.stagger > *:nth-child(5) { animation-delay: .33s; }
+.stagger > *:nth-child(6) { animation-delay: .40s; }
+.stagger > *:nth-child(7) { animation-delay: .47s; }
+.stagger > *:nth-child(8) { animation-delay: .54s; }
+.stagger > *:nth-child(9) { animation-delay: .61s; }
+.stagger > *:nth-child(10) { animation-delay: .68s; }
+
+.card-hover { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
+.card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -18px rgba(15,156,140,.35); }
+
+.btn-shine { position: relative; overflow: hidden; }
+.btn-shine::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .7s ease;
+}
+.btn-shine:hover::after { transform: translateX(120%); }
+
+.site-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #eef4f3 25%, #f7fbfa 37%, #eef4f3 63%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.dash-line { stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawLine 2s .5s ease-out forwards; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: #cdeee8; border-radius: 8px; }
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes floaty { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-14px); } }
+@keyframes floatySlow { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-14px); } }
+@keyframes pulseSoft { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.12); opacity: .7; } }

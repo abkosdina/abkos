@@ -1,0 +1,898 @@
+[
+    {
+        "TABLE_NAME": "accounts",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "account_balances",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "account_types",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "activity_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_contacts",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_documents",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_favorites",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_views",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_workflow_audits",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_workflow_states",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 11,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "advertisement_workflow_transitions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 12,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "approval_instance_steps",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "audit_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "balance_snapshots",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "cache",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "cache_locks",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "cities",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "document_access_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "document_categories",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "document_download_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "document_links",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "document_metadata",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "document_tags",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "document_types",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "document_versions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "failed_jobs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "files",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "financial_periods",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "jobs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "job_batches",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "journal_entries",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_fields",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_field_values",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_profiles",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_rejection_reasons",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_requests",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_review_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_status_history",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "ledger_transactions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "loan_offers",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "login_histories",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "media",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "migrations",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 43,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "model_has_permissions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "model_has_roles",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "negotiation_histories",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "otp_requests",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "password_reset_tokens",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "permissions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "provinces",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "roles",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "role_has_permissions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "security_events",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "users",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "user_bank_accounts",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "user_sessions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "user_settings",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "wallets",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "wallet_balances",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "wallet_limits",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "wallet_locks",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "wallet_settings",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "wallet_transactions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_states",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "TABLE_TYPE": "BASE TABLE",
+        "ENGINE": "InnoDB",
+        "TABLE_ROWS": 0,
+        "TABLE_COLLATION": "utf8mb4_unicode_ci"
+    }
+]

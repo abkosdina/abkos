@@ -1,0 +1,95 @@
+﻿PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\fadayegohdina\phpunit.xml
+
+E                                                                   1 / 1 (100%)
+
+Time: 00:00.492, Memory: 38.00 MB
+
+Workflow (Modules\Advertisements\Tests\Feature\Workflow)
+ ظ£ء User can submit advertisement and audit is created
+   ظ¤é
+   ظ¤é Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 index workflow_instances_status_index already exists (Connection: sqlite, Database: :memory:, SQL: create index "workflow_instances_status_index" on "workflow_instances" ("status"))
+   ظ¤é
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php:121
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php:686
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php:506
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+   ظ¤é C:\xampp\htdocs\fadayegohdina\database\migrations\2026_07_19_000000_create_generic_workflow_tables.php:106
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:517
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:442
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:451
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:253
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Console\View\Components\Task.php:41
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:814
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:253
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:211
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:138
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php:116
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:671
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php:109
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php:88
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:36
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\Util.php:43
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:96
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:35
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\Container.php:799
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Console\Command.php:211
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\symfony\console\Command\Command.php:341
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Console\Command.php:180
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\symfony\console\Application.php:1094
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\symfony\console\Application.php:356
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\symfony\console\Application.php:195
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Console\Application.php:165
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php:447
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+   ظ¤é C:\xampp\htdocs\fadayegohdina\tests\TestCase.php:50
+   ظ¤é  
+   ظ¤é Caused by:
+   ظ¤é PDOException: SQLSTATE[HY000]: General error: 1 index workflow_instances_status_index already exists
+   ظ¤é
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php:121
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php:686
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php:506
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+   ظ¤é C:\xampp\htdocs\fadayegohdina\database\migrations\2026_07_19_000000_create_generic_workflow_tables.php:106
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:517
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:442
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:451
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:253
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Console\View\Components\Task.php:41
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:814
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:253
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:211
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:138
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php:116
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php:671
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php:109
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php:88
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:36
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\Util.php:43
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:96
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:35
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Container\Container.php:799
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Console\Command.php:211
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\symfony\console\Command\Command.php:341
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Console\Command.php:180
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\symfony\console\Application.php:1094
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\symfony\console\Application.php:356
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\symfony\console\Application.php:195
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Console\Application.php:165
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php:447
+   ظ¤é C:\xampp\htdocs\fadayegohdina\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+   ظ¤é C:\xampp\htdocs\fadayegohdina\tests\TestCase.php:50
+   ظ¤é
+
+ERRORS!
+Tests: 1, Assertions: 0, Errors: 1.

@@ -1,0 +1,2891 @@
+[
+    {
+        "TABLE_NAME": "accounts",
+        "CONSTRAINT_NAME": "accounts_account_type_id_foreign",
+        "COLUMN_NAME": "account_type_id",
+        "REFERENCED_TABLE_NAME": "account_types",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "accounts",
+        "CONSTRAINT_NAME": "accounts_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "account_balances",
+        "CONSTRAINT_NAME": "account_balances_account_id_foreign",
+        "COLUMN_NAME": "account_id",
+        "REFERENCED_TABLE_NAME": "accounts",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "account_types",
+        "CONSTRAINT_NAME": "account_types_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "activity_logs",
+        "CONSTRAINT_NAME": "activity_logs_causer_id_foreign",
+        "COLUMN_NAME": "causer_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "activity_logs",
+        "CONSTRAINT_NAME": "activity_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "CONSTRAINT_NAME": "advertisements_city_id_foreign",
+        "COLUMN_NAME": "city_id",
+        "REFERENCED_TABLE_NAME": "cities",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "CONSTRAINT_NAME": "advertisements_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "CONSTRAINT_NAME": "advertisements_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "CONSTRAINT_NAME": "advertisements_loan_product_id_foreign",
+        "COLUMN_NAME": "loan_product_id",
+        "REFERENCED_TABLE_NAME": "loan_products",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "CONSTRAINT_NAME": "advertisements_province_id_foreign",
+        "COLUMN_NAME": "province_id",
+        "REFERENCED_TABLE_NAME": "provinces",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "CONSTRAINT_NAME": "advertisements_seller_user_id_foreign",
+        "COLUMN_NAME": "seller_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "CONSTRAINT_NAME": "advertisements_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "CONSTRAINT_NAME": "advertisements_workflow_instance_id_foreign",
+        "COLUMN_NAME": "workflow_instance_id",
+        "REFERENCED_TABLE_NAME": "workflow_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisement_contacts",
+        "CONSTRAINT_NAME": "advertisement_contacts_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "REFERENCED_TABLE_NAME": "advertisements",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "advertisement_contacts",
+        "CONSTRAINT_NAME": "advertisement_contacts_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisement_documents",
+        "CONSTRAINT_NAME": "advertisement_documents_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "REFERENCED_TABLE_NAME": "advertisements",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "advertisement_favorites",
+        "CONSTRAINT_NAME": "advertisement_favorites_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "RESTRICT"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "CONSTRAINT_NAME": "advertisement_images_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "REFERENCED_TABLE_NAME": "advertisements",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "CONSTRAINT_NAME": "advertisement_images_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "CONSTRAINT_NAME": "advertisement_images_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "CONSTRAINT_NAME": "advertisement_images_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "advertisement_views",
+        "CONSTRAINT_NAME": "advertisement_views_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "RESTRICT"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "CONSTRAINT_NAME": "approval_decisions_approval_instance_id_foreign",
+        "COLUMN_NAME": "approval_instance_id",
+        "REFERENCED_TABLE_NAME": "approval_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "CONSTRAINT_NAME": "approval_decisions_approval_instance_step_id_foreign",
+        "COLUMN_NAME": "approval_instance_step_id",
+        "REFERENCED_TABLE_NAME": "approval_instance_steps",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "CONSTRAINT_NAME": "approval_decisions_approver_id_foreign",
+        "COLUMN_NAME": "approver_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "CONSTRAINT_NAME": "approval_decisions_delegated_from_foreign",
+        "COLUMN_NAME": "delegated_from",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "CONSTRAINT_NAME": "approval_definitions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "CONSTRAINT_NAME": "approval_definitions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "CONSTRAINT_NAME": "approval_definitions_workflow_definition_id_foreign",
+        "COLUMN_NAME": "workflow_definition_id",
+        "REFERENCED_TABLE_NAME": "workflow_definitions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "CONSTRAINT_NAME": "approval_delegations_approval_instance_id_foreign",
+        "COLUMN_NAME": "approval_instance_id",
+        "REFERENCED_TABLE_NAME": "approval_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "CONSTRAINT_NAME": "approval_delegations_approval_instance_step_id_foreign",
+        "COLUMN_NAME": "approval_instance_step_id",
+        "REFERENCED_TABLE_NAME": "approval_instance_steps",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "CONSTRAINT_NAME": "approval_delegations_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "CONSTRAINT_NAME": "approval_delegations_delegated_from_foreign",
+        "COLUMN_NAME": "delegated_from",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "CONSTRAINT_NAME": "approval_delegations_delegated_to_foreign",
+        "COLUMN_NAME": "delegated_to",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "CONSTRAINT_NAME": "approval_instances_approval_definition_id_foreign",
+        "COLUMN_NAME": "approval_definition_id",
+        "REFERENCED_TABLE_NAME": "approval_definitions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "CONSTRAINT_NAME": "approval_instances_workflow_instance_id_foreign",
+        "COLUMN_NAME": "workflow_instance_id",
+        "REFERENCED_TABLE_NAME": "workflow_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_instance_steps",
+        "CONSTRAINT_NAME": "approval_instance_steps_approval_instance_id_foreign",
+        "COLUMN_NAME": "approval_instance_id",
+        "REFERENCED_TABLE_NAME": "approval_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_instance_steps",
+        "CONSTRAINT_NAME": "approval_instance_steps_approval_step_id_foreign",
+        "COLUMN_NAME": "approval_step_id",
+        "REFERENCED_TABLE_NAME": "approval_steps",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "CONSTRAINT_NAME": "approval_steps_approval_definition_id_foreign",
+        "COLUMN_NAME": "approval_definition_id",
+        "REFERENCED_TABLE_NAME": "approval_definitions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "CONSTRAINT_NAME": "approval_steps_required_user_id_foreign",
+        "COLUMN_NAME": "required_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "CONSTRAINT_NAME": "arbitrations_arbitrator_id_foreign",
+        "COLUMN_NAME": "arbitrator_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "CONSTRAINT_NAME": "arbitrations_complaint_id_foreign",
+        "COLUMN_NAME": "complaint_id",
+        "REFERENCED_TABLE_NAME": "complaints",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "CONSTRAINT_NAME": "arbitrations_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "CONSTRAINT_NAME": "arbitrations_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "CONSTRAINT_NAME": "arbitrations_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "audit_logs",
+        "CONSTRAINT_NAME": "audit_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "balance_snapshots",
+        "CONSTRAINT_NAME": "balance_snapshots_account_id_foreign",
+        "COLUMN_NAME": "account_id",
+        "REFERENCED_TABLE_NAME": "accounts",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "balance_snapshots",
+        "CONSTRAINT_NAME": "balance_snapshots_period_id_foreign",
+        "COLUMN_NAME": "period_id",
+        "REFERENCED_TABLE_NAME": "financial_periods",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "CONSTRAINT_NAME": "banks_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "CONSTRAINT_NAME": "banks_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "CONSTRAINT_NAME": "banks_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "CONSTRAINT_NAME": "bank_employees_bank_id_foreign",
+        "COLUMN_NAME": "bank_id",
+        "REFERENCED_TABLE_NAME": "banks",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "CONSTRAINT_NAME": "bank_employees_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "CONSTRAINT_NAME": "bank_employees_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "CONSTRAINT_NAME": "bank_employees_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "CONSTRAINT_NAME": "bank_employees_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "CONSTRAINT_NAME": "bank_loan_products_bank_id_foreign",
+        "COLUMN_NAME": "bank_id",
+        "REFERENCED_TABLE_NAME": "banks",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "CONSTRAINT_NAME": "bank_loan_products_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "CONSTRAINT_NAME": "bank_loan_products_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "CONSTRAINT_NAME": "bank_loan_products_loan_product_id_foreign",
+        "COLUMN_NAME": "loan_product_id",
+        "REFERENCED_TABLE_NAME": "loan_products",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "CONSTRAINT_NAME": "bank_loan_products_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "CONSTRAINT_NAME": "chat_attachments_chat_message_id_foreign",
+        "COLUMN_NAME": "chat_message_id",
+        "REFERENCED_TABLE_NAME": "chat_messages",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "CONSTRAINT_NAME": "chat_attachments_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "CONSTRAINT_NAME": "chat_attachments_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "CONSTRAINT_NAME": "chat_attachments_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "CONSTRAINT_NAME": "chat_messages_chat_room_id_foreign",
+        "COLUMN_NAME": "chat_room_id",
+        "REFERENCED_TABLE_NAME": "chat_rooms",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "CONSTRAINT_NAME": "chat_messages_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "CONSTRAINT_NAME": "chat_messages_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "CONSTRAINT_NAME": "chat_messages_sender_id_foreign",
+        "COLUMN_NAME": "sender_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "CONSTRAINT_NAME": "chat_messages_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "CONSTRAINT_NAME": "chat_message_reads_chat_message_id_foreign",
+        "COLUMN_NAME": "chat_message_id",
+        "REFERENCED_TABLE_NAME": "chat_messages",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "CONSTRAINT_NAME": "chat_message_reads_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "CONSTRAINT_NAME": "chat_message_reads_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "CONSTRAINT_NAME": "chat_message_reads_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "CONSTRAINT_NAME": "chat_message_reads_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "CONSTRAINT_NAME": "chat_participants_chat_room_id_foreign",
+        "COLUMN_NAME": "chat_room_id",
+        "REFERENCED_TABLE_NAME": "chat_rooms",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "CONSTRAINT_NAME": "chat_participants_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "CONSTRAINT_NAME": "chat_participants_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "CONSTRAINT_NAME": "chat_participants_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "CONSTRAINT_NAME": "chat_participants_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "CONSTRAINT_NAME": "chat_rooms_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "CONSTRAINT_NAME": "chat_rooms_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "CONSTRAINT_NAME": "chat_rooms_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "cities",
+        "CONSTRAINT_NAME": "cities_province_id_foreign",
+        "COLUMN_NAME": "province_id",
+        "REFERENCED_TABLE_NAME": "provinces",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "CONSTRAINT_NAME": "commission_rules_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "CONSTRAINT_NAME": "commission_rules_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "CONSTRAINT_NAME": "commission_rules_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "CONSTRAINT_NAME": "commission_transactions_commission_rule_id_foreign",
+        "COLUMN_NAME": "commission_rule_id",
+        "REFERENCED_TABLE_NAME": "commission_rules",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "CONSTRAINT_NAME": "commission_transactions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "CONSTRAINT_NAME": "commission_transactions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "CONSTRAINT_NAME": "commission_transactions_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "REFERENCED_TABLE_NAME": "orders",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "CONSTRAINT_NAME": "commission_transactions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "CONSTRAINT_NAME": "complaints_assigned_to_foreign",
+        "COLUMN_NAME": "assigned_to",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "CONSTRAINT_NAME": "complaints_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "CONSTRAINT_NAME": "complaints_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "CONSTRAINT_NAME": "complaints_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "REFERENCED_TABLE_NAME": "orders",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "CONSTRAINT_NAME": "complaints_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "CONSTRAINT_NAME": "complaints_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "CONSTRAINT_NAME": "complaint_messages_complaint_id_foreign",
+        "COLUMN_NAME": "complaint_id",
+        "REFERENCED_TABLE_NAME": "complaints",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "CONSTRAINT_NAME": "complaint_messages_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "CONSTRAINT_NAME": "complaint_messages_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "CONSTRAINT_NAME": "complaint_messages_sender_id_foreign",
+        "COLUMN_NAME": "sender_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "CONSTRAINT_NAME": "complaint_messages_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "CONSTRAINT_NAME": "contracts_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "CONSTRAINT_NAME": "contracts_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "CONSTRAINT_NAME": "contracts_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "REFERENCED_TABLE_NAME": "orders",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "CONSTRAINT_NAME": "contracts_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "CONSTRAINT_NAME": "contract_versions_contract_id_foreign",
+        "COLUMN_NAME": "contract_id",
+        "REFERENCED_TABLE_NAME": "contracts",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "CONSTRAINT_NAME": "contract_versions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "CONSTRAINT_NAME": "contract_versions_created_by_user_id_foreign",
+        "COLUMN_NAME": "created_by_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "CONSTRAINT_NAME": "contract_versions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "CONSTRAINT_NAME": "contract_versions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "CONSTRAINT_NAME": "documents_category_id_foreign",
+        "COLUMN_NAME": "category_id",
+        "REFERENCED_TABLE_NAME": "document_categories",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "CONSTRAINT_NAME": "documents_document_type_id_foreign",
+        "COLUMN_NAME": "document_type_id",
+        "REFERENCED_TABLE_NAME": "document_types",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "CONSTRAINT_NAME": "documents_uploaded_by_foreign",
+        "COLUMN_NAME": "uploaded_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "document_access_logs",
+        "CONSTRAINT_NAME": "document_access_logs_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "REFERENCED_TABLE_NAME": "documents",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "document_access_logs",
+        "CONSTRAINT_NAME": "document_access_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "document_download_logs",
+        "CONSTRAINT_NAME": "document_download_logs_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "REFERENCED_TABLE_NAME": "documents",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "document_download_logs",
+        "CONSTRAINT_NAME": "document_download_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "document_links",
+        "CONSTRAINT_NAME": "document_links_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "REFERENCED_TABLE_NAME": "documents",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "document_metadata",
+        "CONSTRAINT_NAME": "document_metadata_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "REFERENCED_TABLE_NAME": "documents",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "document_versions",
+        "CONSTRAINT_NAME": "document_versions_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "REFERENCED_TABLE_NAME": "documents",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "CONSTRAINT_NAME": "escrow_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "CONSTRAINT_NAME": "escrow_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "CONSTRAINT_NAME": "escrow_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "REFERENCED_TABLE_NAME": "orders",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "CONSTRAINT_NAME": "escrow_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "CONSTRAINT_NAME": "escrow_transactions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "CONSTRAINT_NAME": "escrow_transactions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "CONSTRAINT_NAME": "escrow_transactions_escrow_id_foreign",
+        "COLUMN_NAME": "escrow_id",
+        "REFERENCED_TABLE_NAME": "escrow",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "CONSTRAINT_NAME": "escrow_transactions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "files",
+        "CONSTRAINT_NAME": "files_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "files",
+        "CONSTRAINT_NAME": "files_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "files",
+        "CONSTRAINT_NAME": "files_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "financial_periods",
+        "CONSTRAINT_NAME": "financial_periods_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "journal_entries",
+        "CONSTRAINT_NAME": "journal_entries_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "journal_entries",
+        "CONSTRAINT_NAME": "journal_entries_ledger_transaction_id_foreign",
+        "COLUMN_NAME": "ledger_transaction_id",
+        "REFERENCED_TABLE_NAME": "ledger_transactions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "CONSTRAINT_NAME": "kyc_documents_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "CONSTRAINT_NAME": "kyc_documents_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "CONSTRAINT_NAME": "kyc_documents_kyc_submission_id_foreign",
+        "COLUMN_NAME": "kyc_submission_id",
+        "REFERENCED_TABLE_NAME": "kyc_submissions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "CONSTRAINT_NAME": "kyc_documents_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_field_values",
+        "CONSTRAINT_NAME": "kyc_field_values_kyc_field_id_foreign",
+        "COLUMN_NAME": "kyc_field_id",
+        "REFERENCED_TABLE_NAME": "kyc_fields",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_field_values",
+        "CONSTRAINT_NAME": "kyc_field_values_kyc_profile_id_foreign",
+        "COLUMN_NAME": "kyc_profile_id",
+        "REFERENCED_TABLE_NAME": "kyc_profiles",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_profiles",
+        "CONSTRAINT_NAME": "kyc_profiles_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_rejection_reasons",
+        "CONSTRAINT_NAME": "kyc_rejection_reasons_kyc_request_id_foreign",
+        "COLUMN_NAME": "kyc_request_id",
+        "REFERENCED_TABLE_NAME": "kyc_requests",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_rejection_reasons",
+        "CONSTRAINT_NAME": "kyc_rejection_reasons_operator_id_foreign",
+        "COLUMN_NAME": "operator_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_requests",
+        "CONSTRAINT_NAME": "kyc_requests_requested_by_foreign",
+        "COLUMN_NAME": "requested_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_requests",
+        "CONSTRAINT_NAME": "kyc_requests_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_review_logs",
+        "CONSTRAINT_NAME": "kyc_review_logs_kyc_request_id_foreign",
+        "COLUMN_NAME": "kyc_request_id",
+        "REFERENCED_TABLE_NAME": "kyc_requests",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_review_logs",
+        "CONSTRAINT_NAME": "kyc_review_logs_reviewer_id_foreign",
+        "COLUMN_NAME": "reviewer_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_status_history",
+        "CONSTRAINT_NAME": "kyc_status_history_changed_by_foreign",
+        "COLUMN_NAME": "changed_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_status_history",
+        "CONSTRAINT_NAME": "kyc_status_history_kyc_request_id_foreign",
+        "COLUMN_NAME": "kyc_request_id",
+        "REFERENCED_TABLE_NAME": "kyc_requests",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "CONSTRAINT_NAME": "kyc_submissions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "CONSTRAINT_NAME": "kyc_submissions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "CONSTRAINT_NAME": "kyc_submissions_reviewer_id_foreign",
+        "COLUMN_NAME": "reviewer_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "CONSTRAINT_NAME": "kyc_submissions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "CONSTRAINT_NAME": "kyc_submissions_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "CONSTRAINT_NAME": "ledger_entries_account_id_foreign",
+        "COLUMN_NAME": "account_id",
+        "REFERENCED_TABLE_NAME": "accounts",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "CONSTRAINT_NAME": "ledger_entries_ledger_transaction_id_foreign",
+        "COLUMN_NAME": "ledger_transaction_id",
+        "REFERENCED_TABLE_NAME": "ledger_transactions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "CONSTRAINT_NAME": "ledger_entries_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "ledger_transactions",
+        "CONSTRAINT_NAME": "ledger_transactions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "loan_offers",
+        "CONSTRAINT_NAME": "loan_offers_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "REFERENCED_TABLE_NAME": "advertisements",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "CONSTRAINT_NAME": "loan_products_bank_id_foreign",
+        "COLUMN_NAME": "bank_id",
+        "REFERENCED_TABLE_NAME": "banks",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "CONSTRAINT_NAME": "loan_products_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "CONSTRAINT_NAME": "loan_products_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "CONSTRAINT_NAME": "loan_products_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "login_histories",
+        "CONSTRAINT_NAME": "login_histories_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "media",
+        "CONSTRAINT_NAME": "media_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "media",
+        "CONSTRAINT_NAME": "media_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "media",
+        "CONSTRAINT_NAME": "media_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "model_has_permissions",
+        "CONSTRAINT_NAME": "model_has_permissions_permission_id_foreign",
+        "COLUMN_NAME": "permission_id",
+        "REFERENCED_TABLE_NAME": "permissions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "model_has_roles",
+        "CONSTRAINT_NAME": "model_has_roles_role_id_foreign",
+        "COLUMN_NAME": "role_id",
+        "REFERENCED_TABLE_NAME": "roles",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "CONSTRAINT_NAME": "negotiations_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "REFERENCED_TABLE_NAME": "advertisements",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "CONSTRAINT_NAME": "negotiations_counterparty_user_id_foreign",
+        "COLUMN_NAME": "counterparty_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "CONSTRAINT_NAME": "negotiations_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "CONSTRAINT_NAME": "negotiations_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "CONSTRAINT_NAME": "negotiations_initiator_user_id_foreign",
+        "COLUMN_NAME": "initiator_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "CONSTRAINT_NAME": "negotiations_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "negotiation_histories",
+        "CONSTRAINT_NAME": "negotiation_histories_actor_id_foreign",
+        "COLUMN_NAME": "actor_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "negotiation_histories",
+        "CONSTRAINT_NAME": "negotiation_histories_negotiation_id_foreign",
+        "COLUMN_NAME": "negotiation_id",
+        "REFERENCED_TABLE_NAME": "negotiations",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "CONSTRAINT_NAME": "negotiation_offers_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "CONSTRAINT_NAME": "negotiation_offers_negotiation_id_foreign",
+        "COLUMN_NAME": "negotiation_id",
+        "REFERENCED_TABLE_NAME": "negotiations",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "CONSTRAINT_NAME": "notifications_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "CONSTRAINT_NAME": "notifications_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "CONSTRAINT_NAME": "notifications_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "CONSTRAINT_NAME": "orders_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "REFERENCED_TABLE_NAME": "advertisements",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "CONSTRAINT_NAME": "orders_buyer_user_id_foreign",
+        "COLUMN_NAME": "buyer_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "CONSTRAINT_NAME": "orders_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "CONSTRAINT_NAME": "orders_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "CONSTRAINT_NAME": "orders_seller_user_id_foreign",
+        "COLUMN_NAME": "seller_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "CONSTRAINT_NAME": "orders_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "CONSTRAINT_NAME": "order_timeline_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "CONSTRAINT_NAME": "order_timeline_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "CONSTRAINT_NAME": "order_timeline_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "REFERENCED_TABLE_NAME": "orders",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "CONSTRAINT_NAME": "order_timeline_performed_by_foreign",
+        "COLUMN_NAME": "performed_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "CONSTRAINT_NAME": "order_timeline_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "CONSTRAINT_NAME": "payment_records_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "CONSTRAINT_NAME": "payment_records_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "CONSTRAINT_NAME": "payment_records_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "REFERENCED_TABLE_NAME": "orders",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "CONSTRAINT_NAME": "payment_records_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "CONSTRAINT_NAME": "permission_role_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "CONSTRAINT_NAME": "permission_role_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "CONSTRAINT_NAME": "permission_role_permission_id_foreign",
+        "COLUMN_NAME": "permission_id",
+        "REFERENCED_TABLE_NAME": "permissions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "CONSTRAINT_NAME": "permission_role_role_id_foreign",
+        "COLUMN_NAME": "role_id",
+        "REFERENCED_TABLE_NAME": "roles",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "CONSTRAINT_NAME": "permission_role_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "CONSTRAINT_NAME": "ratings_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "CONSTRAINT_NAME": "ratings_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "CONSTRAINT_NAME": "ratings_from_user_id_foreign",
+        "COLUMN_NAME": "from_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "CONSTRAINT_NAME": "ratings_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "REFERENCED_TABLE_NAME": "orders",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "CONSTRAINT_NAME": "ratings_to_user_id_foreign",
+        "COLUMN_NAME": "to_user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "CONSTRAINT_NAME": "ratings_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "CONSTRAINT_NAME": "reports_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "CONSTRAINT_NAME": "reports_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "CONSTRAINT_NAME": "reports_requested_by_foreign",
+        "COLUMN_NAME": "requested_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "CONSTRAINT_NAME": "reports_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "CONSTRAINT_NAME": "reviews_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "CONSTRAINT_NAME": "reviews_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "CONSTRAINT_NAME": "reviews_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "CONSTRAINT_NAME": "reviews_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "role_has_permissions",
+        "CONSTRAINT_NAME": "role_has_permissions_permission_id_foreign",
+        "COLUMN_NAME": "permission_id",
+        "REFERENCED_TABLE_NAME": "permissions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "role_has_permissions",
+        "CONSTRAINT_NAME": "role_has_permissions_role_id_foreign",
+        "COLUMN_NAME": "role_id",
+        "REFERENCED_TABLE_NAME": "roles",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "CONSTRAINT_NAME": "role_user_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "CONSTRAINT_NAME": "role_user_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "CONSTRAINT_NAME": "role_user_role_id_foreign",
+        "COLUMN_NAME": "role_id",
+        "REFERENCED_TABLE_NAME": "roles",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "CONSTRAINT_NAME": "role_user_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "CONSTRAINT_NAME": "role_user_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "security_events",
+        "CONSTRAINT_NAME": "security_events_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "CONSTRAINT_NAME": "settings_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "CONSTRAINT_NAME": "settings_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "CONSTRAINT_NAME": "settings_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "CONSTRAINT_NAME": "sms_logs_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "CONSTRAINT_NAME": "sms_logs_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "CONSTRAINT_NAME": "sms_logs_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "CONSTRAINT_NAME": "sms_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "CONSTRAINT_NAME": "system_logs_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "CONSTRAINT_NAME": "system_logs_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "CONSTRAINT_NAME": "system_logs_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "user_bank_accounts",
+        "CONSTRAINT_NAME": "user_bank_accounts_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "CONSTRAINT_NAME": "user_profiles_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "user_sessions",
+        "CONSTRAINT_NAME": "user_sessions_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "user_settings",
+        "CONSTRAINT_NAME": "user_settings_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "CONSTRAINT_NAME": "user_signatures_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "CONSTRAINT_NAME": "user_signatures_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "CONSTRAINT_NAME": "user_signatures_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "CONSTRAINT_NAME": "user_signatures_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "CONSTRAINT_NAME": "violations_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "CONSTRAINT_NAME": "violations_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "CONSTRAINT_NAME": "violations_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "CONSTRAINT_NAME": "violations_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "CONSTRAINT_NAME": "vip_memberships_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "CONSTRAINT_NAME": "vip_memberships_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "CONSTRAINT_NAME": "vip_memberships_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "CONSTRAINT_NAME": "vip_memberships_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "CONSTRAINT_NAME": "wallet_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "CONSTRAINT_NAME": "wallet_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "CONSTRAINT_NAME": "wallet_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "CONSTRAINT_NAME": "wallet_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallets",
+        "CONSTRAINT_NAME": "wallets_ledger_account_id_foreign",
+        "COLUMN_NAME": "ledger_account_id",
+        "REFERENCED_TABLE_NAME": "accounts",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallets",
+        "CONSTRAINT_NAME": "wallets_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallet_balances",
+        "CONSTRAINT_NAME": "wallet_balances_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "REFERENCED_TABLE_NAME": "wallets",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallet_limits",
+        "CONSTRAINT_NAME": "wallet_limits_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "REFERENCED_TABLE_NAME": "wallets",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallet_locks",
+        "CONSTRAINT_NAME": "wallet_locks_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "wallet_locks",
+        "CONSTRAINT_NAME": "wallet_locks_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "REFERENCED_TABLE_NAME": "wallets",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallet_settings",
+        "CONSTRAINT_NAME": "wallet_settings_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "REFERENCED_TABLE_NAME": "wallets",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallet_transactions",
+        "CONSTRAINT_NAME": "wallet_transactions_ledger_transaction_id_foreign",
+        "COLUMN_NAME": "ledger_transaction_id",
+        "REFERENCED_TABLE_NAME": "ledger_transactions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "wallet_transactions",
+        "CONSTRAINT_NAME": "wallet_transactions_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "REFERENCED_TABLE_NAME": "wallets",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "CONSTRAINT_NAME": "workflow_actions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "CONSTRAINT_NAME": "workflow_actions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "CONSTRAINT_NAME": "workflow_actions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "CONSTRAINT_NAME": "workflow_approvals_approver_id_foreign",
+        "COLUMN_NAME": "approver_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "CONSTRAINT_NAME": "workflow_approvals_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "CONSTRAINT_NAME": "workflow_approvals_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "CONSTRAINT_NAME": "workflow_approvals_step_id_foreign",
+        "COLUMN_NAME": "step_id",
+        "REFERENCED_TABLE_NAME": "workflow_steps",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "CONSTRAINT_NAME": "workflow_approvals_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "CONSTRAINT_NAME": "workflow_approvals_workflow_instance_id_foreign",
+        "COLUMN_NAME": "workflow_instance_id",
+        "REFERENCED_TABLE_NAME": "workflow_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "CONSTRAINT_NAME": "workflow_assignments_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "CONSTRAINT_NAME": "workflow_assignments_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "CONSTRAINT_NAME": "workflow_assignments_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "CONSTRAINT_NAME": "workflow_conditions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "CONSTRAINT_NAME": "workflow_conditions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "CONSTRAINT_NAME": "workflow_conditions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "CONSTRAINT_NAME": "workflow_definitions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "CONSTRAINT_NAME": "workflow_definitions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "CONSTRAINT_NAME": "workflow_definitions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "CONSTRAINT_NAME": "workflow_events_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "CONSTRAINT_NAME": "workflow_events_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "CONSTRAINT_NAME": "workflow_events_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "CONSTRAINT_NAME": "workflow_events_workflow_instance_id_foreign",
+        "COLUMN_NAME": "workflow_instance_id",
+        "REFERENCED_TABLE_NAME": "workflow_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "CONSTRAINT_NAME": "workflow_idempotency_keys_executed_by_foreign",
+        "COLUMN_NAME": "executed_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "CONSTRAINT_NAME": "workflow_idempotency_keys_transition_id_foreign",
+        "COLUMN_NAME": "transition_id",
+        "REFERENCED_TABLE_NAME": "workflow_transitions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "CONSTRAINT_NAME": "workflow_idempotency_keys_workflow_instance_id_foreign",
+        "COLUMN_NAME": "workflow_instance_id",
+        "REFERENCED_TABLE_NAME": "workflow_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "CONSTRAINT_NAME": "workflow_instances_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "CONSTRAINT_NAME": "workflow_instances_current_state_id_foreign",
+        "COLUMN_NAME": "current_state_id",
+        "REFERENCED_TABLE_NAME": "workflow_states",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "RESTRICT"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "CONSTRAINT_NAME": "workflow_instances_current_step_id_foreign",
+        "COLUMN_NAME": "current_step_id",
+        "REFERENCED_TABLE_NAME": "workflow_steps",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "CONSTRAINT_NAME": "workflow_instances_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "CONSTRAINT_NAME": "workflow_instances_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "CONSTRAINT_NAME": "workflow_instances_workflow_definition_id_foreign",
+        "COLUMN_NAME": "workflow_definition_id",
+        "REFERENCED_TABLE_NAME": "workflow_definitions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "CONSTRAINT_NAME": "workflow_instance_steps_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "CONSTRAINT_NAME": "workflow_instance_steps_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "CONSTRAINT_NAME": "workflow_instance_steps_executed_by_foreign",
+        "COLUMN_NAME": "executed_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "CONSTRAINT_NAME": "workflow_instance_steps_from_state_id_foreign",
+        "COLUMN_NAME": "from_state_id",
+        "REFERENCED_TABLE_NAME": "workflow_states",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "RESTRICT"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "CONSTRAINT_NAME": "workflow_instance_steps_to_state_id_foreign",
+        "COLUMN_NAME": "to_state_id",
+        "REFERENCED_TABLE_NAME": "workflow_states",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "RESTRICT"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "CONSTRAINT_NAME": "workflow_instance_steps_transition_id_foreign",
+        "COLUMN_NAME": "transition_id",
+        "REFERENCED_TABLE_NAME": "workflow_transitions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "RESTRICT"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "CONSTRAINT_NAME": "workflow_instance_steps_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "CONSTRAINT_NAME": "workflow_logs_actor_id_foreign",
+        "COLUMN_NAME": "actor_id",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "CONSTRAINT_NAME": "workflow_logs_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "CONSTRAINT_NAME": "workflow_logs_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "CONSTRAINT_NAME": "workflow_logs_step_id_foreign",
+        "COLUMN_NAME": "step_id",
+        "REFERENCED_TABLE_NAME": "workflow_steps",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "CONSTRAINT_NAME": "workflow_logs_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "CONSTRAINT_NAME": "workflow_logs_workflow_instance_id_foreign",
+        "COLUMN_NAME": "workflow_instance_id",
+        "REFERENCED_TABLE_NAME": "workflow_instances",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_states",
+        "CONSTRAINT_NAME": "workflow_states_workflow_definition_id_foreign",
+        "COLUMN_NAME": "workflow_definition_id",
+        "REFERENCED_TABLE_NAME": "workflow_definitions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "CONSTRAINT_NAME": "workflow_steps_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "CONSTRAINT_NAME": "workflow_steps_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "CONSTRAINT_NAME": "workflow_steps_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "CONSTRAINT_NAME": "workflow_steps_workflow_definition_id_foreign",
+        "COLUMN_NAME": "workflow_definition_id",
+        "REFERENCED_TABLE_NAME": "workflow_definitions",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "CASCADE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "CONSTRAINT_NAME": "workflow_transitions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "CONSTRAINT_NAME": "workflow_transitions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "CONSTRAINT_NAME": "workflow_transitions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "CONSTRAINT_NAME": "workflow_versions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "CONSTRAINT_NAME": "workflow_versions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "CONSTRAINT_NAME": "workflow_versions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "REFERENCED_TABLE_NAME": "users",
+        "REFERENCED_COLUMN_NAME": "id",
+        "UPDATE_RULE": "RESTRICT",
+        "DELETE_RULE": "SET NULL"
+    }
+]

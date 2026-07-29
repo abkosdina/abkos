@@ -1,0 +1,76 @@
+{
+  "module_name": "Advertisements",
+  "module_readme": "ماژول Advertisements برای مدیریت تبلیغات در پلتفرم مالی-بازارگاهی است. این ماژول عملیات ایجاد، ارسال برای بررسی، نمایش، علاقه‌مندی (favorite)، پیشنهاددهی (recommendation) و گردش‌کار مربوط به تبلیغات را پیاده‌سازی می‌کند. ساختار ماژول شامل Config, Database (Migrations/Seeders/Factories), Models, Repositories, Services, Actions, DTO, Events/Listeners, Jobs, Http (Controllers/Requests/Middleware), Routes, Policies, Resources و Tests است.",
+  "knowledge_graph": {
+    "purpose": "مدیریت تبلیغات: CRUD، گردش‌کار تایید، علاقه‌مندی کاربران، محاسبه و به‌روزرسانی توصیه‌ها (recommendations)، و مدیریت رسانه/اسناد تبلیغات.",
+    "boundaries": {
+      "reads_from": ["Shared", "UserManagement", "Documents"],
+      "writes_to": ["Modules/Advertisements tables (advertisements, advertisement_images, advertisement_documents, advertisement_favorites, advertisement_logs, workflow tables)"],
+      "events_emitted": ["AdvertisementCreated", "AdvertisementFavorited", "AdvertisementViewed", "AdvertisementSubmitted", "AdvertisementApproved", "AdvertisementRejected", "AdvertisementArchived", "AdvertisementResumed"]
+    },
+    "core_components": ["DiscoveryController", "AdvertisementController", "AdvertisementWorkflowController", "FavoriteService", "AdvertisementRecommendationService", "AdvertisementFavoriteRepository"],
+    "important_flows": {
+      "create_and_submit": "Controller -> Action/Service -> Repository -> Eloquent -> emit AdvertisementCreated/Submitted -> workflow audit/listener",
+      "favorite": "API (auth:sanctum) -> DiscoveryController::favorite -> FavoriteService -> Repository -> emit AdvertisementFavorited -> listeners (invalidate recommendations, bump versions, notifications)",
+      "recommendation": "AdvertisementRecommendationService reads advertisement + favorites + view counts + config weights -> computes score -> cached (PrecomputeRecommendationsJob / IndexAdvertisementJob)"
+    }
+  },
+  "folders": [
+    {"path": "Modules/Advertisements/Actions", "purpose": "عملیات تجاری یک‌وظیفه‌ای (Create/Submit/Approve/Reject/...)", "examples": ["CreateAdvertisementAction.php", "SubmitAdvertisementAction.php"]},
+    {"path": "Modules/Advertisements/Config", "purpose": "پیکربندی ماژول، شامل recommendation.php"},
+    {"path": "Modules/Advertisements/Http/Controllers", "purpose": "کنترلرهای HTTP که درخواست‌ها را اعتبارسنجی و به سرویس‌ها/اکشن‌ها ارجاع می‌دهند", "examples": ["DiscoveryController.php", "AdvertisementController.php"]},
+    {"path": "Modules/Advertisements/Database", "purpose": "مایگریشن‌ها، seeders و factories مرتبط با تبلیغات"},
+    {"path": "Modules/Advertisements/DTO", "purpose": "اشیاء انتقال داده مانند AdvertisementDTO, FavoriteDTO"},
+    {"path": "Modules/Advertisements/Enums", "purpose": "تعاریف enum مانند AdvertisementStatus, AdvertisementVisibility"},
+    {"path": "Modules/Advertisements/Events", "purpose": "رویدادهای دامنه‌ای (AdvertisementFavorited, AdvertisementViewed, ...)"},
+    {"path": "Modules/Advertisements/Listeners", "purpose": "گوش‌دهنده‌ها برای هندل کردن رویدادها (InvalidateUserRecommendationListener, RefreshSearchIndexListener, ...)"},
+    {"path": "Modules/Advertisements/Jobs", "purpose": "کارهای آسنکرون مانند IndexAdvertisementJob و PrecomputeRecommendationsJob"},
+    {"path": "Modules/Advertisements/Models", "purpose": "مدل‌های Eloquent مانند Advertisement, AdvertisementImage, AdvertisementDocument, AdvertisementLog"},
+    {"path": "Modules/Advertisements/Repositories", "purpose": "لایهٔ دسترسی به داده: interfaces و پیاده‌سازی Eloquent (AdvertisementFavoriteRepository)"},
+    {"path": "Modules/Advertisements/Resources", "purpose": "API Resources برای شکل‌دهی خروجی JSON"},
+    {"path": "Modules/Advertisements/Routes", "purpose": "تعریف مسیرهای ماژول (Routes/api.php)"},
+    {"path": "Modules/Advertisements/Services", "purpose": "لاجیک دامنه‌ای و سرویس‌های اصلی مانند FavoriteService و AdvertisementRecommendationService"},
+    {"path": "Modules/Advertisements/Tests", "purpose": "تست‌های واحد و Feature برای اعتبارسنجی رفتار ماژول"}
+  ],
+  "files": [
+    {"path": "Modules/Advertisements/Routes/api.php", "purpose": "ثبت مسیرهای HTTP ماژول؛ گروه‌بندی تحت /api/advertisements و میدلورهای auth:sanctum و record_ad_view"},
+    {"path": "Modules/Advertisements/Http/Controllers/DiscoveryController.php", "purpose": "لیست/نمایش تبلیغات و اکشن‌های favorite و recommended"},
+    {"path": "Modules/Advertisements/Http/Controllers/AdvertisementController.php", "purpose": "CRUD تبلیغات و ارسال برای بررسی"},
+    {"path": "Modules/Advertisements/Services/FavoriteService.php", "purpose": "منطق favorite/unfavorite و انتشار رویداد AdvertisementFavorited"},
+    {"path": "Modules/Advertisements/Repositories/Eloquent/AdvertisementFavoriteRepository.php", "purpose": "دسترسی به جدول advertisement_favorites و عملیات insert/delete/list"},
+    {"path": "Modules/Advertisements/Providers/AdvertisementsServiceProvider.php", "purpose": "ثبت bind/ singleton برای repositoryها و سرویس‌ها؛ اتصال listeners به events"},
+    {"path": "Modules/Advertisements/Config/recommendation.php", "purpose": "وزن‌های الگوریتم توصیه (مثلاً weights.favorites)"},
+    {"path": "Modules/Advertisements/Tests/Feature/RecommendationIntegrationTest.php", "purpose": "تست ارتباط favoriting با bump نسخه توصیه و dispatch event"}
+  ],
+  "dependencies": {
+    "php_packages": ["laravel/framework (project root)", "laravel/sanctum (برای احراز هویت API)", "spatie/laravel-permission (برای نقش‌ها/مجوزها)"] ,
+    "module_level": ["Modules/Shared", "Modules/UserManagement", "Modules/Documents", "Modules/Workflow", "Modules/Notifications", "Queue backend (Redis or database queues)"],
+    "runtime": ["PHP 8.2+", "MySQL/MariaDB (utf8mb4)", "Redis (پیشنهادی برای cache/queue)", "S3-compatible storage (اختیاری برای media)"]
+  },
+  "prerequisites": {
+    "before_install": ["پیکربندی .env با DB_*, QUEUE_CONNECTION و SANCTUM","نصب وابستگی‌ها: composer install, npm install (در صورت نیاز)","اطمینان از وجود جداول پایه مانند users و Shared tables"],
+    "install_steps": ["ثبت ServiceProvider ماژول (AppServiceProvider یا auto-discovery)", "اجرای مایگریشن‌ها: php artisan migrate --path=Modules/Advertisements/Database/Migrations یا php artisan migrate", "در صورت نیاز اجرا کردن seeders و jobهای ایندکس مانند PrecomputeRecommendationsJob"],
+    "after_install_checks": ["فراخوانی endpointها با یک کاربر تست: POST /api/advertisements و POST /api/advertisements/{uuid}/favorite","بررسی storage/logs/laravel.log برای خطاها","اجرای تست‌ها: php artisan test Modules/Advertisements/Tests"]
+  },
+  "features": ["CRUD تبلیغات","ارسال/گردش‌کار تایید تبلیغات","favorite/unfavorite و لیست علاقه‌مندی‌های کاربر","ضبط بازدیدها با middleware","الگوریتم توصیه با وزن‌های قابل تنظیم و cache","ایندکس/پردازش آسنکرون برای توصیه و جستجو","رویدادها و listeners برای invalidate cache و notifications","پشتیبانی از تصاویر و اسناد تبلیغ"] ,
+  "api_endpoints": [
+    {"method": "GET", "path": "/api/advertisements", "desc": "فهرست تبلیغات"},
+    {"method": "GET", "path": "/api/advertisements/{uuid}", "desc": "جزئیات تبلیغ (middleware: record_ad_view)"},
+    {"method": "POST", "path": "/api/advertisements", "desc": "ایجاد تبلیغ (auth:sanctum)"},
+    {"method": "POST", "path": "/api/advertisements/{id}/submit", "desc": "ارسال تبلیغ برای بررسی (auth)"},
+    {"method": "POST", "path": "/api/advertisements/{uuid}/favorite", "desc": "علاقه‌مندی تبلیغ (auth)"},
+    {"method": "DELETE", "path": "/api/advertisements/{uuid}/favorite", "desc": "حذف از علاقه‌مندی‌ها (auth)"},
+    {"method": "GET", "path": "/api/advertisements/user/favorites", "desc": "لیست علاقه‌مندی‌های کاربر (auth)"}
+  ],
+  "testing_notes": {
+    "existing_tests": "پوشه Tests شامل Unit و Feature tests است؛ در محیط فعلی همه تست‌ها PASS شدند.",
+    "how_to_extend": "برای تست‌های auth از actingAs($user, 'sanctum') یا helper های sanctum استفاده کنید؛ برای jobها از queue fake یا sync connection استفاده شود.",
+    "common_issues": ["مطمئن شوید مایگریشن advertisement_favorites اجرا شده باشد","برای notifications/events از fake helpers در تست استفاده کنید"]
+  },
+  "notes_and_recommendations": {
+    "security": "استفاده از auth:sanctum برای endpointهای تغییر حالت و تعریف سیاست‌ها در AdvertisementPolicy.",
+    "performance": "PrecomputeRecommendationsJob و cache (Redis) برای بهبود عملکرد الگوریتم توصیه.",
+    "docs": "اضافه کردن OpenAPI/Swagger برای مستندسازی API توصیه می‌شود.",
+    "next_steps": ["نوشتن تست‌های بیشتر برای favorite/unfavorite با کاربر واقعی","ایجاد یا بررسی مایگریشن advertisement_favorites و seed نمونه","اضافه کردن مثال‌های API در README"]
+  }
+}

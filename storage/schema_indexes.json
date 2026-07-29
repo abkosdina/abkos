@@ -1,0 +1,5266 @@
+[
+    {
+        "TABLE_NAME": "accounts",
+        "INDEX_NAME": "accounts_account_type_id_foreign",
+        "COLUMN_NAME": "account_type_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "accounts",
+        "INDEX_NAME": "accounts_code_unique",
+        "COLUMN_NAME": "code",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "accounts",
+        "INDEX_NAME": "accounts_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "accounts",
+        "INDEX_NAME": "accounts_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "accounts",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "account_balances",
+        "INDEX_NAME": "account_balances_account_id_foreign",
+        "COLUMN_NAME": "account_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "account_balances",
+        "INDEX_NAME": "account_balances_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "account_balances",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "account_types",
+        "INDEX_NAME": "account_types_code_unique",
+        "COLUMN_NAME": "code",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "account_types",
+        "INDEX_NAME": "account_types_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "account_types",
+        "INDEX_NAME": "account_types_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "account_types",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "activity_logs",
+        "INDEX_NAME": "activity_logs_causer_id_foreign",
+        "COLUMN_NAME": "causer_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "activity_logs",
+        "INDEX_NAME": "activity_logs_event_index",
+        "COLUMN_NAME": "event",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "activity_logs",
+        "INDEX_NAME": "activity_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "activity_logs",
+        "INDEX_NAME": "activity_logs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "activity_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_city_id_foreign",
+        "COLUMN_NAME": "city_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_loan_product_id_foreign",
+        "COLUMN_NAME": "loan_product_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_province_id_foreign",
+        "COLUMN_NAME": "province_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_seller_user_id_foreign",
+        "COLUMN_NAME": "seller_user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_user_id_index",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "advertisements_workflow_instance_id_index",
+        "COLUMN_NAME": "workflow_instance_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisements",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_contacts",
+        "INDEX_NAME": "advertisement_contacts_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_contacts",
+        "INDEX_NAME": "advertisement_contacts_created_at_index",
+        "COLUMN_NAME": "created_at",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_contacts",
+        "INDEX_NAME": "advertisement_contacts_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_contacts",
+        "INDEX_NAME": "advertisement_contacts_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_contacts",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_documents",
+        "INDEX_NAME": "advertisement_documents_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_documents",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_favorites",
+        "INDEX_NAME": "advertisement_favorites_advertisement_uuid_index",
+        "COLUMN_NAME": "advertisement_uuid",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_favorites",
+        "INDEX_NAME": "advertisement_favorites_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_favorites",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "INDEX_NAME": "advertisement_images_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "INDEX_NAME": "advertisement_images_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "INDEX_NAME": "advertisement_images_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "INDEX_NAME": "advertisement_images_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "INDEX_NAME": "advertisement_images_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_images",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_views",
+        "INDEX_NAME": "advertisement_views_advertisement_id_index",
+        "COLUMN_NAME": "advertisement_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_views",
+        "INDEX_NAME": "advertisement_views_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_views",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_workflow_audits",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_workflow_states",
+        "INDEX_NAME": "advertisement_workflow_states_key_unique",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_workflow_states",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_workflow_transitions",
+        "INDEX_NAME": "advertisement_workflow_transitions_key_unique",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "advertisement_workflow_transitions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "INDEX_NAME": "approval_decisions_approval_instance_id_index",
+        "COLUMN_NAME": "approval_instance_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "INDEX_NAME": "approval_decisions_approval_instance_step_id_index",
+        "COLUMN_NAME": "approval_instance_step_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "INDEX_NAME": "approval_decisions_approver_id_index",
+        "COLUMN_NAME": "approver_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "INDEX_NAME": "approval_decisions_decided_at_index",
+        "COLUMN_NAME": "decided_at",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "INDEX_NAME": "approval_decisions_delegated_from_foreign",
+        "COLUMN_NAME": "delegated_from",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "INDEX_NAME": "approval_decisions_idempotency_key_unique",
+        "COLUMN_NAME": "idempotency_key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "INDEX_NAME": "approval_decisions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_decisions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "approval_definitions_approval_mode_index",
+        "COLUMN_NAME": "approval_mode",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "approval_definitions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "approval_definitions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "approval_definitions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "approval_definitions_workflow_definition_id_is_active_index",
+        "COLUMN_NAME": "workflow_definition_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "approval_definitions_workflow_definition_id_is_active_index",
+        "COLUMN_NAME": "is_active",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "approval_definitions_workflow_definition_id_key_unique",
+        "COLUMN_NAME": "workflow_definition_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "approval_definitions_workflow_definition_id_key_unique",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_definitions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "INDEX_NAME": "approval_delegations_approval_instance_id_index",
+        "COLUMN_NAME": "approval_instance_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "INDEX_NAME": "approval_delegations_approval_instance_step_id_index",
+        "COLUMN_NAME": "approval_instance_step_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "INDEX_NAME": "approval_delegations_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "INDEX_NAME": "approval_delegations_delegated_from_foreign",
+        "COLUMN_NAME": "delegated_from",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "INDEX_NAME": "approval_delegations_delegated_to_index",
+        "COLUMN_NAME": "delegated_to",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "INDEX_NAME": "approval_delegations_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "INDEX_NAME": "approval_delegations_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_delegations",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "INDEX_NAME": "approval_instances_approval_definition_id_index",
+        "COLUMN_NAME": "approval_definition_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "INDEX_NAME": "approval_instances_created_at_index",
+        "COLUMN_NAME": "created_at",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "INDEX_NAME": "approval_instances_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "INDEX_NAME": "approval_instances_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "INDEX_NAME": "approval_instances_workflow_instance_id_index",
+        "COLUMN_NAME": "workflow_instance_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instances",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instance_steps",
+        "INDEX_NAME": "approval_instance_steps_approval_instance_id_index",
+        "COLUMN_NAME": "approval_instance_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instance_steps",
+        "INDEX_NAME": "approval_instance_steps_approval_step_id_index",
+        "COLUMN_NAME": "approval_step_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instance_steps",
+        "INDEX_NAME": "approval_instance_steps_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instance_steps",
+        "INDEX_NAME": "approval_instance_steps_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_instance_steps",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "INDEX_NAME": "approval_steps_approval_definition_id_key_unique",
+        "COLUMN_NAME": "approval_definition_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "INDEX_NAME": "approval_steps_approval_definition_id_key_unique",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "INDEX_NAME": "approval_steps_approval_definition_id_sort_order_index",
+        "COLUMN_NAME": "approval_definition_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "INDEX_NAME": "approval_steps_approval_definition_id_sort_order_index",
+        "COLUMN_NAME": "sort_order",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "INDEX_NAME": "approval_steps_required_permission_index",
+        "COLUMN_NAME": "required_permission",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "INDEX_NAME": "approval_steps_required_user_id_index",
+        "COLUMN_NAME": "required_user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "INDEX_NAME": "approval_steps_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "approval_steps",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "INDEX_NAME": "arbitrations_arbitrator_id_foreign",
+        "COLUMN_NAME": "arbitrator_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "INDEX_NAME": "arbitrations_complaint_id_unique",
+        "COLUMN_NAME": "complaint_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "INDEX_NAME": "arbitrations_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "INDEX_NAME": "arbitrations_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "INDEX_NAME": "arbitrations_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "INDEX_NAME": "arbitrations_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "arbitrations",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "audit_logs",
+        "INDEX_NAME": "audit_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "audit_logs",
+        "INDEX_NAME": "audit_logs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "audit_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "balance_snapshots",
+        "INDEX_NAME": "balance_snapshots_account_id_foreign",
+        "COLUMN_NAME": "account_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "balance_snapshots",
+        "INDEX_NAME": "balance_snapshots_period_id_foreign",
+        "COLUMN_NAME": "period_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "balance_snapshots",
+        "INDEX_NAME": "balance_snapshots_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "balance_snapshots",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "INDEX_NAME": "banks_code_unique",
+        "COLUMN_NAME": "code",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "INDEX_NAME": "banks_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "INDEX_NAME": "banks_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "INDEX_NAME": "banks_slug_unique",
+        "COLUMN_NAME": "slug",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "INDEX_NAME": "banks_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "INDEX_NAME": "banks_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "banks",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "INDEX_NAME": "bank_employees_bank_id_foreign",
+        "COLUMN_NAME": "bank_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "INDEX_NAME": "bank_employees_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "INDEX_NAME": "bank_employees_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "INDEX_NAME": "bank_employees_employee_code_unique",
+        "COLUMN_NAME": "employee_code",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "INDEX_NAME": "bank_employees_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "INDEX_NAME": "bank_employees_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "INDEX_NAME": "bank_employees_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_employees",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "INDEX_NAME": "bank_loan_products_bank_id_foreign",
+        "COLUMN_NAME": "bank_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "INDEX_NAME": "bank_loan_products_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "INDEX_NAME": "bank_loan_products_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "INDEX_NAME": "bank_loan_products_loan_product_id_foreign",
+        "COLUMN_NAME": "loan_product_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "INDEX_NAME": "bank_loan_products_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "INDEX_NAME": "bank_loan_products_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "bank_loan_products",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "cache",
+        "INDEX_NAME": "cache_expiration_index",
+        "COLUMN_NAME": "expiration",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "cache",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "cache_locks",
+        "INDEX_NAME": "cache_locks_expiration_index",
+        "COLUMN_NAME": "expiration",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "cache_locks",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "INDEX_NAME": "chat_attachments_chat_message_id_foreign",
+        "COLUMN_NAME": "chat_message_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "INDEX_NAME": "chat_attachments_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "INDEX_NAME": "chat_attachments_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "INDEX_NAME": "chat_attachments_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "INDEX_NAME": "chat_attachments_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_attachments",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "INDEX_NAME": "chat_messages_chat_room_id_foreign",
+        "COLUMN_NAME": "chat_room_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "INDEX_NAME": "chat_messages_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "INDEX_NAME": "chat_messages_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "INDEX_NAME": "chat_messages_sender_id_foreign",
+        "COLUMN_NAME": "sender_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "INDEX_NAME": "chat_messages_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "INDEX_NAME": "chat_messages_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_messages",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "INDEX_NAME": "chat_message_reads_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "INDEX_NAME": "chat_message_reads_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "INDEX_NAME": "chat_message_reads_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "INDEX_NAME": "chat_message_reads_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "INDEX_NAME": "chat_message_reads_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "INDEX_NAME": "uniq_chat_message_read",
+        "COLUMN_NAME": "chat_message_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_message_reads",
+        "INDEX_NAME": "uniq_chat_message_read",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "INDEX_NAME": "chat_participants_chat_room_id_foreign",
+        "COLUMN_NAME": "chat_room_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "INDEX_NAME": "chat_participants_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "INDEX_NAME": "chat_participants_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "INDEX_NAME": "chat_participants_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "INDEX_NAME": "chat_participants_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "INDEX_NAME": "chat_participants_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_participants",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "INDEX_NAME": "chat_rooms_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "INDEX_NAME": "chat_rooms_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "INDEX_NAME": "chat_rooms_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "INDEX_NAME": "chat_rooms_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "chat_rooms",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "cities",
+        "INDEX_NAME": "cities_province_id_foreign",
+        "COLUMN_NAME": "province_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "cities",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "INDEX_NAME": "commission_rules_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "INDEX_NAME": "commission_rules_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "INDEX_NAME": "commission_rules_name_unique",
+        "COLUMN_NAME": "name",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "INDEX_NAME": "commission_rules_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "INDEX_NAME": "commission_rules_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_rules",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "INDEX_NAME": "commission_transactions_commission_rule_id_foreign",
+        "COLUMN_NAME": "commission_rule_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "INDEX_NAME": "commission_transactions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "INDEX_NAME": "commission_transactions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "INDEX_NAME": "commission_transactions_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "INDEX_NAME": "commission_transactions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "INDEX_NAME": "commission_transactions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "commission_transactions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "INDEX_NAME": "complaints_assigned_to_foreign",
+        "COLUMN_NAME": "assigned_to",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "INDEX_NAME": "complaints_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "INDEX_NAME": "complaints_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "INDEX_NAME": "complaints_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "INDEX_NAME": "complaints_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "INDEX_NAME": "complaints_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "INDEX_NAME": "complaints_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaints",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "INDEX_NAME": "complaint_messages_complaint_id_foreign",
+        "COLUMN_NAME": "complaint_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "INDEX_NAME": "complaint_messages_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "INDEX_NAME": "complaint_messages_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "INDEX_NAME": "complaint_messages_sender_id_foreign",
+        "COLUMN_NAME": "sender_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "INDEX_NAME": "complaint_messages_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "INDEX_NAME": "complaint_messages_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "complaint_messages",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "INDEX_NAME": "contracts_contract_number_unique",
+        "COLUMN_NAME": "contract_number",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "INDEX_NAME": "contracts_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "INDEX_NAME": "contracts_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "INDEX_NAME": "contracts_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "INDEX_NAME": "contracts_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "INDEX_NAME": "contracts_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contracts",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "INDEX_NAME": "contract_versions_contract_id_version_number_unique",
+        "COLUMN_NAME": "contract_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "INDEX_NAME": "contract_versions_contract_id_version_number_unique",
+        "COLUMN_NAME": "version_number",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "INDEX_NAME": "contract_versions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "INDEX_NAME": "contract_versions_created_by_user_id_foreign",
+        "COLUMN_NAME": "created_by_user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "INDEX_NAME": "contract_versions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "INDEX_NAME": "contract_versions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "INDEX_NAME": "contract_versions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "contract_versions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "INDEX_NAME": "documents_category_id_foreign",
+        "COLUMN_NAME": "category_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "INDEX_NAME": "documents_document_type_id_foreign",
+        "COLUMN_NAME": "document_type_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "INDEX_NAME": "documents_owner_type_owner_id_index",
+        "COLUMN_NAME": "owner_type",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "INDEX_NAME": "documents_owner_type_owner_id_index",
+        "COLUMN_NAME": "owner_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "INDEX_NAME": "documents_uploaded_by_foreign",
+        "COLUMN_NAME": "uploaded_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "INDEX_NAME": "documents_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "documents",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_access_logs",
+        "INDEX_NAME": "document_access_logs_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_access_logs",
+        "INDEX_NAME": "document_access_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_access_logs",
+        "INDEX_NAME": "document_access_logs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_access_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_categories",
+        "INDEX_NAME": "document_categories_slug_unique",
+        "COLUMN_NAME": "slug",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_categories",
+        "INDEX_NAME": "document_categories_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_categories",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_download_logs",
+        "INDEX_NAME": "document_download_logs_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_download_logs",
+        "INDEX_NAME": "document_download_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_download_logs",
+        "INDEX_NAME": "document_download_logs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_download_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_links",
+        "INDEX_NAME": "document_links_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_links",
+        "INDEX_NAME": "document_links_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_links",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_metadata",
+        "INDEX_NAME": "document_metadata_document_id_key_unique",
+        "COLUMN_NAME": "document_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_metadata",
+        "INDEX_NAME": "document_metadata_document_id_key_unique",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_metadata",
+        "INDEX_NAME": "document_metadata_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_metadata",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_tags",
+        "INDEX_NAME": "document_tags_slug_unique",
+        "COLUMN_NAME": "slug",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_tags",
+        "INDEX_NAME": "document_tags_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_tags",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_types",
+        "INDEX_NAME": "document_types_slug_unique",
+        "COLUMN_NAME": "slug",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_types",
+        "INDEX_NAME": "document_types_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_types",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_versions",
+        "INDEX_NAME": "document_versions_document_id_foreign",
+        "COLUMN_NAME": "document_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_versions",
+        "INDEX_NAME": "document_versions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "document_versions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "INDEX_NAME": "escrow_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "INDEX_NAME": "escrow_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "INDEX_NAME": "escrow_escrow_number_unique",
+        "COLUMN_NAME": "escrow_number",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "INDEX_NAME": "escrow_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "INDEX_NAME": "escrow_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "INDEX_NAME": "escrow_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "INDEX_NAME": "escrow_transactions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "INDEX_NAME": "escrow_transactions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "INDEX_NAME": "escrow_transactions_escrow_id_foreign",
+        "COLUMN_NAME": "escrow_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "INDEX_NAME": "escrow_transactions_reference_number_unique",
+        "COLUMN_NAME": "reference_number",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "INDEX_NAME": "escrow_transactions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "INDEX_NAME": "escrow_transactions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "escrow_transactions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "failed_jobs",
+        "INDEX_NAME": "failed_jobs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "failed_jobs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "files",
+        "INDEX_NAME": "files_checksum_unique",
+        "COLUMN_NAME": "checksum",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "files",
+        "INDEX_NAME": "files_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "files",
+        "INDEX_NAME": "files_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "files",
+        "INDEX_NAME": "files_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "files",
+        "INDEX_NAME": "files_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "files",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "financial_periods",
+        "INDEX_NAME": "financial_periods_code_unique",
+        "COLUMN_NAME": "code",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "financial_periods",
+        "INDEX_NAME": "financial_periods_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "financial_periods",
+        "INDEX_NAME": "financial_periods_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "financial_periods",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "jobs",
+        "INDEX_NAME": "jobs_queue_index",
+        "COLUMN_NAME": "queue",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "jobs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "job_batches",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "journal_entries",
+        "INDEX_NAME": "journal_entries_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "journal_entries",
+        "INDEX_NAME": "journal_entries_ledger_transaction_id_foreign",
+        "COLUMN_NAME": "ledger_transaction_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "journal_entries",
+        "INDEX_NAME": "journal_entries_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "journal_entries",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "INDEX_NAME": "kyc_documents_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "INDEX_NAME": "kyc_documents_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "INDEX_NAME": "kyc_documents_kyc_submission_id_foreign",
+        "COLUMN_NAME": "kyc_submission_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "INDEX_NAME": "kyc_documents_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "INDEX_NAME": "kyc_documents_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_documents",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_fields",
+        "INDEX_NAME": "kyc_fields_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_fields",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_field_values",
+        "INDEX_NAME": "kyc_field_values_kyc_field_id_foreign",
+        "COLUMN_NAME": "kyc_field_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_field_values",
+        "INDEX_NAME": "kyc_field_values_kyc_profile_id_kyc_field_id_unique",
+        "COLUMN_NAME": "kyc_profile_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_field_values",
+        "INDEX_NAME": "kyc_field_values_kyc_profile_id_kyc_field_id_unique",
+        "COLUMN_NAME": "kyc_field_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_field_values",
+        "INDEX_NAME": "kyc_field_values_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_field_values",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_profiles",
+        "INDEX_NAME": "kyc_profiles_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_profiles",
+        "INDEX_NAME": "kyc_profiles_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_profiles",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_rejection_reasons",
+        "INDEX_NAME": "kyc_rejection_reasons_kyc_request_id_foreign",
+        "COLUMN_NAME": "kyc_request_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_rejection_reasons",
+        "INDEX_NAME": "kyc_rejection_reasons_operator_id_foreign",
+        "COLUMN_NAME": "operator_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_rejection_reasons",
+        "INDEX_NAME": "kyc_rejection_reasons_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_rejection_reasons",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_requests",
+        "INDEX_NAME": "kyc_requests_requested_by_foreign",
+        "COLUMN_NAME": "requested_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_requests",
+        "INDEX_NAME": "kyc_requests_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_requests",
+        "INDEX_NAME": "kyc_requests_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_requests",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_review_logs",
+        "INDEX_NAME": "kyc_review_logs_kyc_request_id_foreign",
+        "COLUMN_NAME": "kyc_request_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_review_logs",
+        "INDEX_NAME": "kyc_review_logs_reviewer_id_foreign",
+        "COLUMN_NAME": "reviewer_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_review_logs",
+        "INDEX_NAME": "kyc_review_logs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_review_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_status_history",
+        "INDEX_NAME": "kyc_status_history_changed_by_foreign",
+        "COLUMN_NAME": "changed_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_status_history",
+        "INDEX_NAME": "kyc_status_history_kyc_request_id_foreign",
+        "COLUMN_NAME": "kyc_request_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_status_history",
+        "INDEX_NAME": "kyc_status_history_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_status_history",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "INDEX_NAME": "kyc_submissions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "INDEX_NAME": "kyc_submissions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "INDEX_NAME": "kyc_submissions_reviewer_id_foreign",
+        "COLUMN_NAME": "reviewer_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "INDEX_NAME": "kyc_submissions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "INDEX_NAME": "kyc_submissions_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "INDEX_NAME": "kyc_submissions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "kyc_submissions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "INDEX_NAME": "ledger_entries_account_id_foreign",
+        "COLUMN_NAME": "account_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "INDEX_NAME": "ledger_entries_ledger_transaction_id_foreign",
+        "COLUMN_NAME": "ledger_transaction_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "INDEX_NAME": "ledger_entries_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "INDEX_NAME": "ledger_entries_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_entries",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_transactions",
+        "INDEX_NAME": "ledger_transactions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_transactions",
+        "INDEX_NAME": "ledger_transactions_reference_number_unique",
+        "COLUMN_NAME": "reference_number",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_transactions",
+        "INDEX_NAME": "ledger_transactions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ledger_transactions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_offers",
+        "INDEX_NAME": "loan_offers_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_offers",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "INDEX_NAME": "loan_products_bank_id_foreign",
+        "COLUMN_NAME": "bank_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "INDEX_NAME": "loan_products_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "INDEX_NAME": "loan_products_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "INDEX_NAME": "loan_products_slug_unique",
+        "COLUMN_NAME": "slug",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "INDEX_NAME": "loan_products_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "INDEX_NAME": "loan_products_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "loan_products",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "login_histories",
+        "INDEX_NAME": "login_histories_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "login_histories",
+        "INDEX_NAME": "login_histories_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "login_histories",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "media",
+        "INDEX_NAME": "media_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "media",
+        "INDEX_NAME": "media_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "media",
+        "INDEX_NAME": "media_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "media",
+        "INDEX_NAME": "media_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "media",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "migrations",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_permissions",
+        "INDEX_NAME": "model_has_permissions_model_id_model_type_index",
+        "COLUMN_NAME": "model_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_permissions",
+        "INDEX_NAME": "model_has_permissions_model_id_model_type_index",
+        "COLUMN_NAME": "model_type",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_permissions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "permission_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_permissions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "model_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_permissions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "model_type",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 3,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_roles",
+        "INDEX_NAME": "model_has_roles_model_id_model_type_index",
+        "COLUMN_NAME": "model_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_roles",
+        "INDEX_NAME": "model_has_roles_model_id_model_type_index",
+        "COLUMN_NAME": "model_type",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_roles",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "role_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_roles",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "model_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "model_has_roles",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "model_type",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 3,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "INDEX_NAME": "negotiations_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "INDEX_NAME": "negotiations_counterparty_user_id_foreign",
+        "COLUMN_NAME": "counterparty_user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "INDEX_NAME": "negotiations_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "INDEX_NAME": "negotiations_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "INDEX_NAME": "negotiations_initiator_user_id_foreign",
+        "COLUMN_NAME": "initiator_user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "INDEX_NAME": "negotiations_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "INDEX_NAME": "negotiations_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiations",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_histories",
+        "INDEX_NAME": "negotiation_histories_actor_id_foreign",
+        "COLUMN_NAME": "actor_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_histories",
+        "INDEX_NAME": "negotiation_histories_negotiation_id_event_index",
+        "COLUMN_NAME": "negotiation_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_histories",
+        "INDEX_NAME": "negotiation_histories_negotiation_id_event_index",
+        "COLUMN_NAME": "event",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_histories",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "INDEX_NAME": "negotiation_offers_created_by_status_index",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "INDEX_NAME": "negotiation_offers_created_by_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "INDEX_NAME": "negotiation_offers_negotiation_id_status_index",
+        "COLUMN_NAME": "negotiation_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "INDEX_NAME": "negotiation_offers_negotiation_id_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "INDEX_NAME": "negotiation_offers_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "INDEX_NAME": "negotiation_offers_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "negotiation_offers",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "INDEX_NAME": "notifications_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "INDEX_NAME": "notifications_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "INDEX_NAME": "notifications_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "INDEX_NAME": "notifications_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "notifications",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "orders_advertisement_id_foreign",
+        "COLUMN_NAME": "advertisement_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "orders_buyer_user_id_foreign",
+        "COLUMN_NAME": "buyer_user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "orders_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "orders_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "orders_order_number_unique",
+        "COLUMN_NAME": "order_number",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "orders_seller_user_id_foreign",
+        "COLUMN_NAME": "seller_user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "orders_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "orders_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "orders",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "INDEX_NAME": "order_timeline_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "INDEX_NAME": "order_timeline_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "INDEX_NAME": "order_timeline_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "INDEX_NAME": "order_timeline_performed_by_foreign",
+        "COLUMN_NAME": "performed_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "INDEX_NAME": "order_timeline_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "INDEX_NAME": "order_timeline_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "order_timeline",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "otp_requests",
+        "INDEX_NAME": "otp_requests_mobile_index",
+        "COLUMN_NAME": "mobile",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "otp_requests",
+        "INDEX_NAME": "otp_requests_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "otp_requests",
+        "INDEX_NAME": "otp_requests_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "otp_requests",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "password_reset_tokens",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "email",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "INDEX_NAME": "payment_records_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "INDEX_NAME": "payment_records_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "INDEX_NAME": "payment_records_gateway_reference_unique",
+        "COLUMN_NAME": "gateway_reference",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "INDEX_NAME": "payment_records_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "INDEX_NAME": "payment_records_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "INDEX_NAME": "payment_records_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "payment_records",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permissions",
+        "INDEX_NAME": "permissions_name_guard_name_unique",
+        "COLUMN_NAME": "name",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permissions",
+        "INDEX_NAME": "permissions_name_guard_name_unique",
+        "COLUMN_NAME": "guard_name",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permissions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "INDEX_NAME": "permission_role_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "INDEX_NAME": "permission_role_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "INDEX_NAME": "permission_role_permission_id_foreign",
+        "COLUMN_NAME": "permission_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "INDEX_NAME": "permission_role_role_id_permission_id_unique",
+        "COLUMN_NAME": "role_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "INDEX_NAME": "permission_role_role_id_permission_id_unique",
+        "COLUMN_NAME": "permission_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "INDEX_NAME": "permission_role_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "INDEX_NAME": "permission_role_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "permission_role",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "INDEX_NAME": "personal_access_tokens_tokenable_type_tokenable_id_index",
+        "COLUMN_NAME": "tokenable_type",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "INDEX_NAME": "personal_access_tokens_tokenable_type_tokenable_id_index",
+        "COLUMN_NAME": "tokenable_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "INDEX_NAME": "personal_access_tokens_token_unique",
+        "COLUMN_NAME": "token",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "provinces",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_from_user_id_to_user_id_order_id_unique",
+        "COLUMN_NAME": "from_user_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_from_user_id_to_user_id_order_id_unique",
+        "COLUMN_NAME": "to_user_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_from_user_id_to_user_id_order_id_unique",
+        "COLUMN_NAME": "order_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 3,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_order_id_foreign",
+        "COLUMN_NAME": "order_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_to_user_id_foreign",
+        "COLUMN_NAME": "to_user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "ratings",
+        "INDEX_NAME": "ratings_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "INDEX_NAME": "reports_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "INDEX_NAME": "reports_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "INDEX_NAME": "reports_requested_by_foreign",
+        "COLUMN_NAME": "requested_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "INDEX_NAME": "reports_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reports",
+        "INDEX_NAME": "reports_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "INDEX_NAME": "reviews_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "INDEX_NAME": "reviews_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "INDEX_NAME": "reviews_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "INDEX_NAME": "reviews_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "reviews",
+        "INDEX_NAME": "reviews_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "roles",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "roles",
+        "INDEX_NAME": "roles_name_guard_name_unique",
+        "COLUMN_NAME": "name",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "roles",
+        "INDEX_NAME": "roles_name_guard_name_unique",
+        "COLUMN_NAME": "guard_name",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_has_permissions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "permission_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_has_permissions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "role_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_has_permissions",
+        "INDEX_NAME": "role_has_permissions_role_id_foreign",
+        "COLUMN_NAME": "role_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "INDEX_NAME": "role_user_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "INDEX_NAME": "role_user_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "INDEX_NAME": "role_user_role_id_foreign",
+        "COLUMN_NAME": "role_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "INDEX_NAME": "role_user_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "INDEX_NAME": "role_user_user_id_role_id_unique",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "INDEX_NAME": "role_user_user_id_role_id_unique",
+        "COLUMN_NAME": "role_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "role_user",
+        "INDEX_NAME": "role_user_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "security_events",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "security_events",
+        "INDEX_NAME": "security_events_event_index",
+        "COLUMN_NAME": "event",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "security_events",
+        "INDEX_NAME": "security_events_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "security_events",
+        "INDEX_NAME": "security_events_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "INDEX_NAME": "sessions_last_activity_index",
+        "COLUMN_NAME": "last_activity",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "INDEX_NAME": "sessions_user_id_index",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "INDEX_NAME": "settings_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "INDEX_NAME": "settings_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "INDEX_NAME": "settings_group_name_key_unique",
+        "COLUMN_NAME": "group_name",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "INDEX_NAME": "settings_group_name_key_unique",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "INDEX_NAME": "settings_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "settings",
+        "INDEX_NAME": "settings_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "INDEX_NAME": "sms_logs_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "INDEX_NAME": "sms_logs_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "INDEX_NAME": "sms_logs_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "INDEX_NAME": "sms_logs_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "sms_logs",
+        "INDEX_NAME": "sms_logs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "INDEX_NAME": "system_logs_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "INDEX_NAME": "system_logs_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "INDEX_NAME": "system_logs_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "system_logs",
+        "INDEX_NAME": "system_logs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "users",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "users",
+        "INDEX_NAME": "users_email_unique",
+        "COLUMN_NAME": "email",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "users",
+        "INDEX_NAME": "users_mobile_unique",
+        "COLUMN_NAME": "mobile",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_bank_accounts",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_bank_accounts",
+        "INDEX_NAME": "user_bank_accounts_iban_index",
+        "COLUMN_NAME": "iban",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_bank_accounts",
+        "INDEX_NAME": "user_bank_accounts_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_bank_accounts",
+        "INDEX_NAME": "user_bank_accounts_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_bank_accounts",
+        "INDEX_NAME": "user_bank_accounts_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "INDEX_NAME": "user_profiles_email_index",
+        "COLUMN_NAME": "email",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "INDEX_NAME": "user_profiles_mobile_index",
+        "COLUMN_NAME": "mobile",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "INDEX_NAME": "user_profiles_national_code_index",
+        "COLUMN_NAME": "national_code",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "INDEX_NAME": "user_profiles_status_index",
+        "COLUMN_NAME": "status",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "INDEX_NAME": "user_profiles_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_profiles",
+        "INDEX_NAME": "user_profiles_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_sessions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_sessions",
+        "INDEX_NAME": "user_sessions_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_sessions",
+        "INDEX_NAME": "user_sessions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_settings",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_settings",
+        "INDEX_NAME": "user_settings_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_settings",
+        "INDEX_NAME": "user_settings_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "INDEX_NAME": "user_signatures_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "INDEX_NAME": "user_signatures_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "INDEX_NAME": "user_signatures_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "INDEX_NAME": "user_signatures_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "user_signatures",
+        "INDEX_NAME": "user_signatures_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "INDEX_NAME": "violations_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "INDEX_NAME": "violations_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "INDEX_NAME": "violations_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "INDEX_NAME": "violations_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "violations",
+        "INDEX_NAME": "violations_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "INDEX_NAME": "vip_memberships_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "INDEX_NAME": "vip_memberships_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "INDEX_NAME": "vip_memberships_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "INDEX_NAME": "vip_memberships_user_id_unique",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "vip_memberships",
+        "INDEX_NAME": "vip_memberships_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "INDEX_NAME": "wallet_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "INDEX_NAME": "wallet_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "INDEX_NAME": "wallet_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "INDEX_NAME": "wallet_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet",
+        "INDEX_NAME": "wallet_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallets",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallets",
+        "INDEX_NAME": "wallets_ledger_account_id_foreign",
+        "COLUMN_NAME": "ledger_account_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallets",
+        "INDEX_NAME": "wallets_user_id_foreign",
+        "COLUMN_NAME": "user_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallets",
+        "INDEX_NAME": "wallets_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_balances",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_balances",
+        "INDEX_NAME": "wallet_balances_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_balances",
+        "INDEX_NAME": "wallet_balances_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_limits",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_limits",
+        "INDEX_NAME": "wallet_limits_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_limits",
+        "INDEX_NAME": "wallet_limits_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_locks",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_locks",
+        "INDEX_NAME": "wallet_locks_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_locks",
+        "INDEX_NAME": "wallet_locks_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_locks",
+        "INDEX_NAME": "wallet_locks_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_settings",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_settings",
+        "INDEX_NAME": "wallet_settings_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_settings",
+        "INDEX_NAME": "wallet_settings_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_transactions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_transactions",
+        "INDEX_NAME": "wallet_transactions_ledger_transaction_id_foreign",
+        "COLUMN_NAME": "ledger_transaction_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_transactions",
+        "INDEX_NAME": "wallet_transactions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "wallet_transactions",
+        "INDEX_NAME": "wallet_transactions_wallet_id_foreign",
+        "COLUMN_NAME": "wallet_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "INDEX_NAME": "workflow_actions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "INDEX_NAME": "workflow_actions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "INDEX_NAME": "workflow_actions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_actions",
+        "INDEX_NAME": "workflow_actions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "uniq_workflow_approvals",
+        "COLUMN_NAME": "workflow_instance_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "uniq_workflow_approvals",
+        "COLUMN_NAME": "step_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "uniq_workflow_approvals",
+        "COLUMN_NAME": "approver_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 3,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "workflow_approvals_approver_id_foreign",
+        "COLUMN_NAME": "approver_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "workflow_approvals_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "workflow_approvals_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "workflow_approvals_step_id_foreign",
+        "COLUMN_NAME": "step_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "workflow_approvals_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_approvals",
+        "INDEX_NAME": "workflow_approvals_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "uniq_workflow_assignments",
+        "COLUMN_NAME": "workflow_step_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "uniq_workflow_assignments",
+        "COLUMN_NAME": "assignable_type",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "uniq_workflow_assignments",
+        "COLUMN_NAME": "assignable_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 3,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "uniq_workflow_assignments",
+        "COLUMN_NAME": "assignment_type",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 4,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "workflow_assignments_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "workflow_assignments_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "workflow_assignments_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_assignments",
+        "INDEX_NAME": "workflow_assignments_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "INDEX_NAME": "workflow_conditions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "INDEX_NAME": "workflow_conditions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "INDEX_NAME": "workflow_conditions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_conditions",
+        "INDEX_NAME": "workflow_conditions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "INDEX_NAME": "workflow_definitions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "INDEX_NAME": "workflow_definitions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "INDEX_NAME": "workflow_definitions_key_index",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "INDEX_NAME": "workflow_definitions_slug_unique",
+        "COLUMN_NAME": "slug",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "INDEX_NAME": "workflow_definitions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_definitions",
+        "INDEX_NAME": "workflow_definitions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "INDEX_NAME": "workflow_events_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "INDEX_NAME": "workflow_events_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "INDEX_NAME": "workflow_events_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "INDEX_NAME": "workflow_events_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_events",
+        "INDEX_NAME": "workflow_events_workflow_instance_id_foreign",
+        "COLUMN_NAME": "workflow_instance_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "INDEX_NAME": "workflow_idempotency_keys_executed_at_index",
+        "COLUMN_NAME": "executed_at",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "INDEX_NAME": "workflow_idempotency_keys_executed_by_foreign",
+        "COLUMN_NAME": "executed_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "INDEX_NAME": "workflow_idempotency_keys_key_unique",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "INDEX_NAME": "workflow_idempotency_keys_transition_id_foreign",
+        "COLUMN_NAME": "transition_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_idempotency_keys",
+        "INDEX_NAME": "workflow_idempotency_keys_workflow_instance_id_index",
+        "COLUMN_NAME": "workflow_instance_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "INDEX_NAME": "workflow_instances_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "INDEX_NAME": "workflow_instances_current_state_id_foreign",
+        "COLUMN_NAME": "current_state_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "INDEX_NAME": "workflow_instances_current_step_id_foreign",
+        "COLUMN_NAME": "current_step_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "INDEX_NAME": "workflow_instances_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "INDEX_NAME": "workflow_instances_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "INDEX_NAME": "workflow_instances_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instances",
+        "INDEX_NAME": "workflow_instances_workflow_definition_id_foreign",
+        "COLUMN_NAME": "workflow_definition_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "uniq_workflow_instance_steps",
+        "COLUMN_NAME": "workflow_instance_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "uniq_workflow_instance_steps",
+        "COLUMN_NAME": "step_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_executed_by_foreign",
+        "COLUMN_NAME": "executed_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_from_state_id_foreign",
+        "COLUMN_NAME": "from_state_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_idempotency_key_unique",
+        "COLUMN_NAME": "idempotency_key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_to_state_id_foreign",
+        "COLUMN_NAME": "to_state_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_transition_id_foreign",
+        "COLUMN_NAME": "transition_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_instance_steps",
+        "INDEX_NAME": "workflow_instance_steps_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "INDEX_NAME": "workflow_logs_actor_id_foreign",
+        "COLUMN_NAME": "actor_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "INDEX_NAME": "workflow_logs_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "INDEX_NAME": "workflow_logs_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "INDEX_NAME": "workflow_logs_step_id_foreign",
+        "COLUMN_NAME": "step_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "INDEX_NAME": "workflow_logs_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "INDEX_NAME": "workflow_logs_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_logs",
+        "INDEX_NAME": "workflow_logs_workflow_instance_id_foreign",
+        "COLUMN_NAME": "workflow_instance_id",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_states",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_states",
+        "INDEX_NAME": "workflow_states_is_final_index",
+        "COLUMN_NAME": "is_final",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_states",
+        "INDEX_NAME": "workflow_states_is_initial_index",
+        "COLUMN_NAME": "is_initial",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_states",
+        "INDEX_NAME": "workflow_states_key_index",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_states",
+        "INDEX_NAME": "workflow_states_workflow_definition_id_key_unique",
+        "COLUMN_NAME": "workflow_definition_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_states",
+        "INDEX_NAME": "workflow_states_workflow_definition_id_key_unique",
+        "COLUMN_NAME": "key",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "INDEX_NAME": "workflow_steps_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "INDEX_NAME": "workflow_steps_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "INDEX_NAME": "workflow_steps_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "INDEX_NAME": "workflow_steps_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "INDEX_NAME": "workflow_steps_workflow_definition_id_step_number_unique",
+        "COLUMN_NAME": "workflow_definition_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_steps",
+        "INDEX_NAME": "workflow_steps_workflow_definition_id_step_number_unique",
+        "COLUMN_NAME": "step_number",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "uniq_workflow_transitions",
+        "COLUMN_NAME": "workflow_definition_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "uniq_workflow_transitions",
+        "COLUMN_NAME": "from_step_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "uniq_workflow_transitions",
+        "COLUMN_NAME": "to_step_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 3,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "uniq_workflow_transitions",
+        "COLUMN_NAME": "action",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 4,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "workflow_transitions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "workflow_transitions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "workflow_transitions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_transitions",
+        "INDEX_NAME": "workflow_transitions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "INDEX_NAME": "PRIMARY",
+        "COLUMN_NAME": "id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "INDEX_NAME": "workflow_versions_created_by_foreign",
+        "COLUMN_NAME": "created_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "INDEX_NAME": "workflow_versions_deleted_by_foreign",
+        "COLUMN_NAME": "deleted_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "INDEX_NAME": "workflow_versions_updated_by_foreign",
+        "COLUMN_NAME": "updated_by",
+        "NON_UNIQUE": 1,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "INDEX_NAME": "workflow_versions_uuid_unique",
+        "COLUMN_NAME": "uuid",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "INDEX_NAME": "workflow_versions_workflow_definition_id_version_unique",
+        "COLUMN_NAME": "workflow_definition_id",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 1,
+        "INDEX_TYPE": "BTREE"
+    },
+    {
+        "TABLE_NAME": "workflow_versions",
+        "INDEX_NAME": "workflow_versions_workflow_definition_id_version_unique",
+        "COLUMN_NAME": "version",
+        "NON_UNIQUE": 0,
+        "SEQ_IN_INDEX": 2,
+        "INDEX_TYPE": "BTREE"
+    }
+]

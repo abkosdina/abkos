@@ -1,0 +1,1048 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشاهده همه آگهی های امتیاز وام | مستر وام</title>
+
+<link rel="stylesheet" href="http://127.0.0.1:8001/cdn/Vazirmatn-font-face.css">
+<link rel="preload" as="style" href="http://127.0.0.1:8001/build/assets/app-BV_6egwN.css" /><link rel="preload" as="style" href="http://127.0.0.1:8001/build/assets/landing-KjMdfgvo.css" /><link rel="modulepreload" as="script" href="http://127.0.0.1:8001/build/assets/app-cTvGo8Gz.js" /><link rel="stylesheet" href="http://127.0.0.1:8001/build/assets/app-BV_6egwN.css" /><link rel="stylesheet" href="http://127.0.0.1:8001/build/assets/landing-KjMdfgvo.css" /><script type="module" src="http://127.0.0.1:8001/build/assets/app-cTvGo8Gz.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Vazirmatn', sans-serif; }
+  [x-cloak] { display: none !important; }
+
+  .stagger > * { animation: fadeUp .6s cubic-bezier(.22,1,.36,1) both; }
+  .stagger > *:nth-child(1){animation-delay:.03s} .stagger > *:nth-child(2){animation-delay:.07s}
+  .stagger > *:nth-child(3){animation-delay:.11s} .stagger > *:nth-child(4){animation-delay:.15s}
+  .stagger > *:nth-child(5){animation-delay:.19s} .stagger > *:nth-child(6){animation-delay:.23s}
+  .stagger > *:nth-child(7){animation-delay:.27s} .stagger > *:nth-child(8){animation-delay:.31s}
+
+  .card-hover { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease; }
+  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -18px rgba(15,156,140,.3); }
+
+  .skeleton { background: linear-gradient(90deg,#eef4f3 25%,#f7fbfa 37%,#eef4f3 63%); background-size:400px 100%; animation: shimmer 1.4s infinite linear; }
+
+  ::-webkit-scrollbar { width: 7px; }
+  ::-webkit-scrollbar-thumb { background: #cdeee8; border-radius: 8px; }
+
+  /* --- dual range slider (native inputs stacked) --- */
+  .slider-wrap { position: relative; height: 22px; direction: ltr; }
+  .slider-track { position:absolute; top:8px; right:0; left:0; height:5px; background:#e5e9ef; border-radius:9999px; }
+  .slider-fill { position:absolute; top:8px; height:5px; background:#0f9c8c; border-radius:9999px; }
+  .range-thumb {
+    position:absolute; top:0; right:0; left:0; width:100%; height:22px;
+    -webkit-appearance:none; appearance:none; background:transparent; margin:0; pointer-events:none;
+  }
+  .range-thumb::-webkit-slider-thumb {
+    -webkit-appearance:none; pointer-events:auto; width:16px; height:16px; border-radius:50%;
+    background:#0f9c8c; border:3px solid #fff; box-shadow:0 1px 4px rgba(15,40,35,.35); cursor:pointer; margin-top:2px;
+  }
+  .range-thumb::-moz-range-thumb {
+    pointer-events:auto; width:16px; height:16px; border-radius:50%; background:#0f9c8c;
+    border:3px solid #fff; box-shadow:0 1px 4px rgba(15,40,35,.35); cursor:pointer;
+  }
+  .range-thumb::-moz-range-track { background: transparent; }
+
+  .chip { transition: all .2s ease; }
+  .chip.active { background:#0f9c8c; color:#fff; border-color:#0f9c8c; }
+
+  details.filter-group summary::-webkit-details-marker { display:none; }
+</style>
+</head>
+
+<body class="bg-white text-ink-900 antialiased" x-data="listingsApp()" x-init="init && init()">
+
+<!-- ============ HEADER (shared component) ============ -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+    <div class="max-w-[1180px] mx-auto px-5 h-[76px] flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 shrink-0">
+            <span class="text-[19px] font-extrabold text-ink-900">مستر وام</span>
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                <rect x="1" y="1" width="32" height="32" rx="9" fill="#0f9c8c"/>
+                <path d="M9 22V12l8-4 8 4v10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 22h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 text-[14.5px] text-ink-800 font-medium">
+            <a href="#" @click.prevent="window.scrollTo({top:0,behavior:'smooth'})" class="hover:text-teal-600 transition-colors">خانه</a>
+            <a href="#" @click.prevent="goToLoans()" class="hover:text-teal-600 transition-colors">آگهی ها</a>
+            <a href="#" @click.prevent="goToGuide()" class="hover:text-teal-600 transition-colors">راهنما</a>
+            <a href="#" @click.prevent="goToAbout()" class="hover:text-teal-600 transition-colors">درباره ما</a>
+            <a href="#" @click.prevent="goToContact()" class="hover:text-teal-600 transition-colors">تماس با ما</a>
+            <a href="#" @click.prevent="goToBlog()" class="hover:text-teal-600 transition-colors">وبلاگ</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+            <template x-if="!isAuthenticated">
+                <button @click="goToRegister()"
+                    class="hidden sm:inline-flex text-[14px] font-semibold px-5 py-2.5 rounded-xl border border-gray-300 text-ink-800 hover:border-teal-500 hover:text-teal-600 transition-colors">
+                    ثبت نام
+                </button>
+                <button @click="goToLogin()"
+                    class="btn-shine text-[14px] font-semibold px-5 py-2.5 rounded-xl bg-ink-900 text-white hover:bg-teal-700 transition-colors">
+                    ورود
+                </button>
+            </template>
+            <template x-if="isAuthenticated">
+                <button @click="goToDashboard()"
+                    class="btn-shine text-[14px] font-semibold px-5 py-2.5 rounded-xl bg-teal-600 text-white hover:bg-teal-700 transition-colors">
+                    پنل کاربری
+                </button>
+            </template>
+            <button class="lg:hidden p-2 text-ink-800" @click="mobileMenu = !mobileMenu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+
+    </div>
+
+    <div x-cloak x-show="mobileMenu" x-transition class="lg:hidden border-t border-gray-100 px-5 py-4 flex flex-col gap-4 text-[14.5px] font-medium">
+        <a href="#" @click.prevent="window.scrollTo({top:0,behavior:'smooth'})">خانه</a>
+        <a href="#" @click.prevent="goToLoans()">آگهی ها</a>
+        <a href="#" @click.prevent="goToGuide()">راهنما</a>
+        <a href="#" @click.prevent="goToAbout()">درباره ما</a>
+        <a href="#" @click.prevent="goToContact()">تماس با ما</a>
+        <a href="#" @click.prevent="goToBlog()">وبلاگ</a>
+        <template x-if="!isAuthenticated">
+            <button @click="goToRegister()" class="text-right border border-gray-300 rounded-xl py-2.5 font-semibold">ثبت نام</button>
+        </template>
+        <template x-if="isAuthenticated">
+            <button @click="goToDashboard()" class="text-right bg-teal-600 text-white rounded-xl py-2.5 font-semibold">پنل کاربری</button>
+        </template>
+    </div>
+</header>
+
+<!-- ============ PAGE HEADING ============ -->
+<section class="max-w-[1180px] mx-auto px-5 pt-8 pb-4">
+  <h1 class="text-[24px] sm:text-[28px] font-extrabold text-ink-900 animate-fadeUp">مشاهده همه آگهی های امتیاز وام</h1>
+  <p class="text-ink-400 text-[13.5px] mt-1.5 animate-fadeUp" style="animation-delay:.08s">
+    <span x-text="pagination.total.toLocaleString('en-US')"></span> آگهی مطابق با جستجوی شما یافت شد
+  </p>
+</section>
+
+<!-- ============ QUICK FILTER CHIPS ============ -->
+<section class="max-w-[1180px] mx-auto px-5 pb-2">
+  <div class="flex gap-2 overflow-x-auto pb-3 -mx-1 px-1" style="scrollbar-width:none;">
+    <template x-for="chip in quickChips" :key="chip.key">
+      <button type="button" @click="toggleQuickChip(chip)"
+        class="chip shrink-0 whitespace-nowrap text-[12.5px] font-semibold px-3.5 py-2 rounded-full border border-gray-200 text-ink-700 hover:border-teal-400"
+        :class="isQuickChipActive(chip) ? 'active' : ''">
+        <span x-text="chip.label"></span>
+      </button>
+    </template>
+  </div>
+</section>
+
+<!-- ============ MAIN: SIDEBAR (right) + LISTINGS (left) ============ -->
+<section class="max-w-[1180px] mx-auto px-5 pb-16">
+  <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 items-start">
+
+    <!-- mobile filter toggle -->
+    <button type="button" @click="mobileFilters = true" class="lg:hidden flex items-center justify-center gap-2 w-full border border-gray-200 rounded-xl py-3 font-semibold text-[14px]">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M6.5 12h11M10 18h4"/></svg>
+      فیلترها
+    </button>
+
+    <!-- ============ SIDEBAR (right side) ============ -->
+    <aside
+      class="lg:sticky lg:top-24 bg-white border border-gray-100 rounded-2xl p-5 lg:max-h-[calc(100vh-7rem)] overflow-y-auto
+             fixed lg:static inset-0 z-[60] lg:z-auto lg:translate-x-0 transition-transform duration-300"
+      :class="mobileFilters ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'"
+      x-cloak x-bind:style="window.innerWidth < 1024 ? 'display:' + (mobileFilters ? 'block' : 'none') : 'display:block'"
+    >
+      <div class="flex items-center justify-between mb-4 lg:hidden">
+        <p class="font-extrabold text-[16px]">فیلترها</p>
+        <button @click="mobileFilters = false" class="p-1.5"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+      </div>
+
+      <!-- 1. بانک و طرح وام -->
+      <details class="filter-group border-b border-gray-100 pb-4 mb-4" open>
+        <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-[14px] text-ink-900">
+          <span>🏛 بانک و طرح وام</span>
+          <svg class="w-4 h-4 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-3 max-h-40 overflow-y-auto space-y-2 pl-1">
+          <template x-for="bank in banksList" :key="bank.id">
+            <label class="flex items-center gap-2 text-[13px] text-ink-700 cursor-pointer">
+              <input type="checkbox" :value="bank.id" x-model="filters.banks" @change="onBankFilterChange()" class="accent-teal-600 w-4 h-4 rounded">
+              <span x-text="bank.name"></span>
+            </label>
+          </template>
+        </div>
+
+        <div class="mt-4">
+          <p class="text-[12.5px] font-semibold text-ink-600 mb-2">📋 طرح وام</p>
+          <select x-model="filters.plan" :disabled="availablePlans.length === 0"
+            class="w-full text-[13px] border border-gray-200 rounded-lg px-3 py-2 disabled:bg-gray-50 disabled:text-ink-400 focus:outline-none focus:border-teal-500">
+            <option value="">
+              <template x-if="availablePlans.length === 0">ابتدا بانک را انتخاب کنید</template>
+              <template x-if="availablePlans.length > 0">همه طرح‌ها</template>
+            </option>
+            <template x-for="plan in availablePlans" :key="plan">
+              <option :value="plan" x-text="plan"></option>
+            </template>
+          </select>
+        </div>
+      </details>
+
+      <!-- 2. مبلغ وام -->
+      <div class="border-b border-gray-100 pb-4 mb-4">
+        <p class="font-bold text-[14px] text-ink-900 mb-3">💵 مبلغ وام (تومان)</p>
+        <div class="flex justify-between text-[12px] text-ink-500 mb-1.5">
+          <span x-text="formatToman(filters.loanAmount.min)"></span>
+          <span x-text="formatToman(filters.loanAmount.max)"></span>
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-track"></div>
+          <div class="slider-fill" :style="`right:${pct(filters.loanAmount.min, bounds.loanAmount)}%; left:${100 - pct(filters.loanAmount.max, bounds.loanAmount)}%`"></div>
+          <input type="range" class="range-thumb" :min="bounds.loanAmount.min" :max="bounds.loanAmount.max" step="10000000"
+            x-model.number="filters.loanAmount.min" @input="if(filters.loanAmount.min > filters.loanAmount.max) filters.loanAmount.min = filters.loanAmount.max">
+          <input type="range" class="range-thumb" :min="bounds.loanAmount.min" :max="bounds.loanAmount.max" step="10000000"
+            x-model.number="filters.loanAmount.max" @input="if(filters.loanAmount.max < filters.loanAmount.min) filters.loanAmount.max = filters.loanAmount.min">
+        </div>
+      </div>
+
+      <!-- 3. قیمت فروش امتیاز -->
+      <div class="border-b border-gray-100 pb-4 mb-4">
+        <p class="font-bold text-[14px] text-ink-900 mb-3">💸 قیمت فروش امتیاز (تومان)</p>
+        <div class="flex justify-between text-[12px] text-ink-500 mb-1.5">
+          <span x-text="formatToman(filters.scorePrice.min)"></span>
+          <span x-text="formatToman(filters.scorePrice.max)"></span>
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-track"></div>
+          <div class="slider-fill" :style="`right:${pct(filters.scorePrice.min, bounds.scorePrice)}%; left:${100 - pct(filters.scorePrice.max, bounds.scorePrice)}%`"></div>
+          <input type="range" class="range-thumb" :min="bounds.scorePrice.min" :max="bounds.scorePrice.max" step="1000000"
+            x-model.number="filters.scorePrice.min" @input="if(filters.scorePrice.min > filters.scorePrice.max) filters.scorePrice.min = filters.scorePrice.max">
+          <input type="range" class="range-thumb" :min="bounds.scorePrice.min" :max="bounds.scorePrice.max" step="1000000"
+            x-model.number="filters.scorePrice.max" @input="if(filters.scorePrice.max < filters.scorePrice.min) filters.scorePrice.max = filters.scorePrice.min">
+        </div>
+      </div>
+
+      <!-- 4. نرخ سود -->
+      <div class="border-b border-gray-100 pb-4 mb-4">
+        <p class="font-bold text-[14px] text-ink-900 mb-3">📈 نرخ سود (٪)</p>
+        <div class="flex justify-between text-[12px] text-ink-500 mb-1.5">
+          <span x-text="filters.profitRate.min + '٪'"></span>
+          <span x-text="filters.profitRate.max + '٪'"></span>
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-track"></div>
+          <div class="slider-fill" :style="`right:${pct(filters.profitRate.min, bounds.profitRate)}%; left:${100 - pct(filters.profitRate.max, bounds.profitRate)}%`"></div>
+          <input type="range" class="range-thumb" :min="bounds.profitRate.min" :max="bounds.profitRate.max" step="1"
+            x-model.number="filters.profitRate.min" @input="if(filters.profitRate.min > filters.profitRate.max) filters.profitRate.min = filters.profitRate.max">
+          <input type="range" class="range-thumb" :min="bounds.profitRate.min" :max="bounds.profitRate.max" step="1"
+            x-model.number="filters.profitRate.max" @input="if(filters.profitRate.max < filters.profitRate.min) filters.profitRate.max = filters.profitRate.min">
+        </div>
+      </div>
+
+      <!-- 5. مدت بازپرداخت / تعداد اقساط -->
+      <div class="border-b border-gray-100 pb-4 mb-4">
+        <p class="font-bold text-[14px] text-ink-900 mb-3">📅 مدت بازپرداخت (ماه)</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <template x-for="m in [10,12,18,24,36,48,60]" :key="m">
+            <button type="button" @click="filters.repaymentMonths.min = m; filters.repaymentMonths.max = m"
+              class="chip text-[12px] font-semibold px-3 py-1.5 rounded-lg border border-gray-200"
+              :class="(filters.repaymentMonths.min === m && filters.repaymentMonths.max === m) ? 'active' : ''"
+              x-text="m + ' ماهه'"></button>
+          </template>
+        </div>
+        <div class="flex justify-between text-[12px] text-ink-500 mb-1.5">
+          <span x-text="filters.repaymentMonths.min + ' ماه'"></span>
+          <span x-text="filters.repaymentMonths.max + ' ماه'"></span>
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-track"></div>
+          <div class="slider-fill" :style="`right:${pct(filters.repaymentMonths.min, bounds.repaymentMonths)}%; left:${100 - pct(filters.repaymentMonths.max, bounds.repaymentMonths)}%`"></div>
+          <input type="range" class="range-thumb" :min="bounds.repaymentMonths.min" :max="bounds.repaymentMonths.max" step="1"
+            x-model.number="filters.repaymentMonths.min" @input="if(filters.repaymentMonths.min > filters.repaymentMonths.max) filters.repaymentMonths.min = filters.repaymentMonths.max">
+          <input type="range" class="range-thumb" :min="bounds.repaymentMonths.min" :max="bounds.repaymentMonths.max" step="1"
+            x-model.number="filters.repaymentMonths.max" @input="if(filters.repaymentMonths.max < filters.repaymentMonths.min) filters.repaymentMonths.max = filters.repaymentMonths.min">
+        </div>
+      </div>
+
+      <!-- 6. مبلغ هر قسط -->
+      <div class="border-b border-gray-100 pb-4 mb-4">
+        <p class="font-bold text-[14px] text-ink-900 mb-3">🧾 مبلغ هر قسط (تومان)</p>
+        <div class="flex justify-between text-[12px] text-ink-500 mb-1.5">
+          <span x-text="formatToman(filters.installmentAmount.min)"></span>
+          <span x-text="formatToman(filters.installmentAmount.max)"></span>
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-track"></div>
+          <div class="slider-fill" :style="`right:${pct(filters.installmentAmount.min, bounds.installmentAmount)}%; left:${100 - pct(filters.installmentAmount.max, bounds.installmentAmount)}%`"></div>
+          <input type="range" class="range-thumb" :min="bounds.installmentAmount.min" :max="bounds.installmentAmount.max" step="500000"
+            x-model.number="filters.installmentAmount.min" @input="if(filters.installmentAmount.min > filters.installmentAmount.max) filters.installmentAmount.min = filters.installmentAmount.max">
+          <input type="range" class="range-thumb" :min="bounds.installmentAmount.min" :max="bounds.installmentAmount.max" step="500000"
+            x-model.number="filters.installmentAmount.max" @input="if(filters.installmentAmount.max < filters.installmentAmount.min) filters.installmentAmount.max = filters.installmentAmount.min">
+        </div>
+      </div>
+
+      <!-- 7. فیلتر اختصاصی: قسط ماهانه که کاربر توان پرداختش را دارد -->
+      <div class="border-b border-gray-100 pb-4 mb-4 bg-teal-50/60 -mx-5 px-5 pt-4 rounded-none">
+        <p class="font-bold text-[14px] text-ink-900 mb-1">💚 توان پرداخت قسط ماهانه من</p>
+        <p class="text-[11.5px] text-ink-500 mb-3">آگهی‌هایی که با بودجه ماهانه شما سازگارند نمایش داده می‌شوند</p>
+        <div class="flex justify-between text-[12px] text-ink-500 mb-1.5">
+          <span x-text="formatToman(filters.affordableInstallment.min)"></span>
+          <span x-text="formatToman(filters.affordableInstallment.max)"></span>
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-track"></div>
+          <div class="slider-fill" :style="`right:${pct(filters.affordableInstallment.min, bounds.affordableInstallment)}%; left:${100 - pct(filters.affordableInstallment.max, bounds.affordableInstallment)}%`"></div>
+          <input type="range" class="range-thumb" :min="bounds.affordableInstallment.min" :max="bounds.affordableInstallment.max" step="500000"
+            x-model.number="filters.affordableInstallment.min" @input="if(filters.affordableInstallment.min > filters.affordableInstallment.max) filters.affordableInstallment.min = filters.affordableInstallment.max">
+          <input type="range" class="range-thumb" :min="bounds.affordableInstallment.min" :max="bounds.affordableInstallment.max" step="500000"
+            x-model.number="filters.affordableInstallment.max" @input="if(filters.affordableInstallment.max < filters.affordableInstallment.min) filters.affordableInstallment.max = filters.affordableInstallment.min">
+        </div>
+      </div>
+
+      <!-- 8. فیلتر اختصاصی: حداکثر مبلغ پرداختی خریدار -->
+      <div class="border-b border-gray-100 pb-4 mb-4 bg-teal-50/60 -mx-5 px-5 pt-4">
+        <p class="font-bold text-[14px] text-ink-900 mb-1">💚 حداکثر مبلغی که می‌پردازم</p>
+        <p class="text-[11.5px] text-ink-500 mb-3">فقط آگهی‌هایی با قیمت امتیاز کمتر یا مساوی این مبلغ نشان داده شود</p>
+        <div class="flex justify-between text-[12px] text-ink-500 mb-1.5">
+          <span>۰</span>
+          <span x-text="formatToman(filters.maxBuyerPayment)"></span>
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-track"></div>
+          <div class="slider-fill" :style="`right:0%; left:${100 - pct(filters.maxBuyerPayment, bounds.maxBuyerPayment)}%`"></div>
+          <input type="range" class="range-thumb" :min="bounds.maxBuyerPayment.min" :max="bounds.maxBuyerPayment.max" step="1000000"
+            x-model.number="filters.maxBuyerPayment">
+        </div>
+      </div>
+
+      <!-- 9. موقعیت مکانی -->
+      <div class="border-b border-gray-100 pb-4 mb-4">
+        <p class="font-bold text-[14px] text-ink-900 mb-3">📍 موقعیت مکانی</p>
+        <select x-model="filters.province" @change="filters.city = ''" class="w-full text-[13px] border border-gray-200 rounded-lg px-3 py-2 mb-2 focus:outline-none focus:border-teal-500">
+          <option value="">همه استان‌ها</option>
+          <template x-for="p in Object.keys(provinceCities)" :key="p">
+            <option :value="p" x-text="p"></option>
+          </template>
+        </select>
+        <select x-model="filters.city" :disabled="!filters.province" class="w-full text-[13px] border border-gray-200 rounded-lg px-3 py-2 disabled:bg-gray-50 disabled:text-ink-400 focus:outline-none focus:border-teal-500">
+          <option value="">همه شهرها</option>
+          <template x-for="c in (provinceCities[filters.province] || [])" :key="c">
+            <option :value="c" x-text="c"></option>
+          </template>
+        </select>
+      </div>
+
+      <!-- 10. وضعیت آگهی -->
+      <details class="filter-group border-b border-gray-100 pb-4 mb-4">
+        <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-[14px] text-ink-900">
+          <span>⭐ وضعیت آگهی</span>
+          <svg class="w-4 h-4 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-3 space-y-2">
+          <template x-for="opt in adStatusOptions" :key="opt.key">
+            <label class="flex items-center gap-2 text-[13px] text-ink-700 cursor-pointer">
+              <input type="checkbox" :value="opt.key" x-model="filters.adStatus" class="accent-teal-600 w-4 h-4 rounded">
+              <span x-text="opt.label"></span>
+            </label>
+          </template>
+        </div>
+      </details>
+
+      <!-- 11. نوع معامله -->
+      <details class="filter-group border-b border-gray-100 pb-4 mb-4">
+        <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-[14px] text-ink-900">
+          <span>🛡 نوع معامله</span>
+          <svg class="w-4 h-4 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-3 space-y-2">
+          <template x-for="opt in transactionTypeOptions" :key="opt.key">
+            <label class="flex items-center gap-2 text-[13px] text-ink-700 cursor-pointer">
+              <input type="checkbox" :value="opt.key" x-model="filters.transactionType" class="accent-teal-600 w-4 h-4 rounded">
+              <span x-text="opt.label"></span>
+            </label>
+          </template>
+        </div>
+      </details>
+
+      <!-- 12. فروشنده -->
+      <details class="filter-group border-b border-gray-100 pb-4 mb-4">
+        <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-[14px] text-ink-900">
+          <span>👤 فروشنده</span>
+          <svg class="w-4 h-4 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-3 space-y-2">
+          <template x-for="opt in sellerTypeOptions" :key="opt.key">
+            <label class="flex items-center gap-2 text-[13px] text-ink-700 cursor-pointer">
+              <input type="checkbox" :value="opt.key" x-model="filters.sellerType" class="accent-teal-600 w-4 h-4 rounded">
+              <span x-text="opt.label"></span>
+            </label>
+          </template>
+        </div>
+        <div class="mt-4">
+          <p class="text-[12.5px] font-semibold text-ink-600 mb-2">⭐ حداقل امتیاز فروشنده</p>
+          <div class="flex justify-between text-[12px] text-ink-500 mb-1.5">
+            <span x-text="filters.sellerRatingMin + ' ستاره به بالا'"></span>
+          </div>
+          <div class="slider-wrap">
+            <div class="slider-track"></div>
+            <div class="slider-fill" :style="`right:0%; left:${100 - pct(filters.sellerRatingMin, bounds.sellerRating)}%`"></div>
+            <input type="range" class="range-thumb" :min="bounds.sellerRating.min" :max="bounds.sellerRating.max" step="1" x-model.number="filters.sellerRatingMin">
+          </div>
+        </div>
+      </details>
+
+      <!-- 13. محبوبیت و زمان ثبت -->
+      <details class="filter-group border-b border-gray-100 pb-4 mb-4">
+        <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-[14px] text-ink-900">
+          <span>🔥 محبوبیت و زمان ثبت</span>
+          <svg class="w-4 h-4 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-3 space-y-2">
+          <template x-for="opt in popularityOptions" :key="opt.key">
+            <label class="flex items-center gap-2 text-[13px] text-ink-700 cursor-pointer">
+              <input type="checkbox" :value="opt.key" x-model="filters.popularity" class="accent-teal-600 w-4 h-4 rounded">
+              <span x-text="opt.label"></span>
+            </label>
+          </template>
+        </div>
+        <div class="mt-4">
+          <p class="text-[12.5px] font-semibold text-ink-600 mb-2">📆 زمان ثبت آگهی</p>
+          <select x-model="filters.registeredTime" class="w-full text-[13px] border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500">
+            <option value="">همه زمان‌ها</option>
+            <option value="today">امروز</option>
+            <option value="yesterday">دیروز</option>
+            <option value="this_week">این هفته</option>
+            <option value="this_month">این ماه</option>
+          </select>
+        </div>
+      </details>
+
+      <!-- 14. قرارداد و مذاکره و مدارک -->
+      <details class="filter-group pb-2 mb-4">
+        <summary class="cursor-pointer list-none flex items-center justify-between font-bold text-[14px] text-ink-900">
+          <span>📑 قرارداد، مذاکره و مدارک</span>
+          <svg class="w-4 h-4 text-ink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="mt-3 space-y-2">
+          <template x-for="opt in contractOptions" :key="opt.key">
+            <label class="flex items-center gap-2 text-[13px] text-ink-700 cursor-pointer">
+              <input type="checkbox" :value="opt.key" x-model="filters.contractStatus" class="accent-teal-600 w-4 h-4 rounded">
+              <span x-text="opt.label"></span>
+            </label>
+          </template>
+          <template x-for="opt in negotiationOptions" :key="opt.key">
+            <label class="flex items-center gap-2 text-[13px] text-ink-700 cursor-pointer">
+              <input type="checkbox" :value="opt.key" x-model="filters.negotiationStatus" class="accent-teal-600 w-4 h-4 rounded">
+              <span x-text="opt.label"></span>
+            </label>
+          </template>
+          <template x-for="opt in documentOptions" :key="opt.key">
+            <label class="flex items-center gap-2 text-[13px] text-ink-700 cursor-pointer">
+              <input type="checkbox" :value="opt.key" x-model="filters.documents" class="accent-teal-600 w-4 h-4 rounded">
+              <span x-text="opt.label"></span>
+            </label>
+          </template>
+        </div>
+      </details>
+
+      <!-- ACTION BUTTONS -->
+      <div class="sticky bottom-0 bg-white pt-3 -mx-5 px-5 border-t border-gray-100 flex gap-2">
+        <button type="button" @click="resetFilters()" class="flex-1 border border-gray-200 rounded-xl py-3 text-[13.5px] font-semibold text-ink-700 hover:border-gray-300">
+          حذف فیلترها
+        </button>
+        <button type="button" @click="applyFilters()" class="flex-[1.4] bg-teal-600 text-white rounded-xl py-3 text-[13.5px] font-bold hover:bg-teal-700 transition-colors shadow-lg shadow-teal-600/25">
+          اعمال فیلتر
+        </button>
+      </div>
+    </aside>
+
+    <!-- mobile overlay backdrop -->
+    <div x-cloak x-show="mobileFilters" @click="mobileFilters = false" class="lg:hidden fixed inset-0 bg-black/40 z-50"></div>
+
+    <!-- ============ LISTINGS COLUMN (left side) ============ -->
+    <div>
+      <!-- sort + count -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+        <p class="text-[13.5px] text-ink-600">
+          نمایش <span class="font-bold text-ink-900" x-text="listings.length"></span> از
+          <span class="font-bold text-ink-900" x-text="pagination.total.toLocaleString('en-US')"></span> آگهی
+        </p>
+        <select x-model="filters.sort" @change="applyFilters()" class="text-[13px] border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500">
+          <option value="newest">جدیدترین</option>
+          <option value="oldest">قدیمی‌ترین</option>
+          <option value="cheapest">ارزان‌ترین</option>
+          <option value="expensive">گران‌ترین</option>
+          <option value="highest_loan">بیشترین مبلغ وام</option>
+          <option value="lowest_profit">کمترین نرخ سود</option>
+          <option value="top_seller_rating">بیشترین امتیاز فروشنده</option>
+          <option value="most_viewed">بیشترین بازدید</option>
+          <option value="most_popular">بیشترین محبوبیت</option>
+          <option value="nearest_city">نزدیک‌ترین شهر</option>
+          <option value="featured">پیشنهاد ویژه</option>
+        </select>
+      </div>
+
+      <!-- loading skeleton -->
+      <div x-cloak x-show="loading" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+        <template x-for="i in 6" :key="i">
+          <div class="border border-gray-100 rounded-2xl p-5 h-[230px] skeleton"></div>
+        </template>
+      </div>
+
+      <!-- empty state -->
+      <div x-cloak x-show="!loading && listings.length === 0" class="text-center py-20 border border-dashed border-gray-200 rounded-2xl">
+        <p class="text-[15px] font-bold text-ink-800">آگهی‌ای با این فیلترها پیدا نشد</p>
+        <p class="text-[13px] text-ink-400 mt-1">فیلترهای خود را تغییر دهید یا آن‌ها را پاک کنید</p>
+        <button @click="resetFilters()" class="mt-4 text-teal-600 font-semibold text-[13.5px] hover:underline">حذف همه فیلترها</button>
+      </div>
+
+      <!-- cards -->
+      <div x-cloak x-show="!loading && listings.length > 0" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 stagger">
+        <template x-for="loan in listings" :key="loan.id">
+          <div class="card-hover border border-gray-100 rounded-2xl p-5 relative bg-white">
+            <div class="absolute left-4 top-5 flex gap-1.5">
+              <span x-show="loan.urgent" class="text-[10px] font-bold bg-red-50 text-red-500 px-2 py-0.5 rounded-full">فوری</span>
+              <span x-show="loan.vip" class="text-[10px] font-bold bg-amber-50 text-amber-600 px-2 py-0.5 rounded-full">VIP</span>
+            </div>
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center text-white font-bold text-[13px]" :class="loan.color" x-text="loan.bankInitial"></div>
+
+            <!-- Seller name strip -->
+            <div class="mt-3">
+              <div class="w-full text-[13px] font-semibold text-teal-800 bg-teal-50 px-3 py-1 rounded-lg truncate"
+                   x-text="loan.seller && loan.seller.name ? loan.seller.name : 'فروشنده ناشناس'"></div>
+            </div>
+
+            <p class="mt-3.5 font-bold text-[14.5px] text-ink-900" x-text="loan.title"></p>
+            <p class="text-[11.5px] text-ink-400 mt-0.5" x-text="loan.plan"></p>
+            <div class="flex flex-wrap gap-1.5 mt-2">
+              <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full" x-text="'امتیاز ' + loan.sellerRating + '★'"></span>
+              <span class="text-[11px] font-bold text-ink-600 bg-gray-50 px-2.5 py-1 rounded-full" x-text="loan.repaymentMonths + ' ماهه'"></span>
+              <span class="text-[11px] font-bold text-ink-600 bg-gray-50 px-2.5 py-1 rounded-full" x-text="'سود ' + loan.profitRate + '٪'"></span>
+            </div>
+            <p class="mt-3 font-extrabold text-[15px] text-ink-900" x-text="formatToman(loan.scorePrice) + ' تومان'"></p>
+            <p class="text-[11.5px] text-ink-400 mt-0.5" x-text="'مبلغ وام: ' + formatToman(loan.loanAmount) + ' تومان'"></p>
+            <p class="text-[12px] text-ink-400 mt-1" x-text="loan.city + '، ' + loan.province"></p>
+            <button @click="goToListing(loan.id)" class="mt-4 w-full text-center text-[13px] font-semibold py-2.5 rounded-xl border border-gray-200 hover:border-teal-500 hover:text-teal-700 transition-colors">
+              مشاهده جزئیات
+            </button>
+          </div>
+        </template>
+      </div>
+
+      <!-- ============ PAGINATION ============ -->
+      <div x-cloak x-show="!loading && pagination.lastPage > 1" class="flex items-center justify-center gap-2 mt-10 flex-wrap">
+        <button type="button" @click="goToPage(pagination.currentPage - 1)" :disabled="pagination.currentPage === 1"
+          class="w-9 h-9 rounded-lg border border-gray-200 flex items-center justify-center disabled:opacity-30 hover:border-teal-500">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <template x-for="p in paginationRange" :key="p">
+          <button type="button" @click="typeof p === 'number' && goToPage(p)"
+            class="w-9 h-9 rounded-lg text-[13px] font-semibold flex items-center justify-center"
+            :class="p === pagination.currentPage ? 'bg-teal-600 text-white' : (p === '...' ? 'text-ink-400 cursor-default' : 'border border-gray-200 hover:border-teal-500')"
+            x-text="p"></button>
+        </template>
+
+        <button type="button" @click="goToPage(pagination.currentPage + 1)" :disabled="pagination.currentPage === pagination.lastPage"
+          class="w-9 h-9 rounded-lg border border-gray-200 flex items-center justify-center disabled:opacity-30 hover:border-teal-500">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (shared component) ============ -->
+<footer class="border-t border-gray-100 bg-gray-50/60">
+    <div class="max-w-[1180px] mx-auto px-5 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div>
+            <div class="flex items-center gap-2 mb-3">
+                <span class="font-extrabold text-[17px] text-ink-900">مستر وام</span>
+                <svg width="28" height="28" viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="9" fill="#0f9c8c"/><path d="M9 22V12l8-4 8 4v10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="text-[13px] text-ink-400 leading-7">پلتفرم خرید و فروش امتیاز وام بانک‌ها، بازار امن و شفاف برای معامله امتیازهای وام مازاد</p>
+            <div class="flex gap-3 mt-4">
+                <a href="#" class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:border-teal-500 transition-colors">in</a>
+                <a href="#" class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:border-teal-500 transition-colors">✈</a>
+                <a href="#" class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:border-teal-500 transition-colors">◎</a>
+            </div>
+        </div>
+
+        <div>
+            <p class="font-bold text-[14px] mb-4">خدمات</p>
+            <ul class="space-y-2.5 text-[13px] text-ink-400">
+                <li><a href="#" class="hover:text-teal-600">آگهی های وام مسکن</a></li>
+                <li><a href="#" class="hover:text-teal-600">آگهی های وام خودرو</a></li>
+                <li><a href="#" class="hover:text-teal-600">آگهی های وام شخصی</a></li>
+                <li><a href="#" class="hover:text-teal-600">آگهی های وام کسب و کار</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="font-bold text-[14px] mb-4">لینک های مفید</p>
+            <ul class="space-y-2.5 text-[13px] text-ink-400">
+                <li><a href="#" class="hover:text-teal-600">راهنما</a></li>
+                <li><a href="#" class="hover:text-teal-600">سوالات متداول</a></li>
+                <li><a href="#" class="hover:text-teal-600">قوانین و شرایط</a></li>
+                <li><a href="#" class="hover:text-teal-600">حریم خصوصی</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="font-bold text-[14px] mb-4">خبرنامه</p>
+            <p class="text-[13px] text-ink-400 leading-6 mb-3">برای دریافت آخرین آگهی ها و اخبار، ایمیل خود را وارد کنید</p>
+            <form class="flex gap-2" @submit.prevent>
+                <input type="email" placeholder="ایمیل خود را وارد کنید" class="flex-1 min-w-0 border border-gray-200 rounded-xl px-3 py-2 text-[13px] focus:outline-none focus:border-teal-500">
+                <button class="bg-ink-900 text-white text-[13px] font-semibold px-4 rounded-xl hover:bg-teal-700 transition-colors">عضویت</button>
+            </form>
+        </div>
+    </div>
+    <div class="border-t border-gray-100 py-5 text-center text-[12.5px] text-ink-400">
+        © ۱۴۰۳ مستر وام - تمامی حقوق محفوظ است
+    </div>
+</footer>
+
+<script>
+window.listingsApp = function listingsApp() {
+  return {
+    mobileMenu: false,
+    mobileFilters: false,
+    loading: true,
+
+    // ---------------------------------------------------------------
+    // backend-backed reference data
+    // ---------------------------------------------------------------
+    banksList: [{"id":"parsian","name":"\u0628\u0627\u0646\u06a9 \u067e\u0627\u0631\u0633\u06cc\u0627\u0646"},{"id":"pasargad","name":"\u0628\u0627\u0646\u06a9 \u067e\u0627\u0633\u0627\u0631\u06af\u0627\u062f"},{"id":"tejarat","name":"\u0628\u0627\u0646\u06a9 \u062a\u062c\u0627\u0631\u062a"},{"id":"tosee_taavon","name":"\u0628\u0627\u0646\u06a9 \u062a\u0648\u0633\u0639\u0647 \u062a\u0639\u0627\u0648\u0646"},{"id":"shahr","name":"\u0628\u0627\u0646\u06a9 \u0634\u0647\u0631"},{"id":"saderat","name":"\u0628\u0627\u0646\u06a9 \u0635\u0627\u062f\u0631\u0627\u062a \u0627\u06cc\u0631\u0627\u0646"},{"id":"keshavarzi","name":"\u0628\u0627\u0646\u06a9 \u06a9\u0634\u0627\u0648\u0631\u0632\u06cc"},{"id":"mellat","name":"\u0628\u0627\u0646\u06a9 \u0645\u0644\u062a"},{"id":"melli","name":"\u0628\u0627\u0646\u06a9 \u0645\u0644\u06cc \u0627\u06cc\u0631\u0627\u0646"},{"id":"postbank","name":"\u067e\u0633\u062a \u0628\u0627\u0646\u06a9 \u0627\u06cc\u0631\u0627\u0646"}],
+    bankPlans: {"parsian":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc parsian 9"],"pasargad":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc pasargad 9"],"tejarat":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tejarat 9"],"tosee_taavon":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc tosee_taavon 9"],"shahr":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc shahr 9"],"saderat":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc saderat 9"],"keshavarzi":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc keshavarzi 9"],"mellat":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc mellat 9","\u0637\u0631\u062d \u0631\u0641\u0627\u0647 \u0645\u0644\u062a"],"melli":["\u0627\u0639\u062a\u0628\u0627\u0631 \u0645\u0644\u06cc","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc melli 9","\u0645\u0647\u0631\u0628\u0627\u0646\u06cc"],"postbank":["\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 1","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 10","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 2","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 3","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 4","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 5","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 6","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 7","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 8","\u0637\u0631\u062d \u062a\u0633\u062a\u06cc postbank 9"]},
+    bankDataLoaded: false,
+    provinceCities: {
+      'تهران': ['تهران', 'شهریار', 'اسلامشهر'],
+      'اصفهان': ['اصفهان', 'کاشان', 'نجف‌آباد'],
+      'خراسان رضوی': ['مشهد', 'نیشابور'],
+      'فارس': ['شیراز', 'مرودشت'],
+      'آذربایجان شرقی': ['تبریز', 'مراغه'],
+      'البرز': ['کرج', 'نظرآباد'],
+    },
+    adStatusOptions: [
+      { key: 'active', label: 'فقط فعال' }, { key: 'unsold', label: 'فروخته نشده' },
+      { key: 'negotiating', label: 'دارای مذاکره' }, { key: 'urgent', label: 'فوری' },
+      { key: 'vip', label: 'VIP' }, { key: 'guaranteed', label: 'دارای ضمانت سایت' },
+    ],
+    transactionTypeOptions: [
+      { key: 'escrow', label: 'Escrow' }, { key: 'vip_no_escrow', label: 'VIP بدون Escrow' },
+      { key: 'in_person', label: 'فقط حضوری' }, { key: 'online', label: 'فقط آنلاین' },
+    ],
+    sellerTypeOptions: [
+      { key: 'verified', label: 'احراز هویت شده' }, { key: 'vip', label: 'VIP' },
+      { key: 'featured', label: 'فروشنده منتخب' }, { key: 'high_rating', label: 'دارای امتیاز بالا' },
+    ],
+    popularityOptions: [
+      { key: 'most_viewed', label: 'پربازدید' }, { key: 'most_contacted', label: 'بیشترین تماس' },
+      { key: 'most_negotiated', label: 'بیشترین مذاکره' }, { key: 'most_sold', label: 'بیشترین فروش' },
+    ],
+    contractOptions: [
+      { key: 'contract_ready', label: 'قرارداد آماده' }, { key: 'needs_contract', label: 'نیازمند قرارداد' },
+    ],
+    negotiationOptions: [
+      { key: 'negotiable', label: 'قابل مذاکره' }, { key: 'fixed_price', label: 'قیمت قطعی' },
+    ],
+    documentOptions: [
+      { key: 'full_verification', label: 'احراز هویت کامل' }, { key: 'esign', label: 'امضای الکترونیکی ثبت شده' },
+      { key: 'full_docs', label: 'مدارک کامل' },
+    ],
+    quickChips: [
+      { key: 'urgent', label: '🔥 فوری' }, { key: 'vip', label: '⭐ VIP' },
+      { key: 'guaranteed', label: '🛡 ضمانت سایت' }, { key: 'verified', label: '✅ احراز هویت شده' },
+      { key: 'under_20m', label: '💰 زیر ۲۰ میلیون' }, { key: 'bank_melli', label: '🏦 بانک ملی' },
+      { key: 'bank_resalat', label: '🏦 بانک رسالت' }, { key: 'profit_under_4', label: '📈 سود زیر ۴٪' },
+      { key: 'months_60', label: '📅 اقساط ۶۰ ماهه' }, { key: 'negotiable', label: '💬 قابل مذاکره' },
+      { key: 'newest', label: '🆕 جدیدترین' },
+    ],
+
+    // ---------------------------------------------------------------
+    // slider bounds (تنظیم این مقادیر بر اساس داده واقعی بک‌اند)
+    // ---------------------------------------------------------------
+    bounds: {
+      loanAmount:          { min: 50000000,  max: 1000000000 },
+      scorePrice:          { min: 5000000,   max: 300000000 },
+      profitRate:          { min: 0,         max: 30 },
+      repaymentMonths:     { min: 10,        max: 60 },
+      installmentAmount:   { min: 500000,    max: 50000000 },
+      affordableInstallment:{ min: 500000,   max: 30000000 },
+      maxBuyerPayment:     { min: 0,         max: 300000000 },
+      sellerRating:        { min: 1,         max: 5 },
+    },
+
+    // ---------------------------------------------------------------
+    // active filters state
+    // ---------------------------------------------------------------
+    filters: {
+      banks: [],
+      plan: '',
+      loanAmount: { min: 50000000, max: 1000000000 },
+      scorePrice: { min: 5000000, max: 300000000 },
+      profitRate: { min: 0, max: 30 },
+      repaymentMonths: { min: 10, max: 60 },
+      installmentAmount: { min: 500000, max: 50000000 },
+      affordableInstallment: { min: 500000, max: 30000000 },
+      maxBuyerPayment: 300000000,
+      province: '',
+      city: '',
+      adStatus: [],
+      transactionType: [],
+      sellerType: [],
+      sellerRatingMin: 1,
+      popularity: [],
+      registeredTime: '',
+      contractStatus: [],
+      negotiationStatus: [],
+      documents: [],
+      sort: 'newest',
+    },
+
+    pagination: { currentPage: 1, perPage: 9, total: 0, lastPage: 1 },
+    listings: [],
+
+    // ---------------------------------------------------------------
+    async init() {
+      if (! Array.isArray(this.banksList) || this.banksList.length === 0) {
+        await this.loadBanks();
+      } else {
+        this.bankDataLoaded = true;
+      }
+      this.fetchListings();
+    },
+
+    async loadBanks() {
+      try {
+        const { data } = await axios.get('/api/v1/banks');
+        this.banksList = Array.isArray(data.banks) ? data.banks : this.banksList;
+        this.bankPlans = data.bank_plans || this.bankPlans;
+      } catch (err) {
+        console.error('خطا در دریافت بانک‌ها از سرور:', err);
+      } finally {
+        this.bankDataLoaded = true;
+      }
+    },
+
+    goToLogin() { window.location.href = '/users/login'; },
+    goToRegister() { window.location.href = '/users/register'; },
+    goToListing(id) { window.location.href = `/ads/detail?id=${id}`; },
+
+    formatToman(n) { return Number(n).toLocaleString('en-US'); },
+
+    pct(value, bound) {
+      if (bound.max === bound.min) return 0;
+      return ((value - bound.min) / (bound.max - bound.min)) * 100;
+    },
+
+    get availablePlans() {
+      const banks = Array.isArray(this.filters?.banks) ? this.filters.banks : [];
+      if (banks.length === 0) return [];
+      const plans = new Set();
+      banks.forEach((b) => {
+        const planList = Array.isArray(this.bankPlans?.[b]) ? this.bankPlans[b] : [];
+        planList.forEach((p) => plans.add(p));
+      });
+      return Array.from(plans);
+    },
+
+    onBankFilterChange() {
+      if (this.filters.plan && !this.availablePlans.includes(this.filters.plan)) {
+        this.filters.plan = '';
+      }
+    },
+
+    get paginationRange() {
+      const total = this.pagination.lastPage;
+      const current = this.pagination.currentPage;
+      const range = [];
+      const delta = 1;
+      for (let i = 1; i <= total; i++) {
+        if (i === 1 || i === total || (i >= current - delta && i <= current + delta)) {
+          range.push(i);
+        } else if (range[range.length - 1] !== '...') {
+          range.push('...');
+        }
+      }
+      return range;
+    },
+
+    // ---------------------------------------------------------------
+    // quick chips
+    // ---------------------------------------------------------------
+    isQuickChipActive(chip) {
+      switch (chip.key) {
+        case 'urgent': return this.filters.adStatus.includes('urgent');
+        case 'vip': return this.filters.adStatus.includes('vip');
+        case 'guaranteed': return this.filters.adStatus.includes('guaranteed');
+        case 'verified': return this.filters.sellerType.includes('verified');
+        case 'under_20m': return this.filters.scorePrice.max <= 20000000;
+        case 'bank_melli': return this.filters.banks.includes('melli');
+        case 'bank_resalat': return this.filters.banks.includes('resalat');
+        case 'profit_under_4': return this.filters.profitRate.max <= 4;
+        case 'months_60': return this.filters.repaymentMonths.min === 60 && this.filters.repaymentMonths.max === 60;
+        case 'negotiable': return this.filters.negotiationStatus.includes('negotiable');
+        case 'newest': return this.filters.sort === 'newest';
+        default: return false;
+      }
+    },
+
+    toggleQuickChip(chip) {
+      const active = this.isQuickChipActive(chip);
+      switch (chip.key) {
+        case 'urgent': this.toggleInArray(this.filters.adStatus, 'urgent'); break;
+        case 'vip': this.toggleInArray(this.filters.adStatus, 'vip'); break;
+        case 'guaranteed': this.toggleInArray(this.filters.adStatus, 'guaranteed'); break;
+        case 'verified': this.toggleInArray(this.filters.sellerType, 'verified'); break;
+        case 'under_20m': this.filters.scorePrice.max = active ? this.bounds.scorePrice.max : 20000000; break;
+        case 'bank_melli': this.toggleInArray(this.filters.banks, 'melli'); break;
+        case 'bank_resalat': this.toggleInArray(this.filters.banks, 'resalat'); break;
+        case 'profit_under_4': this.filters.profitRate.max = active ? this.bounds.profitRate.max : 4; break;
+        case 'months_60':
+          if (active) { this.filters.repaymentMonths.min = this.bounds.repaymentMonths.min; this.filters.repaymentMonths.max = this.bounds.repaymentMonths.max; }
+          else { this.filters.repaymentMonths.min = 60; this.filters.repaymentMonths.max = 60; }
+          break;
+        case 'negotiable': this.toggleInArray(this.filters.negotiationStatus, 'negotiable'); break;
+        case 'newest': this.filters.sort = 'newest'; break;
+      }
+      this.applyFilters();
+    },
+
+    toggleInArray(arr, val) {
+      const i = arr.indexOf(val);
+      if (i === -1) arr.push(val); else arr.splice(i, 1);
+    },
+
+    resetFilters() {
+      this.filters = {
+        banks: [], plan: '',
+        loanAmount: { ...this.bounds.loanAmount },
+        scorePrice: { ...this.bounds.scorePrice },
+        profitRate: { ...this.bounds.profitRate },
+        repaymentMonths: { ...this.bounds.repaymentMonths },
+        installmentAmount: { ...this.bounds.installmentAmount },
+        affordableInstallment: { ...this.bounds.affordableInstallment },
+        maxBuyerPayment: this.bounds.maxBuyerPayment.max,
+        province: '', city: '',
+        adStatus: [], transactionType: [], sellerType: [],
+        sellerRatingMin: 1, popularity: [], registeredTime: '',
+        contractStatus: [], negotiationStatus: [], documents: [],
+        sort: 'newest',
+      };
+      this.applyFilters();
+    },
+
+    applyFilters() {
+      this.pagination.currentPage = 1;
+      this.mobileFilters = false;
+      this.fetchListings();
+    },
+
+    goToPage(page) {
+      if (page < 1 || page > this.pagination.lastPage) return;
+      this.pagination.currentPage = page;
+      this.fetchListings();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+
+    // =================================================================
+    // API INTEGRATION (Axios) — لیست آگهی‌ها با فیلتر + صفحه‌بندی
+    // -----------------------------------------------------------------
+    // فعلاً روی داده‌ی تستی کار می‌کند. برای اتصال به بک‌اند واقعی (لاراول):
+    //   1) USE_TEST_DATA را false کن
+    //   2) API_BASE را به آدرس واقعی ست کن
+    // بک‌اند باید صفحه‌بندی استاندارد لاراول برگرداند، مثلاً:
+    //   { data: [...], meta: { current_page, last_page, total, per_page } }
+    // =================================================================
+    async fetchListings() {
+      const USE_TEST_DATA = false;
+      const API_BASE = '';
+
+      this.loading = true;
+
+      if (USE_TEST_DATA) {
+        await new Promise((r) => setTimeout(r, 400));
+        const { items, total } = this.filterDemoData();
+        this.listings = items;
+        this.pagination.total = total;
+        this.pagination.lastPage = Math.max(1, Math.ceil(total / this.pagination.perPage));
+        this.loading = false;
+        return;
+      }
+
+      try {
+        const params = this.buildParams();
+        const { data } = await axios.get(`${API_BASE}/api/advertisements`, { params });
+        this.listings = (data.data || []).map(this.mapListing);
+        this.pagination.total = data.meta?.total ?? this.listings.length;
+        this.pagination.lastPage = data.meta?.last_page ?? 1;
+        this.pagination.currentPage = data.meta?.current_page ?? this.pagination.currentPage;
+      } catch (err) {
+        console.error('خطا در دریافت آگهی‌ها از API:', err);
+        this.listings = [];
+        this.pagination.total = 0;
+        this.pagination.lastPage = 1;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    // پارامترهایی که هنگام اتصال API واقعی برای axios.get ارسال می‌شوند
+    buildParams() {
+      const f = this.filters;
+      return {
+        page: this.pagination.currentPage,
+        per_page: this.pagination.perPage,
+        sort: f.sort,
+        banks: f.banks,
+        plan: f.plan || undefined,
+        loan_amount_min: f.loanAmount.min,
+        loan_amount_max: f.loanAmount.max,
+        score_price_min: f.scorePrice.min,
+        score_price_max: f.scorePrice.max,
+        profit_min: f.profitRate.min,
+        profit_max: f.profitRate.max,
+        repayment_months_min: f.repaymentMonths.min,
+        repayment_months_max: f.repaymentMonths.max,
+        installment_min: f.installmentAmount.min,
+        installment_max: f.installmentAmount.max,
+        affordable_installment_min: f.affordableInstallment.min,
+        affordable_installment_max: f.affordableInstallment.max,
+        max_buyer_payment: f.maxBuyerPayment,
+        province: f.province || undefined,
+        city: f.city || undefined,
+        ad_status: f.adStatus,
+        transaction_type: f.transactionType,
+        seller_type: f.sellerType,
+        seller_rating_min: f.sellerRatingMin,
+        popularity: f.popularity,
+        registered_time: f.registeredTime || undefined,
+        contract_status: f.contractStatus,
+        negotiation_status: f.negotiationStatus,
+        documents: f.documents,
+      };
+    },
+
+    mapListing(item) {
+      const bankName = item.bank_name || '';
+      return {
+        id: item.id,
+        uuid: item.uuid,
+        title: bankName ? `${item.title} - ${bankName}` : item.title,
+        plan: item.plan || 'طرح عمومی',
+        bankInitial: (bankName || item.seller?.name || item.title || '?').trim()[0],
+        loanAmount: item.loan_amount || item.price,
+        scorePrice: item.price,
+        profitRate: item.profit_rate || 0,
+        repaymentMonths: item.repayment_months || 12,
+        sellerRating: item.seller_rating || 0,
+        province: item.province || 'تهران',
+        city: item.city || 'تهران',
+        urgent: item.urgent || false,
+        vip: item.vip || false,
+        seller: item.seller,
+      };
+    },
+
+    // -----------------------------------------------------------------
+    // TEST DATA — فقط برای نمایش؛ با اتصال API واقعی حذف/نادیده گرفته می‌شود
+    // -----------------------------------------------------------------
+    demoPool() {
+      const banks = [
+        { id: 'melli', name: 'بانک ملی', plan: 'مهربانی', color: 'bg-emerald-500' },
+        { id: 'mellat', name: 'بانک ملت', plan: 'طرح رفاه ملت', color: 'bg-red-400' },
+        { id: 'resalat', name: 'بانک رسالت', plan: 'قرض‌الحسنه', color: 'bg-sky-500' },
+        { id: 'saderat', name: 'بانک صادرات', plan: 'طرح صادرات کارت', color: 'bg-blue-400' },
+        { id: 'saman', name: 'بانک سامان', plan: 'طرح سامان کارت', color: 'bg-amber-400' },
+        { id: 'parsian', name: 'بانک پارسیان', plan: 'طرح پارسیان پلاس', color: 'bg-purple-400' },
+        { id: 'ayandeh', name: 'بانک آینده', plan: 'طرح آینده‌سازان', color: 'bg-teal-500' },
+        { id: 'maskan', name: 'بانک مسکن', plan: 'وام ودیعه مسکن', color: 'bg-rose-400' },
+      ];
+      const cities = [
+        { p: 'تهران', c: 'تهران' }, { p: 'اصفهان', c: 'اصفهان' }, { p: 'فارس', c: 'شیراز' },
+        { p: 'خراسان رضوی', c: 'مشهد' }, { p: 'آذربایجان شرقی', c: 'تبریز' }, { p: 'البرز', c: 'کرج' },
+      ];
+      const items = [];
+      for (let i = 1; i <= 42; i++) {
+        const bank = banks[i % banks.length];
+        const loc = cities[i % cities.length];
+        items.push({
+          id: i,
+          bankId: bank.id,
+          title: `وام ${['مسکن', 'خودرو', 'شخصی', 'کسب و کار'][i % 4]} - ${bank.name}`,
+          plan: bank.plan,
+          bankInitial: bank.name[4] || bank.name[0],
+          color: bank.color,
+          loanAmount: 50000000 + (i % 10) * 90000000,
+          scorePrice: 5000000 + (i % 12) * 24000000,
+          profitRate: (i % 7) * 4,
+          repaymentMonths: [10, 12, 18, 24, 36, 48, 60][i % 7],
+          installmentAmount: 500000 + (i % 10) * 4500000,
+          province: loc.p,
+          city: loc.c,
+          urgent: i % 5 === 0,
+          vip: i % 4 === 0,
+          escrow: i % 2 === 0,
+          transactionType: ['escrow', 'vip_no_escrow', 'in_person', 'online'][i % 4],
+          verifiedSeller: i % 3 !== 0,
+          sellerVip: i % 6 === 0,
+          featuredSeller: i % 8 === 0,
+          sellerRating: (i % 5) + 1,
+          registeredAt: ['today', 'yesterday', 'this_week', 'this_month'][i % 4],
+          contractReady: i % 2 === 0,
+          negotiable: i % 3 === 0,
+          fullDocs: i % 2 === 1,
+          adStatus: i % 5 === 0 ? 'urgent' : (i % 4 === 0 ? 'vip' : 'active'),
+        });
+      }
+      return items;
+    },
+
+    filterDemoData() {
+      const f = this.filters;
+      let items = this.demoPool();
+
+      if (f.banks.length) items = items.filter((x) => f.banks.includes(x.bankId));
+      if (f.plan) items = items.filter((x) => x.plan === f.plan);
+      items = items.filter((x) => x.loanAmount >= f.loanAmount.min && x.loanAmount <= f.loanAmount.max);
+      items = items.filter((x) => x.scorePrice >= f.scorePrice.min && x.scorePrice <= f.scorePrice.max);
+      items = items.filter((x) => x.profitRate >= f.profitRate.min && x.profitRate <= f.profitRate.max);
+      items = items.filter((x) => x.repaymentMonths >= f.repaymentMonths.min && x.repaymentMonths <= f.repaymentMonths.max);
+      items = items.filter((x) => x.installmentAmount >= f.installmentAmount.min && x.installmentAmount <= f.installmentAmount.max);
+      items = items.filter((x) => x.scorePrice <= f.maxBuyerPayment);
+      if (f.province) items = items.filter((x) => x.province === f.province);
+      if (f.city) items = items.filter((x) => x.city === f.city);
+      if (f.adStatus.length) items = items.filter((x) => f.adStatus.includes(x.adStatus) || (f.adStatus.includes('active') && x.adStatus === 'active'));
+      if (f.transactionType.length) items = items.filter((x) => f.transactionType.includes(x.transactionType));
+      if (f.sellerType.includes('verified')) items = items.filter((x) => x.verifiedSeller);
+      if (f.sellerType.includes('vip')) items = items.filter((x) => x.sellerVip);
+      if (f.sellerType.includes('featured')) items = items.filter((x) => x.featuredSeller);
+      items = items.filter((x) => x.sellerRating >= f.sellerRatingMin);
+      if (f.registeredTime) items = items.filter((x) => x.registeredAt === f.registeredTime);
+      if (f.negotiationStatus.includes('negotiable')) items = items.filter((x) => x.negotiable);
+      if (f.negotiationStatus.includes('fixed_price')) items = items.filter((x) => !x.negotiable);
+      if (f.contractStatus.includes('contract_ready')) items = items.filter((x) => x.contractReady);
+      if (f.contractStatus.includes('needs_contract')) items = items.filter((x) => !x.contractReady);
+      if (f.documents.includes('full_docs')) items = items.filter((x) => x.fullDocs);
+
+      switch (f.sort) {
+        case 'oldest': items.sort((a, b) => a.id - b.id); break;
+        case 'cheapest': items.sort((a, b) => a.scorePrice - b.scorePrice); break;
+        case 'expensive': items.sort((a, b) => b.scorePrice - a.scorePrice); break;
+        case 'highest_loan': items.sort((a, b) => b.loanAmount - a.loanAmount); break;
+        case 'lowest_profit': items.sort((a, b) => a.profitRate - b.profitRate); break;
+        case 'top_seller_rating': items.sort((a, b) => b.sellerRating - a.sellerRating); break;
+        default: items.sort((a, b) => b.id - a.id); // newest
+      }
+
+      const total = items.length;
+      const start = (this.pagination.currentPage - 1) * this.pagination.perPage;
+      const pageItems = items.slice(start, start + this.pagination.perPage);
+      return { items: pageItems, total };
+    },
+  };
+}
+</script>
+
+</body>
+</html>

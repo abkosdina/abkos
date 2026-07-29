@@ -1,0 +1,452 @@
+{
+  "generatedAt": "2026-07-09T12:00:00Z",
+  "project": "LVAM",
+  "description": "Comprehensive modular Laravel knowledge graph for LVAM, including loaded modules, providers, routes, migrations, and domain relationships.",
+  "core": {
+    "framework": "Laravel 12",
+    "language": "PHP 8.4",
+    "entryPoint": "app/Providers/AppServiceProvider.php",
+    "moduleNamespaces": [
+      "App\\",
+      "Modules\\"
+    ],
+    "serviceRegistrationPattern": "AppServiceProvider registers root modules and wrapper providers; each module provider binds interfaces, services, routes, and migrations."
+  },
+  "moduleDiscovery": {
+    "allModules": [
+      "Admin",
+      "Advertisements",
+      "Arbitration",
+      "Audit",
+      "Authentication",
+      "BankEmployee",
+      "Banks",
+      "Chat",
+      "Complaint",
+      "Contracts",
+      "Documents",
+      "Escrow",
+      "KYC",
+      "Ledger",
+      "Notifications",
+      "Operator",
+      "Orders",
+      "Permissions",
+      "Ratings",
+      "Reports",
+      "Roles",
+      "Settings",
+      "Shared",
+      "Transactions",
+      "UserManagement",
+      "Users",
+      "Violations",
+      "VIP",
+      "Wallet",
+      "Workflow"
+    ],
+    "registeredModules": [
+      "Shared",
+      "UserManagement",
+      "Authentication",
+      "Workflow",
+      "Documents",
+      "KYC",
+      "Ledger",
+      "Wallet",
+      "Advertisements"
+    ],
+    "wrapperProviders": [
+      "App\\Providers\\AuthenticationServiceProvider",
+      "App\\Providers\\UserManagementServiceProvider",
+      "App\\Providers\\RepositoryServiceProvider"
+    ]
+  },
+  "modules": {
+    "Shared": {
+      "type": "foundation",
+      "provider": "Modules\\Shared\\Providers\\SharedServiceProvider",
+      "responsibility": "Common base classes, shared utilities, config and abstractions used by other modules.",
+      "hasRoutes": false,
+      "migrations": [".gitkeep"],
+      "dependsOn": []
+    },
+    "Authentication": {
+      "type": "infrastructure",
+      "provider": "App\\Providers\\AuthenticationServiceProvider",
+      "moduleProvider": "Modules\\Authentication\\Providers\\AuthenticationServiceProvider",
+      "responsibility": "OTP, session, login history, and authentication service wiring.",
+      "routes": "Modules\\Authentication\\Routes\\api.php",
+      "migrations": [
+        "2026_07_07_000001_create_authentication_tables.php",
+        ".gitkeep"
+      ],
+      "dependsOn": ["Shared"]
+    },
+    "UserManagement": {
+      "type": "domain",
+      "provider": "App\\Providers\\UserManagementServiceProvider",
+      "moduleProvider": "Modules\\UserManagement\\Providers\\UserManagementServiceProvider",
+      "responsibility": "User profiles, roles, permissions, and bank account management.",
+      "routes": "Modules\\UserManagement\\Routes\\api.php",
+      "migrations": [
+        "2026_07_07_000001_create_user_management_tables.php",
+        ".gitkeep"
+      ],
+      "dependsOn": ["Shared"]
+    },
+    "Workflow": {
+      "type": "domain",
+      "provider": "Modules\\Workflow\\Providers\\WorkflowServiceProvider",
+      "responsibility": "Workflow definitions, execution engine, approvals, reusable condition evaluation, and transitions.",
+      "routes": "Modules\\Workflow\\Routes\\api.php",
+      "migrations": [
+        "2026_07_07_000001_create_workflow_engine_support_tables.php",
+        "2026_07_21_000001_create_condition_engine_tables.php",
+        "2026_07_21_000002_reconcile_generic_workflow_schema.php",
+        ".gitkeep"
+      ],
+      "keyComponents": {
+        "services": [
+          "App\\Services\\Workflow\\WorkflowEngine",
+          "Modules\\Workflow\\Services\\ApprovalEngine",
+          "Modules\\Workflow\\Services\\ApprovalAuthorizationService",
+          "Modules\\Workflow\\Services\\ConditionEvaluationService",
+          "Modules\\Workflow\\Services\\ConditionContextBuilder"
+        ],
+        "models": [
+          "Modules\\Workflow\\Models\\ConditionDefinition",
+          "Modules\\Workflow\\Models\\ConditionGroup",
+          "Modules\\Workflow\\Models\\ConditionRule",
+          "Modules\\Workflow\\Models\\ConditionEvaluation"
+        ]
+      },
+      "dependsOn": ["Shared"],
+      "status": "verified"
+    },
+    "Documents": {
+      "type": "domain",
+      "provider": "Modules\\Documents\\Providers\\DocumentsServiceProvider",
+      "responsibility": "Document storage, versioning, metadata, sharing, and access tracking.",
+      "routes": "Modules\\Documents\\Routes\\api.php",
+      "migrations": [
+        "2026_07_07_000001_create_documents_module_tables.php",
+        ".gitkeep"
+      ],
+      "dependsOn": ["Shared"]
+    },
+    "KYC": {
+      "type": "domain",
+      "provider": "Modules\\KYC\\Providers\\KycServiceProvider",
+      "responsibility": "KYC request lifecycle, profile capture, and verification workflow.",
+      "routes": "Modules\\KYC\\Routes\\api.php",
+      "migrations": [
+        "2026_07_07_000001_create_kyc_module_tables.php",
+        ".gitkeep"
+      ],
+      "dependsOn": ["Shared"]
+    },
+    "Ledger": {
+      "type": "domain",
+      "provider": "Modules\\Ledger\\Providers\\LedgerServiceProvider",
+      "responsibility": "Immutable double-entry accounting engine, ledger transaction posting, balance calculation, journal, and snapshot persistence.",
+      "routes": "Modules\\Ledger\\Routes\\api.php",
+      "migrations": [
+        "2026_07_07_000001_create_ledger_engine_tables.php",
+        ".gitkeep"
+      ],
+      "keyComponents": {
+        "services": [
+          "Modules\\Ledger\\Services\\LedgerService",
+          "Modules\\Ledger\\Services\\TransactionService",
+          "Modules\\Ledger\\Services\\AccountingService",
+          "Modules\\Ledger\\Services\\BalanceService",
+          "Modules\\Ledger\\Services\\JournalService"
+        ],
+        "repositories": [
+          "Modules\\Ledger\\Repositories\\Interfaces\\AccountRepositoryInterface",
+          "Modules\\Ledger\\Repositories\\Interfaces\\LedgerRepositoryInterface",
+          "Modules\\Ledger\\Repositories\\Interfaces\\BalanceRepositoryInterface",
+          "Modules\\Ledger\\Repositories\\Interfaces\\JournalRepositoryInterface"
+        ],
+        "models": [
+          "Modules\\Ledger\\Models\\Account",
+          "Modules\\Ledger\\Models\\LedgerTransaction",
+          "Modules\\Ledger\\Models\\LedgerEntry",
+          "Modules\\Ledger\\Models\\JournalEntry",
+          "Modules\\Ledger\\Models\\AccountBalance",
+          "Modules\\Ledger\\Models\\BalanceSnapshot"
+        ]
+      },
+      "dependsOn": ["Shared"]
+    },
+    "Wallet": {
+      "type": "application",
+      "provider": "Modules\\Wallet\\Providers\\WalletServiceProvider",
+      "responsibility": "Wallet lifecycle, balance views, transfers, locks, limits, and Ledger-backed transaction posting.",
+      "routes": "Modules\\Wallet\\Routes\\api.php",
+      "migrations": [
+        "2026_07_08_000001_create_wallet_module_tables.php",
+        ".gitkeep"
+      ],
+      "keyComponents": {
+        "services": [
+          "Modules\\Wallet\\Services\\WalletService",
+          "Modules\\Wallet\\Services\\BalanceService",
+          "Modules\\Wallet\\Services\\TransferService",
+          "Modules\\Wallet\\Services\\WalletLockService",
+          "Modules\\Wallet\\Services\\WalletLimitService"
+        ],
+        "repositories": [
+          "Modules\\Wallet\\Repositories\\Interfaces\\WalletRepositoryInterface",
+          "Modules\\Wallet\\Repositories\\Interfaces\\WalletBalanceRepositoryInterface",
+          "Modules\\Wallet\\Repositories\\Interfaces\\WalletTransactionRepositoryInterface",
+          "Modules\\Wallet\\Repositories\\Interfaces\\WalletLockRepositoryInterface",
+          "Modules\\Wallet\\Repositories\\Interfaces\\WalletLimitRepositoryInterface"
+        ],
+        "models": [
+          "Modules\\Wallet\\Models\\Wallet",
+          "Modules\\Wallet\\Models\\WalletBalance",
+          "Modules\\Wallet\\Models\\WalletTransaction",
+          "Modules\\Wallet\\Models\\WalletLock",
+          "Modules\\Wallet\\Models\\WalletLimit",
+          "Modules\\Wallet\\Models\\WalletSetting"
+        ]
+      },
+      "dependsOn": ["Shared", "Ledger"]
+    },
+    "Admin": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Administrative feature set; no explicit provider detected in graph scan.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Advertisements": {
+      "type": "domain",
+      "provider": "Modules\\Advertisements\\Providers\\AdvertisementsServiceProvider",
+      "responsibility": "Advertisement listings, discovery, workflow transitions, detail view tracking, favorites, and notification integration.",
+      "routes": "Modules\\Advertisements\\Routes\\api.php",
+      "migrations": [
+        "2026_07_13_000001_create_advertisements_table.php",
+        "2026_07_13_000002_create_loan_offers_table.php",
+        "2026_07_13_000003_create_advertisement_images_table.php",
+        "2026_07_13_000004_create_advertisement_documents_table.php",
+        "2026_07_13_000005_create_advertisement_logs_table.php",
+        "2026_07_13_000006_create_advertisement_workflow_and_audits.php",
+        "2026_07_13_000007_seed_advertisement_workflow_defaults.php"
+      ],
+      "dependsOn": ["Shared", "Authentication", "Workflow"],
+      "status": "verified"
+    },
+    "Arbitration": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Dispute and arbitration workflow module.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Audit": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Audit logs and compliance evidence.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "BankEmployee": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Bank employee operations and access control.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Banks": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Bank onboarding, bank employee access, bank catalog, and loan-product or plan definitions.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Chat": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "User chat and messaging features.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Complaint": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Customer complaints and support case tracking.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Contracts": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Service contracts and agreement workflows.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Escrow": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Escrow transaction support.",
+      "routes": null,
+      "migrations": [".gitkeep"],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Notifications": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "In-app and push notification services.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Operator": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Operator console and control plane.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Orders": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Order lifecycle and fulfillment.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Permissions": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Role and permission policy definitions.",
+      "routes": null,
+      "migrations": [".gitkeep"],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Ratings": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Rating and review systems.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Reports": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Reporting and analytics.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Roles": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Role management extension.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Settings": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Application settings and configuration storage.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Transactions": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Transaction engine and settlement records.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Users": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "User profile and account management extension.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "Violations": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "Violation handling and compliance workflows.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    },
+    "VIP": {
+      "type": "domain",
+      "provider": null,
+      "responsibility": "VIP user management and premium support.",
+      "routes": null,
+      "migrations": [],
+      "dependsOn": ["Shared"],
+      "status": "unverified"
+    }
+  },
+  "relationships": [
+    {"from": "AppServiceProvider", "to": "Modules\\Shared\\Providers\\SharedServiceProvider"},
+    {"from": "AppServiceProvider", "to": "App\\Providers\\RepositoryServiceProvider"},
+    {"from": "AppServiceProvider", "to": "App\\Providers\\UserManagementServiceProvider"},
+    {"from": "AppServiceProvider", "to": "App\\Providers\\AuthenticationServiceProvider"},
+    {"from": "AppServiceProvider", "to": "Modules\\Workflow\\Providers\\WorkflowServiceProvider"},
+    {"from": "AppServiceProvider", "to": "Modules\\Documents\\Providers\\DocumentsServiceProvider"},
+    {"from": "AppServiceProvider", "to": "Modules\\KYC\\Providers\\KycServiceProvider"},
+    {"from": "AppServiceProvider", "to": "Modules\\Advertisements\\Providers\\AdvertisementsServiceProvider"},
+    {"from": "AppServiceProvider", "to": "Modules\\Ledger\\Providers\\LedgerServiceProvider"},
+    {"from": "AppServiceProvider", "to": "Modules\\Wallet\\Providers\\WalletServiceProvider"},
+    {"from": "App\\Providers\\AuthenticationServiceProvider", "to": "Modules\\Authentication\\Providers\\AuthenticationServiceProvider"},
+    {"from": "App\\Providers\\UserManagementServiceProvider", "to": "Modules\\UserManagement\\Providers\\UserManagementServiceProvider"},
+    {"from": "Modules\\Wallet\\Providers\\WalletServiceProvider", "to": "Modules\\Ledger\\Services\\LedgerService"},
+    {"from": "Modules\\Wallet\\Providers\\WalletServiceProvider", "to": "Modules\\Ledger\\Services\\BalanceService"},
+    {"from": "Modules\\Ledger\\Providers\\LedgerServiceProvider", "to": "Modules\\Ledger\\Repositories\\Eloquent\\AccountRepository"},
+    {"from": "Modules\\Ledger\\Providers\\LedgerServiceProvider", "to": "Modules\\Ledger\\Repositories\\Eloquent\\LedgerRepository"},
+    {"from": "Modules\\Wallet\\Providers\\WalletServiceProvider", "to": "Modules\\Wallet\\Repositories\\Eloquent\\WalletRepository"}
+  ],
+  "notes": {
+    "ledgerSourceOfTruth": "Ledger is the authoritative accounting engine. Wallet must never mutate balances directly.",
+    "walletIntegration": "Wallet uses LedgerService for posting financial effects and LedgerBalanceService for derived balance state.",
+    "moduleConvention": "Each module provides config, routes, migrations and bindings through its ServiceProvider.",
+    "handoffGuidance": "Use this graph to understand service provider registration, module dependencies, and where to extend new features without bypassing Ledger.",
+    "unverifiedModules": "Modules marked as unverified may exist in the repository but do not currently expose a provider or route in the scanned graph.",
+    "recentChanges": "Updated UserManagement user search input to initialize empty and disable browser autocomplete, and added menu.users permission seeding so Super Admin can access /api/v1/users."
+  }
+}

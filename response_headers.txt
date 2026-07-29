@@ -1,0 +1,9 @@
+HTTP/1.1 422 Unprocessable Content
+Host: 127.0.0.1:8000
+Connection: close
+X-Powered-By: PHP/8.2.12
+Cache-Control: no-cache, private
+Date: Sat, 18 Jul 2026 19:15:49 GMT
+Content-Type: application/json
+Access-Control-Allow-Origin: *
+
