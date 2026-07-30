@@ -150,7 +150,7 @@ function listingDetailApp() {
       this.loadingSeller = true;
       try {
         const response = await axios.get('/api/advertisements', {
-          params: { sellerId, exclude: excludeId, per_page: 5 }
+          params: { seller_user_id: sellerId, exclude_id: excludeId, per_page: 5 }
         });
         const items = response.data?.data ?? response.data;
         this.sellerListings = (items || []).map((it) => this.mapListing(it));

@@ -5,6 +5,8 @@ namespace Tests;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Schema\Blueprint;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 use Spatie\Permission\Middleware\RoleMiddleware;
@@ -168,15 +170,21 @@ abstract class TestCase extends BaseTestCase
 
                 // Backwards-compat: older schema used initiator_user_id/counterparty_user_id
                 if (! Schema::hasColumn('negotiations', 'initiator_user_id')) {
-                    Schema::table('negotiations', function (\Illuminate\Database\Schema\Blueprint $table) {
+                    Schema::table('negotiations', function (Blueprint $table) {
                         $table->unsignedBigInteger('initiator_user_id')->nullable()->after('advertisement_id');
                     });
                 }
                 if (! Schema::hasColumn('negotiations', 'counterparty_user_id')) {
-                    Schema::table('negotiations', function (\Illuminate\Database\Schema\Blueprint $table) {
+                    Schema::table('negotiations', function (Blueprint $table) {
                         $table->unsignedBigInteger('counterparty_user_id')->nullable()->after('initiator_user_id');
                     });
                 }
+            }
+
+            if (Schema::hasTable('advertisements') && ! Schema::hasColumn('advertisements', 'advertisement_number')) {
+                Schema::table('advertisements', function (Blueprint $table) {
+                    $table->string('advertisement_number')->unique()->after('uuid');
+                });
             }
         }
     }

@@ -159,6 +159,7 @@ class PersianAdvertisementSeeder extends Seeder
                 ['title' => $adData['title']],
                 [
                     'uuid' => Str::uuid()->toString(),
+                    'advertisement_number' => 'ADV-' . now()->format('YmdHis') . '-' . random_int(1000, 9999),
                     'loan_product_id' => $loanProductId,
                     'seller_user_id' => $user->id,
                     'user_id' => $user->id,

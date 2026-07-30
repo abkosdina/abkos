@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Advertisements\Models\Advertisement;
 use Modules\Ledger\Models\Account;
 use Modules\Ledger\Models\AccountType;
+use Modules\Negotiation\Enums\NegotiationStatus;
 use Modules\Negotiation\Models\Negotiation;
 use Modules\Wallet\Models\Wallet;
 use Modules\Wallet\Models\WalletBalance;
@@ -82,7 +83,7 @@ class DashboardApiTest extends TestCase
             'advertisement_id' => 1,
             'buyer_id' => $user->id,
             'seller_id' => $user->id,
-            'status' => 'Open',
+            'status' => NegotiationStatus::Active,
         ]);
 
         ActivityLog::create([
@@ -98,8 +99,8 @@ class DashboardApiTest extends TestCase
         $response = $this->actingAs($user, 'sanctum')->getJson('/api/v1/dashboard/stats');
         $response->assertOk()
             ->assertJsonPath('success', true)
-            ->assertJsonPath('data.active_ads', 1)
-            ->assertJsonPath('data.wallet_balance', '1,230,000');
+            ->assertJsonFragment(['label' => 'آگهی‌های فعال', 'value' => '1'])
+            ->assertJsonFragment(['label' => 'موجودی کیف پول', 'value' => '1,230,000']);
 
         $activityResponse = $this->actingAs($user, 'sanctum')->getJson('/api/v1/dashboard/activity');
         $activityResponse->assertOk()

@@ -14,7 +14,7 @@ Route::get('/ads/loadLoans', [BankController::class, 'loadLoans']);
 
 Route::get('/ads/detail', function () {
     return view('ads.adsDetails');
-});
+})->middleware('record_ad_view');
 
 Route::get('/dashboard', function () {
     return view('ads.dashboard.dashboard');

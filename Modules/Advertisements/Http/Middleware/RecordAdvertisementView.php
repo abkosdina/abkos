@@ -11,7 +11,11 @@ class RecordAdvertisementView
 {
     public function handle(Request $request, Closure $next)
     {
-        $uuid = $request->route('uuid');
+        if ($request->ajax()) {
+            return $next($request);
+        }
+
+        $uuid = $request->route('uuid') ?? $request->query('id');
         if ($uuid) {
             $advertisement = is_numeric($uuid)
                 ? Advertisement::select('id')->find($uuid)

@@ -52,8 +52,30 @@ class AdvertisementQueryBuilder
             }
         }
 
+        if (! isset($data['seller_user_id'])) {
+            if (isset($data['sellerId']) && $data['sellerId'] !== '') {
+                $data['seller_user_id'] = $data['sellerId'];
+            } elseif (isset($data['seller_id']) && $data['seller_id'] !== '') {
+                $data['seller_user_id'] = $data['seller_id'];
+            }
+        }
+
         $this->applyOptionalFilter('user_id', $data);
         $this->applyOptionalFilter('seller_user_id', $data);
+
+        if (isset($data['exclude']) && $data['exclude'] !== '') {
+            $excludeIds = $this->normalizeArray($data['exclude']);
+            if (! empty($excludeIds)) {
+                $this->query->whereNotIn('id', $excludeIds);
+            }
+        }
+
+        if (isset($data['exclude_id']) && $data['exclude_id'] !== '') {
+            $excludeIds = $this->normalizeArray($data['exclude_id']);
+            if (! empty($excludeIds)) {
+                $this->query->whereNotIn('id', $excludeIds);
+            }
+        }
 
         // Price filters (works directly on advertisements table)
         if (isset($data['score_price_min']) || isset($data['sale_price_min'])) {

@@ -50,6 +50,7 @@ class AdvertisementFactory extends Factory
 
         return [
             'uuid' => $this->faker->uuid(),
+            'advertisement_number' => 'ADV-' . now()->format('YmdHis') . '-' . $this->faker->unique()->numerify('####'),
             'seller_user_id' => $user->id,
             'user_id' => $user->id,
             'loan_product_id' => $loanProduct->id,

@@ -73,6 +73,10 @@ class Advertisement extends Model
                 $advertisement->uuid = (string) Str::uuid();
             }
 
+            if (empty($advertisement->advertisement_number)) {
+                $advertisement->advertisement_number = 'ADV-' . now()->format('YmdHis') . '-' . random_int(1000, 9999);
+            }
+
             if (empty($advertisement->title)) {
                 $advertisement->title = 'Untitled Advertisement';
             }
