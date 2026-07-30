@@ -362,14 +362,14 @@ function dashboardApp() {
       this.usersLoading = true;
       try {
         const searchValue = typeof this.userSearch === 'string' ? this.userSearch.trim() : '';
-        const data = await apiGet('/api/v1/users', { data: [] }, {
+        const data = await apiGetRaw('/api/v1/users', null, {
           params: {
             page: this.userPage,
             per_page: this.usersPerPage,
             search: searchValue || undefined,
           },
         });
-        const payload = data?.data ?? [];
+        const payload = data?.data ?? data ?? [];
         this.users = Array.isArray(payload) ? payload : [];
         this.userPage = data?.meta?.current_page ?? data?.current_page ?? this.userPage;
         this.userLastPage = data?.meta?.last_page ?? data?.lastPage ?? this.userLastPage;

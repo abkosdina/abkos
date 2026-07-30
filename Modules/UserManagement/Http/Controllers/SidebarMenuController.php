@@ -71,32 +71,36 @@ class SidebarMenuController extends BaseController
             return 'user';
         }
 
-        if ($user->hasRole('super admin')) {
+        $roleKeys = $user->getRoleNames()
+            ->map(fn ($role) => SidebarMenuService::getCanonicalRoleKey($role))
+            ->unique()
+            ->toArray();
+
+        if (in_array('super-admin', $roleKeys, true)) {
             return 'super-admin';
         }
 
-        if ($user->hasRole(['administrator', 'admin'])) {
+        if (in_array('admin', $roleKeys, true)) {
             return 'admin';
         }
 
-        if ($user->hasRole(['bank employee', 'bank-employee'])) {
+        if (in_array('bank-employee', $roleKeys, true)) {
             return 'bank-employee';
         }
 
-        if ($user->hasRole(['customer', 'user'])) {
+        if (in_array('customer', $roleKeys, true)) {
             return 'customer';
         }
 
-        if ($user->hasRole('operator')) {
+        if (in_array('operator', $roleKeys, true)) {
             return 'operator';
         }
 
-        if ($user->hasRole('finance')) {
+        if (in_array('finance', $roleKeys, true)) {
             return 'finance';
         }
 
-        $roles = $user->getRoleNames()->map(fn ($role) => SidebarMenuService::getCanonicalRoleKey($role))->toArray();
-        return $roles[0] ?? 'user';
+        return $roleKeys[0] ?? 'user';
     }
 
     /**
