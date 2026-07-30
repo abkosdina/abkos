@@ -3,6 +3,7 @@
 namespace Modules\Negotiation\Models;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -46,6 +47,8 @@ class Negotiation extends Model
         'advertisement_id',
         'buyer_id',
         'seller_id',
+        'initiator_user_id',
+        'counterparty_user_id',
         'conversation_id',
         'status',
         'started_at',
@@ -55,6 +58,8 @@ class Negotiation extends Model
         'closed_at',
         'selected_offer_id',
         'order_id',
+        'proposed_price',
+        'currency',
         'agreed_price',
     ];
 
@@ -67,6 +72,28 @@ class Negotiation extends Model
         'closed_at' => 'datetime',
         'agreed_price' => 'decimal:2',
     ];
+
+    public function scopeForUser(Builder $query, User $user): Builder
+    {
+        if (Schema::hasColumn($this->getTable(), 'buyer_id') && Schema::hasColumn($this->getTable(), 'seller_id')) {
+            return $query->where(function (Builder $query) use ($user) {
+                $query->where('buyer_id', $user->id)
+                    ->orWhere('seller_id', $user->id);
+            });
+        }
+
+        if (Schema::hasColumn($this->getTable(), 'initiator_user_id') && Schema::hasColumn($this->getTable(), 'counterparty_user_id')) {
+            return $query->where(function (Builder $query) use ($user) {
+                $query->where('initiator_user_id', $user->id)
+                    ->orWhere('counterparty_user_id', $user->id);
+            });
+        }
+
+        return $query->where(function (Builder $query) use ($user) {
+            $query->where('buyer_id', $user->id)
+                ->orWhere('seller_id', $user->id);
+        });
+    }
 
     public function advertisement(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

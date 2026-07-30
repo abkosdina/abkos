@@ -13,6 +13,7 @@
             <directory>tests/Feature</directory>
             <directory>Modules/Chat/Tests/Feature</directory>
             <directory>Modules/Advertisements/Tests/Feature</directory>
+            <directory>Modules/UserManagement/Tests/Feature</directory>
         </testsuite>
     </testsuites>
     <source>

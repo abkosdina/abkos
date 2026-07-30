@@ -5,10 +5,13 @@ namespace Modules\UserManagement\Tests\Feature;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Advertisements\Models\Advertisement;
+use Modules\Ledger\Models\Account;
+use Modules\Ledger\Models\AccountType;
 use Modules\Negotiation\Models\Negotiation;
 use Modules\Wallet\Models\Wallet;
 use Modules\Wallet\Models\WalletBalance;
 use Modules\UserManagement\Models\ActivityLog;
+use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
 class DashboardApiTest extends TestCase
@@ -18,12 +21,32 @@ class DashboardApiTest extends TestCase
     public function test_dashboard_stats_and_activity_are_returned_from_backend(): void
     {
         $user = User::factory()->create();
+        Role::firstOrCreate(['name' => 'User', 'guard_name' => 'web']);
         $user->assignRole('User');
+
+        $accountType = AccountType::create([
+            'uuid' => 'account-type-1',
+            'code' => 'wallet-default',
+            'name' => 'Wallet Default',
+            'description' => 'Default wallet account type',
+            'metadata' => [],
+        ]);
+
+        $ledgerAccount = Account::create([
+            'uuid' => 'account-1',
+            'code' => 'WALLET-1',
+            'name' => 'Wallet Ledger Account',
+            'account_type_id' => $accountType->id,
+            'currency' => 'IRR',
+            'status' => 'active',
+            'metadata' => [],
+        ]);
 
         $wallet = Wallet::create([
             'uuid' => 'wallet-1',
             'user_id' => $user->id,
-            'name' => 'Main Wallet',
+            'wallet_type' => 'default',
+            'ledger_account_id' => $ledgerAccount->id,
             'currency' => 'IRR',
             'status' => 'active',
             'metadata' => [],

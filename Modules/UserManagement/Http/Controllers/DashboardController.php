@@ -42,10 +42,9 @@ class DashboardController extends BaseController
             $walletBalance = (float) ($balance?->total_balance ?? $balance?->available_balance ?? 0);
         }
 
-        $openNegotiations = Negotiation::query()->where(function ($query) use ($user) {
-            $query->where('buyer_id', $user->id)
-                ->orWhere('seller_id', $user->id);
-        })->whereIn('status', ['Open', 'Pending', 'Accepted'])->count();
+        $openNegotiations = Negotiation::forUser($user)
+            ->whereIn('status', ['Open', 'Pending', 'Accepted'])
+            ->count();
 
         $unreadMessages = 0;
 

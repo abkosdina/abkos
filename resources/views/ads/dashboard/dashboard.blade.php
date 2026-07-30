@@ -44,6 +44,106 @@
 
 <script>
 function dashboardApp() {
+  const toPrettyJson = (value) => JSON.stringify(value ?? [], null, 2);
+  const extractResponseData = (resp, fallback = null) => {
+    if (resp && typeof resp === 'object' && Object.prototype.hasOwnProperty.call(resp, 'data')) {
+      return resp.data ?? fallback;
+    }
+    return resp ?? fallback;
+  };
+  const apiRequest = async (method, url, payload = null, fallback = null, config = {}) => {
+    const response = await axios({ method, url, data: payload, ...config });
+    return response.data ?? fallback;
+  };
+  const apiGetRaw = async (url, fallback = null, config = {}) => apiRequest('get', url, null, fallback, config);
+  const apiGet = async (url, fallback = null, config = {}) => {
+    const data = await apiGetRaw(url, null, config);
+    return extractResponseData(data, fallback);
+  };
+  const apiPostRaw = async (url, payload = {}, fallback = null, config = {}) => apiRequest('post', url, payload, fallback, config);
+  const apiPost = async (url, payload = {}, fallback = null, config = {}) => {
+    const data = await apiPostRaw(url, payload, null, config);
+    return extractResponseData(data, fallback);
+  };
+  const apiPut = async (url, payload = {}, fallback = null, config = {}) => {
+    const data = await apiRequest('put', url, payload, fallback, config);
+    return extractResponseData(data, fallback);
+  };
+  const apiDelete = async (url, fallback = null, config = {}) => {
+    const data = await apiRequest('delete', url, null, fallback, config);
+    return extractResponseData(data, fallback);
+  };
+  const apiPostForm = async (url, payload, fallback = null, config = {}) => {
+    const data = await apiPostRaw(url, payload, fallback, config);
+    return extractResponseData(data, fallback);
+  };
+  const normalizeRoleNameHelper = (role) => String(role || '').trim().toLowerCase().replace(/[_\s]+/g, '-');
+  const canonicalRoleKey = (roleKey) => {
+    const normalized = normalizeRoleNameHelper(roleKey);
+    if (!normalized) return null;
+    if (['super-admin', 'super admin'].includes(normalized)) return 'super-admin';
+    if (['administrator', 'admin'].includes(normalized)) return 'admin';
+    if (['bank-employee', 'bank_employee'].includes(normalized)) return 'bank-employee';
+    if (['customer', 'user'].includes(normalized)) return 'customer';
+    if (['operator', 'senior-operator'].includes(normalized)) return 'operator';
+    if (['finance', 'financial', 'accountant'].includes(normalized)) return 'finance';
+    return normalized;
+  };
+  const resolveRoleKey = (roles = [], isSuperAdmin = false) => {
+    const normalized = Array.isArray(roles) ? roles.map(normalizeRoleNameHelper) : [];
+    if (isSuperAdmin || normalized.includes('super-admin') || normalized.includes('super admin')) {
+      return 'super-admin';
+    }
+    if (normalized.includes('administrator') || normalized.includes('admin')) {
+      return 'admin';
+    }
+    if (normalized.includes('bank-employee') || normalized.includes('bank_employee')) {
+      return 'bank-employee';
+    }
+    if (normalized.includes('customer') || normalized.includes('user')) {
+      return 'customer';
+    }
+    if (normalized.includes('operator')) {
+      return 'operator';
+    }
+    if (normalized.includes('finance') || normalized.includes('financial') || normalized.includes('accountant')) {
+      return 'finance';
+    }
+    return 'user';
+  };
+  const normalizeSidebarEditingGroups = (savedGroups) => {
+    const groups = Array.isArray(savedGroups) ? savedGroups : [];
+    return groups.map((g) => {
+      const items = Array.isArray(g.items) ? g.items : [];
+      return {
+        id: g.id,
+        icon: g.icon ?? '📁',
+        label: g.label ?? g.id,
+        visible: g.visible !== false,
+        expanded: false,
+        items: items.map((it) =>
+          typeof it === 'string'
+            ? { name: it, visible: true }
+            : { name: it.name ?? '', visible: it.visible !== false }
+        ),
+      };
+    });
+  };
+  const buildSidebarConfigFromEditing = (editing) => {
+    const parsed = {};
+    Object.keys(editing || {}).forEach((roleKey) => {
+      parsed[roleKey] = (editing[roleKey] || [])
+        .filter((group) => group.visible)
+        .map((group) => ({
+          id: group.id,
+          icon: group.icon,
+          label: group.label,
+          items: (group.items || []).filter((item) => item.visible).map((item) => item.name),
+        }));
+    });
+    return parsed;
+  };
+
   return {
     sidebarOpen: false,
     loadingUser: true,
@@ -177,7 +277,7 @@ function dashboardApp() {
 
       const promise = (async () => {
         try {
-          const { data } = await axios.get('/api/v1/dashboard/config');
+          const data = await apiGetRaw('/api/v1/dashboard/config', {});
           this.dashboardConfig = data?.data ?? data ?? {};
           this.quickActions = this.dashboardConfig.quick_actions ?? [];
         } catch (err) {
@@ -195,14 +295,10 @@ function dashboardApp() {
 
     async loadDefaultMenus() {
       try {
-        const { data } = await axios.get('/api/v1/user-management/sidebar-menus/defaults');
-        if (data.success && data.data) {
-          this.roleMenus = data.data;
-        } else {
-          console.warn('خطا در بارگذاری منوهای پیش‌فرض:', data.message);
-        }
+        this.roleMenus = await apiGet('/api/v1/user-management/sidebar-menus/defaults', {});
       } catch (err) {
         console.error('خطا در دریافت منوهای پیش‌فرض از API:', err);
+        this.roleMenus = {};
       }
     },
 
@@ -253,8 +349,7 @@ function dashboardApp() {
     async fetchChatRooms() {
       this.loadingChatRooms = true;
       try {
-        const { data } = await axios.get('/api/v1/chat/rooms');
-        this.chatRooms = data.data ?? data;
+        this.chatRooms = await apiGet('/api/v1/chat/rooms', []);
       } catch (err) {
         console.error('خطا در بارگذاری گفتگوها:', err);
         this.chatRooms = [];
@@ -267,7 +362,7 @@ function dashboardApp() {
       this.usersLoading = true;
       try {
         const searchValue = typeof this.userSearch === 'string' ? this.userSearch.trim() : '';
-        const { data } = await axios.get('/api/v1/users', {
+        const data = await apiGet('/api/v1/users', { data: [] }, {
           params: {
             page: this.userPage,
             per_page: this.usersPerPage,
@@ -354,8 +449,7 @@ function dashboardApp() {
     async fetchUserProfile(userId) {
       this.userProfileLoading = true;
       try {
-        const { data } = await axios.get(`/api/v1/users/${userId}`);
-        const payload = data?.data ?? {};
+        const payload = await apiGet(`/api/v1/users/${userId}`, {});
         this.userProfileDetails = payload;
         this.userProfileActivity = payload.activity_logs ?? [];
         this.userProfileWallet = payload.wallet ?? null;
@@ -383,7 +477,7 @@ function dashboardApp() {
       }
       const action = user.is_suspended ? 'unsuspend' : 'suspend';
       try {
-        await axios.post(`/api/v1/users/${user.id}/moderate`, { action });
+        await apiPost(`/api/v1/users/${user.id}/moderate`, { action });
         this.fetchUsers();
       } catch (err) {
         console.error('خطا در تغییر وضعیت تعلیق:', err);
@@ -410,9 +504,9 @@ function dashboardApp() {
         }
 
         if (this.userFormMode === 'edit' && this.userForm.id) {
-          await axios.put(`/api/v1/users/${this.userForm.id}`, payload);
+          await apiPut(`/api/v1/users/${this.userForm.id}`, payload);
         } else {
-          await axios.post('/api/v1/users', payload);
+          await apiPost('/api/v1/users', payload);
         }
 
         this.userFormOpen = false;
@@ -432,7 +526,7 @@ function dashboardApp() {
       }
 
       try {
-        await axios.delete(`/api/v1/users/${user.id}`);
+        await apiDelete(`/api/v1/users/${user.id}`);
         if (this.users.length === 1 && this.userPage > 1) {
           this.userPage -= 1;
         }
@@ -456,8 +550,7 @@ function dashboardApp() {
 
     async fetchRoleOptions() {
       try {
-        const { data } = await axios.get('/api/v1/user-management/roles');
-        this.availableRoles = Array.isArray(data?.data) ? data.data : [];
+        this.availableRoles = await apiGet('/api/v1/user-management/roles', []);
       } catch (err) {
         console.error('خطا در بارگذاری نقش‌ها:', err);
         this.availableRoles = [];
@@ -466,8 +559,7 @@ function dashboardApp() {
 
     async fetchPermissionOptions() {
       try {
-        const { data } = await axios.get('/api/v1/user-management/permissions');
-        this.availablePermissions = Array.isArray(data?.data) ? data.data : [];
+        this.availablePermissions = await apiGet('/api/v1/user-management/permissions', []);
       } catch (err) {
         console.error('خطا در بارگذاری دسترسی‌ها:', err);
         this.availablePermissions = [];
@@ -475,36 +567,7 @@ function dashboardApp() {
     },
 
     getSidebarRoleKey() {
-      if (!this.sidebarPreviewRole) {
-        return null;
-      }
-      const key = this.normalizeRoleName(this.sidebarPreviewRole);
-      return this.getCanonicalSidebarRoleKey(key);
-    },
-
-    getCanonicalSidebarRoleKey(roleKey) {
-      if (!roleKey) {
-        return null;
-      }
-      if (roleKey === 'super-admin' || roleKey === 'super-admin') {
-        return 'super-admin';
-      }
-      if (roleKey === 'administrator' || roleKey === 'admin') {
-        return 'admin';
-      }
-      if (roleKey === 'bank-employee' || roleKey === 'bank_employee') {
-        return 'bank-employee';
-      }
-      if (roleKey === 'customer' || roleKey === 'user') {
-        return 'customer';
-      }
-      if (roleKey === 'finance') {
-        return 'finance';
-      }
-      if (roleKey === 'operator' || roleKey === 'senior-operator') {
-        return 'operator';
-      }
-      return roleKey;
+      return this.sidebarPreviewRole ? canonicalRoleKey(this.sidebarPreviewRole) : null;
     },
 
     getRoleMenuEditing() {
@@ -543,17 +606,14 @@ function dashboardApp() {
       }
 
       try {
-        const updatedConfig = { ...this.sidebarMenuConfigByRole };
-        updatedConfig[roleKey] = (this.sidebarMenuEditing[roleKey] || []).filter((g) => g.visible).map((g) => ({
-          id: g.id,
-          icon: g.icon,
-          label: g.label,
-          items: (g.items || []).filter((item) => item.visible).map((item) => item.name),
-        }));
+        const updatedConfig = {
+          ...this.sidebarMenuConfigByRole,
+          [roleKey]: buildSidebarConfigFromEditing({ [roleKey]: this.sidebarMenuEditing[roleKey] || [] })[roleKey],
+        };
 
-        const { data } = await axios.post('/api/v1/user-management/sidebar-menus', { config: updatedConfig }, { headers: { 'X-No-Crud-Toast': true } });
-        this.sidebarMenuConfigByRole = data?.data ?? updatedConfig;
-        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
+        const data = await apiPost('/api/v1/user-management/sidebar-menus', { config: updatedConfig }, updatedConfig, { headers: { 'X-No-Crud-Toast': true } });
+        this.sidebarMenuConfigByRole = data ?? updatedConfig;
+        this.sidebarMenuConfigText = toPrettyJson(this.sidebarMenuConfigByRole);
         this.initSidebarMenuEditing();
         this.showToast('تنظیمات منوی سایدبار ذخیره شد.', 'success');
       } catch (err) {
@@ -565,8 +625,7 @@ function dashboardApp() {
     async fetchArchivedRooms() {
       this.loadingChatRooms = true;
       try {
-        const { data } = await axios.get('/api/v1/chat/rooms/archived');
-        this.archivedRooms = data.data ?? data;
+        this.archivedRooms = await apiGet('/api/v1/chat/rooms/archived', []);
       } catch (err) {
         console.error('خطا در بارگذاری آرشیو گفتگوها:', err);
         this.archivedRooms = [];
@@ -588,8 +647,7 @@ function dashboardApp() {
       }
       this.loadingMessages = true;
       try {
-        const { data } = await axios.get(`/api/v1/chat/rooms/${roomId}/messages`);
-        this.messages = data.data ?? data;
+        this.messages = await apiGet(`/api/v1/chat/rooms/${roomId}/messages`, []);
       } catch (err) {
         console.error('خطا در دریافت پیام‌ها:', err);
         this.messages = [];
@@ -612,7 +670,7 @@ function dashboardApp() {
       }
 
       try {
-        await axios.post(`/api/v1/chat/rooms/${this.selectedChatRoom.id}/messages`, formData, {
+        await apiPostForm(`/api/v1/chat/rooms/${this.selectedChatRoom.id}/messages`, formData, null, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
         this.messageDraft = '';
@@ -629,7 +687,7 @@ function dashboardApp() {
         return;
       }
       try {
-        await axios.post(`/api/v1/chat/rooms/${this.selectedChatRoom.id}/archive`);
+        await apiPost(`/api/v1/chat/rooms/${this.selectedChatRoom.id}/archive`, {});
         this.selectedChatRoom = null;
         this.messages = [];
         await this.fetchChatRooms();
@@ -644,7 +702,7 @@ function dashboardApp() {
         return;
       }
       try {
-        await axios.post(`/api/v1/chat/rooms/${this.selectedChatRoom.id}/mark-read`);
+        await apiPost(`/api/v1/chat/rooms/${this.selectedChatRoom.id}/mark-read`, {});
       } catch (err) {
         console.error('خطا در علامت‌گذاری به‌عنوان خوانده‌شده:', err);
       }
@@ -667,32 +725,8 @@ function dashboardApp() {
 
     formatToman(n) { return Number(n || 0).toLocaleString('en-US') + ' تومان'; },
 
-    normalizeRoleName(role) {
-      return String(role || '').trim().toLowerCase().replace(/[_\s]+/g, '-');
-    },
-
     getCurrentUserRoleKey() {
-      const roles = Array.isArray(this.currentUserRoles) ? this.currentUserRoles : [];
-      const normalized = roles.map((role) => this.normalizeRoleName(role));
-      if (this.isSuperAdmin || normalized.includes('super-admin') || normalized.includes('super admin')) {
-        return 'super-admin';
-      }
-      if (normalized.includes('administrator') || normalized.includes('admin')) {
-        return 'admin';
-      }
-      if (normalized.includes('bank-employee') || normalized.includes('bank_employee')) {
-        return 'bank-employee';
-      }
-      if (normalized.includes('customer') || normalized.includes('user')) {
-        return 'customer';
-      }
-      if (normalized.includes('operator')) {
-        return 'operator';
-      }
-      if (normalized.includes('finance') || normalized.includes('financial') || normalized.includes('accountant')) {
-        return 'finance';
-      }
-      return 'user';
+      return resolveRoleKey(this.currentUserRoles, this.isSuperAdmin);
     },
 
     getVisibleNavGroups() {
@@ -721,56 +755,31 @@ function dashboardApp() {
 
     async loadSidebarMenuConfig() {
       try {
-        const { data } = await axios.get('/api/v1/user-management/sidebar-menus/me');
-        this.sidebarMenuConfig = data?.data ?? [];
-        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfig, null, 2);
+        this.sidebarMenuConfig = await apiGet('/api/v1/user-management/sidebar-menus/me', []);
+        this.sidebarMenuConfigText = toPrettyJson(this.sidebarMenuConfig);
         this.applyRoleBasedMenu();
       } catch (err) {
         this.sidebarMenuConfig = [];
-        this.sidebarMenuConfigText = '[]';
+        this.sidebarMenuConfigText = toPrettyJson([]);
       }
     },
 
     async loadFullSidebarMenuConfig() {
       try {
-        const { data } = await axios.get('/api/v1/user-management/sidebar-menus/config');
-        this.sidebarMenuConfigByRole = data?.data ?? {};
-        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
+        this.sidebarMenuConfigByRole = await apiGet('/api/v1/user-management/sidebar-menus/config', {});
+        this.sidebarMenuConfigText = toPrettyJson(this.sidebarMenuConfigByRole);
         this.initSidebarMenuEditing();
       } catch (err) {
         this.sidebarMenuConfigByRole = {};
-        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
+        this.sidebarMenuConfigText = toPrettyJson({});
         this.initSidebarMenuEditing();
       }
     },
 
     initSidebarMenuEditing() {
       this.sidebarMenuEditing = {};
-      const allRoleKeys = Object.keys(this.sidebarMenuConfigByRole || {});
-      allRoleKeys.forEach((roleKey) => {
-        const saved = Array.isArray(this.sidebarMenuConfigByRole?.[roleKey]) ? this.sidebarMenuConfigByRole[roleKey] : [];
-
-        const mapped = saved.map((g) => {
-          const items = Array.isArray(g.items) ? g.items : [];
-          return {
-            id: g.id,
-            icon: g.icon ?? '📁',
-            label: g.label ?? g.id,
-            visible: g.visible !== false,
-            expanded: false,
-            items: items.map((it) => {
-              if (typeof it === 'string') {
-                return { name: it, visible: true };
-              }
-              return {
-                name: it.name ?? '',
-                visible: it.visible !== false,
-              };
-            }),
-          };
-        });
-
-        this.sidebarMenuEditing[roleKey] = mapped;
+      Object.keys(this.sidebarMenuConfigByRole || {}).forEach((roleKey) => {
+        this.sidebarMenuEditing[roleKey] = normalizeSidebarEditingGroups(this.sidebarMenuConfigByRole[roleKey]);
       });
     },
 
@@ -844,15 +853,10 @@ function dashboardApp() {
 
     async saveSidebarMenuConfig() {
       try {
-        const parsed = {};
-        Object.keys(this.sidebarMenuEditing || {}).forEach((roleKey) => {
-          const groups = (this.sidebarMenuEditing[roleKey] || []).filter((g) => g.visible).map((g) => ({ id: g.id, icon: g.icon, label: g.label, items: (g.items || []).filter((it) => it.visible).map((it) => it.name) }));
-          parsed[roleKey] = groups;
-        });
-
-        const { data } = await axios.post('/api/v1/user-management/sidebar-menus', { config: parsed }, { headers: { 'X-No-Crud-Toast': true } });
-        this.sidebarMenuConfigByRole = data?.data ?? parsed;
-        this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
+        const parsed = buildSidebarConfigFromEditing(this.sidebarMenuEditing || {});
+        const data = await apiPost('/api/v1/user-management/sidebar-menus', { config: parsed }, parsed, { headers: { 'X-No-Crud-Toast': true } });
+        this.sidebarMenuConfigByRole = data ?? parsed;
+        this.sidebarMenuConfigText = toPrettyJson(this.sidebarMenuConfigByRole);
         this.initSidebarMenuEditing();
         this.applyRoleBasedMenu();
         this.showToast('پیکربندی سایدبار ذخیره شد', 'success');
@@ -863,7 +867,7 @@ function dashboardApp() {
 
     async logout() {
       try {
-        await axios.post('/api/v1/auth/logout');
+        await apiPost('/api/v1/auth/logout', {});
       } catch (err) {
         // ignore logout failures; still clear local state
       }
@@ -876,7 +880,7 @@ function dashboardApp() {
     async fetchCurrentUser() {
       this.loadingUser = true;
       try {
-        const { data } = await axios.get('/api/v1/auth/me');
+        const data = await apiGetRaw('/api/v1/auth/me', {});
         const u = data?.user ?? data?.data ?? data;
         const roleNames = Array.isArray(data?.role_names) ? data.role_names : (Array.isArray(u?.roles) ? u.roles.map((role) => role?.name || role) : []);
         const isSuperAdmin = !!(data?.is_super_admin || u?.is_super_admin || roleNames.some((role) => String(role?.name || role).toLowerCase() === 'super admin'));
@@ -915,7 +919,7 @@ function dashboardApp() {
 
     async fetchBrokerRegistrationStatus() {
       try {
-        const { data } = await axios.get('/api/v1/auth/broker-registration-status');
+        const data = await apiGetRaw('/api/v1/auth/broker-registration-status', {});
         this.brokerRegistrationEnabled = data?.enabled ?? true;
       } catch (err) {
         console.error('خطا در دریافت وضعیت عضویت اربران:', err);
@@ -925,9 +929,9 @@ function dashboardApp() {
     async toggleBrokerRegistration() {
       this.togglingBrokerRegistration = true;
       try {
-        const { data } = await axios.post('/api/v1/auth/broker-registration-toggle', {
+        const data = await apiPostRaw('/api/v1/auth/broker-registration-toggle', {
           enabled: !this.brokerRegistrationEnabled,
-        });
+        }, {});
         this.brokerRegistrationEnabled = !!data?.enabled;
         this.showToast(data?.message || 'تغییر وضعیت عضویت انجام شد', 'success');
       } catch (err) {
@@ -954,8 +958,7 @@ function dashboardApp() {
       this.loadingStats = true;
 
       try {
-        const { data } = await axios.get('/api/v1/dashboard/stats');
-        this.stats = data?.data ?? data ?? [];
+        this.stats = await apiGet('/api/v1/dashboard/stats', []);
         this.resolvedStats = this.buildResolvedStats(this.stats);
       } catch (err) {
         console.error('خطا در دریافت آمار داشبورد:', err);
@@ -991,8 +994,7 @@ function dashboardApp() {
       this.loadingActivity = true;
 
       try {
-        const { data } = await axios.get('/api/v1/dashboard/activity');
-        this.activity = data?.data ?? data ?? [];
+        this.activity = await apiGet('/api/v1/dashboard/activity', []);
       } catch (err) {
         console.error('خطا در دریافت فعالیت‌های اخیر:', err);
         this.activity = [];
