@@ -17,28 +17,6 @@ class SidebarMenuController extends BaseController
     public function index(): JsonResponse
     {
         try {
-            // Ensure defaults exist in database
-            SidebarMenuService::ensureDefaultsExist();
-            
-            $config = SiteSetting::getValue('sidebar_menu_config', []);
-
-            if (is_string($config)) {
-                $config = json_decode($config, true) ?: [];
-            }
-
-            return response()->json([
-                'success' => true,
-                'data' => is_array($config) ? $config : [],
-            ]);
-        } catch (\Throwable $e) {
-            Log::error('SidebarMenuController@index error: ' . $e->getMessage(), ['exception' => $e]);
-            return response()->json(['success' => false, 'message' => 'خطای سرور هنگام بارگذاری پیکربندی سایدبار.'], 500);
-        }
-    }
-
-    public function me(): JsonResponse
-    {
-        try {
             SidebarMenuService::ensureDefaultsExist();
 
             $config = SiteSetting::getValue('sidebar_menu_config', []);
@@ -56,8 +34,33 @@ class SidebarMenuController extends BaseController
                 'data' => $menu,
             ]);
         } catch (\Throwable $e) {
-            Log::error('SidebarMenuController@me error: ' . $e->getMessage(), ['exception' => $e]);
-            return response()->json(['success' => false, 'message' => 'خطای سرور هنگام بارگذاری منوی کاربر جاری.'], 500);
+            Log::error('SidebarMenuController@index error: ' . $e->getMessage(), ['exception' => $e]);
+            return response()->json(['success' => false, 'message' => 'خطای سرور هنگام بارگذاری پیکربندی سایدبار.'], 500);
+        }
+    }
+
+    public function me(): JsonResponse
+    {
+        return $this->index();
+    }
+
+    public function config(): JsonResponse
+    {
+        try {
+            SidebarMenuService::ensureDefaultsExist();
+
+            $config = SiteSetting::getValue('sidebar_menu_config', []);
+            if (is_string($config)) {
+                $config = json_decode($config, true) ?: [];
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => is_array($config) ? $config : [],
+            ]);
+        } catch (\Throwable $e) {
+            Log::error('SidebarMenuController@config error: ' . $e->getMessage(), ['exception' => $e]);
+            return response()->json(['success' => false, 'message' => 'خطای سرور هنگام بارگذاری پیکربندی کامل سایدبار.'], 500);
         }
     }
 

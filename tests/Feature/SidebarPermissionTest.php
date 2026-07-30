@@ -70,4 +70,61 @@ class SidebarPermissionTest extends TestCase
         $this->assertContains('dashboard', $ids);
         $this->assertNotContains('users', $ids);
     }
-}
+    public function test_sidebar_menu_endpoint_returns_current_user_menu_only()
+    {
+        Role::firstOrCreate(['name' => 'customer', 'guard_name' => 'web']);
+        $user = User::factory()->create();
+        $user->assignRole('customer');
+
+        $response = $this->actingAs($user, 'sanctum')
+            ->getJson('/api/v1/user-management/sidebar-menus')
+            ->assertStatus(200)
+            ->assertJson(['success' => true]);
+
+        $menu = $response->json('data');
+        $this->assertIsArray($menu);
+        $ids = array_column($menu, 'id');
+        $this->assertContains('dashboard', $ids);
+        $this->assertNotContains('users', $ids);
+    }
+
+    public function test_admin_sidebar_menu_endpoint_returns_admin_menu_only()
+    {
+        $superAdminRole = Role::firstOrCreate(['name' => 'Super Admin', 'guard_name' => 'web']);
+        $adminRole = Role::firstOrCreate(['name' => 'Admin', 'guard_name' => 'web']);
+
+        $superAdmin = User::factory()->create();
+        $superAdmin->assignRole('Super Admin');
+
+        $adminUser = User::factory()->create();
+        $adminUser->assignRole('Admin');
+
+        $payload = [
+            'super-admin' => [
+                ['id' => 'dashboard', 'items' => ['Overview']],
+            ],
+            'admin' => [
+                ['id' => 'ads', 'items' => ['All Ads']],
+            ],
+        ];
+
+        $this->actingAs($superAdmin, 'sanctum')
+            ->postJson('/api/v1/user-management/sidebar-menus', ['config' => $payload])
+            ->assertStatus(200)
+            ->assertJson(['success' => true]);
+
+        $response = $this->actingAs($adminUser, 'sanctum')
+            ->getJson('/api/v1/user-management/sidebar-menus')
+            ->assertStatus(200)
+            ->assertJson(['success' => true]);
+
+        $this->assertSame($payload['admin'], $response->json('data'));
+    }
+
+    public function test_sidebar_menu_config_requires_menu_users_permission()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user, 'sanctum')
+            ->getJson('/api/v1/user-management/sidebar-menus/config')
+            ->assertStatus(403);
+    }}

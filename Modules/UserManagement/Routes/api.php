@@ -17,8 +17,9 @@ Route::prefix('api/v1')->group(function () {
         Route::get('/user-management/permissions', [UserController::class, 'permissions'])->middleware(['permission:menu.users']);
         
         // Sidebar menus
-        Route::get('/user-management/sidebar-menus', [SidebarMenuController::class, 'index'])->middleware(['permission:menu.users']);
-        Route::get('/user-management/sidebar-menus/me', [SidebarMenuController::class, 'me']);
+        Route::get('/user-management/sidebar-menus', [SidebarMenuController::class, 'index'])->middleware(['auth:sanctum']);
+        Route::get('/user-management/sidebar-menus/me', [SidebarMenuController::class, 'me'])->middleware(['auth:sanctum']);
+        Route::get('/user-management/sidebar-menus/config', [SidebarMenuController::class, 'config'])->middleware(['permission:menu.users']);
         Route::get('/user-management/sidebar-menus/defaults', [SidebarMenuController::class, 'defaults'])->middleware(['permission:menu.users']);
         Route::get('/user-management/sidebar-menus/defaults/{roleKey}', [SidebarMenuController::class, 'roleDefaults'])->middleware(['permission:menu.users']);
         Route::get('/dashboard/config', [DashboardController::class, 'config']);

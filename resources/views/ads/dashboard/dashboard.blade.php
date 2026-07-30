@@ -138,13 +138,20 @@ function dashboardApp() {
     },
     roleMenus: {},
 
+    _pendingApiRequests: {},
+    _apiRequestCache: {},
+    _dashboardInitialized: false,
+
     init() {
+      if (this._dashboardInitialized) {
+        return;
+      }
+      this._dashboardInitialized = true;
       this._applyLocalTokenFromStorage();
       this.loadDashboardConfig();
       this.loadDefaultMenus().then(() => {
         this.navGroups = this.getVisibleNavGroups();
       });
-      this.loadSidebarMenuConfig();
       this.fetchRoleOptions();
       this.fetchPermissionOptions();
       this.setupCrudNotifications();
@@ -164,15 +171,26 @@ function dashboardApp() {
     },
 
     async loadDashboardConfig() {
-      try {
-        const { data } = await axios.get('/api/v1/dashboard/config');
-        this.dashboardConfig = data?.data ?? data ?? {};
-        this.quickActions = this.dashboardConfig.quick_actions ?? [];
-      } catch (err) {
-        console.error('خطا در بارگذاری پیکربندی داشبورد:', err);
-        this.dashboardConfig = {};
-        this.quickActions = [];
+      if (this._pendingApiRequests['dashboardConfig']) {
+        return this._pendingApiRequests['dashboardConfig'];
       }
+
+      const promise = (async () => {
+        try {
+          const { data } = await axios.get('/api/v1/dashboard/config');
+          this.dashboardConfig = data?.data ?? data ?? {};
+          this.quickActions = this.dashboardConfig.quick_actions ?? [];
+        } catch (err) {
+          console.error('خطا در بارگذاری پیکربندی داشبورد:', err);
+          this.dashboardConfig = {};
+          this.quickActions = [];
+        } finally {
+          delete this._pendingApiRequests['dashboardConfig'];
+        }
+      })();
+
+      this._pendingApiRequests['dashboardConfig'] = promise;
+      return promise;
     },
 
     async loadDefaultMenus() {
@@ -715,7 +733,7 @@ function dashboardApp() {
 
     async loadFullSidebarMenuConfig() {
       try {
-        const { data } = await axios.get('/api/v1/user-management/sidebar-menus');
+        const { data } = await axios.get('/api/v1/user-management/sidebar-menus/config');
         this.sidebarMenuConfigByRole = data?.data ?? {};
         this.sidebarMenuConfigText = JSON.stringify(this.sidebarMenuConfigByRole, null, 2);
         this.initSidebarMenuEditing();
