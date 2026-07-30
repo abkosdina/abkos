@@ -584,6 +584,11 @@ function dashboardApp() {
       const group = (this.sidebarMenuEditing[roleKey] || []).find((g) => g.id === groupId);
       if (group) {
         group.visible = !group.visible;
+        if (Array.isArray(group.items)) {
+          group.items.forEach((item) => {
+            item.visible = group.visible;
+          });
+        }
       }
     },
 
